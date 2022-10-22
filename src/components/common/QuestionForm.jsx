@@ -1,15 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Base = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const QuestionContainer = styled.div`
+const QuestionFormContainer = styled.li`
   position: relative;
   width: 320px;
   height: 250px;
@@ -18,6 +10,7 @@ const QuestionContainer = styled.div`
   border-radius: 4px;
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;
 
 const Title = styled.div`
@@ -38,6 +31,7 @@ const Title = styled.div`
 const Question = styled.h3`
   margin-top: 50px;
   margin-left: 10px;
+  color: #333;
 `;
 
 const InputForm = styled.textarea`
@@ -48,19 +42,16 @@ const InputForm = styled.textarea`
   background-color: orange;
   resize: none;
   border: none;
-  /* outline: none; */
   font-size: 18px;
 `;
 
-function QuestionForm() {
+function QuestionForm({ title, question }) {
   return (
-    <Base>
-      <QuestionContainer>
-        <Question>올해 가장 기억에 남는 장소는 어디인가요?</Question>
-        <Title>장소</Title>
-        <InputForm required />
-      </QuestionContainer>
-    </Base>
+    <QuestionFormContainer>
+      <Title>{title}</Title>
+      <Question>{question}</Question>
+      <InputForm required />
+    </QuestionFormContainer>
   );
 }
 
