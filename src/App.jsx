@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import ModifyPage from './pages/ModifyPage';
+import ResultPage from './pages/ResultPage';
 import WritePage from './pages/WritePage';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/write" element={<WritePage />} />
       <Route path="/modify" element={<ModifyPage />} />
+      <Route path="/result" element={<ResultPage />} />
     </Routes>
   );
 }

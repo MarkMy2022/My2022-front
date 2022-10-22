@@ -1,7 +1,8 @@
 import React from 'react';
+import Result from '../components/Result';
 
 function ResultPage() {
-  return <div></div>;
+  return <Result />;
 }
 
 export default ResultPage;
