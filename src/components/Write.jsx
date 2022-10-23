@@ -22,10 +22,40 @@ const WriteContainer = styled.div`
 
 const QuestionsContainer = styled.ul`
   width: 400px;
-  height: 550px;
+  height: 480px;
   background-color: #fff;
   list-style: none;
   overflow-y: scroll;
+  padding-bottom: 20px;
+`;
+
+const NicknameInputContainer = styled.div`
+  width: 320px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .nickname_input {
+    width: 100px;
+    height: 40px;
+    border: none;
+    outline: 2px solid orange;
+    font-size: 32px;
+
+    &:focus {
+      outline: 2px solid #c17900;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+
+  & .input_text {
+    font-size: 32px;
+    font-weight: 600;
+  }
 `;
 
 function Write() {
@@ -51,6 +81,14 @@ function Write() {
   return (
     <WriteContainer>
       <QuestionsContainer>
+        <NicknameInputContainer>
+          <input
+            className="nickname_input"
+            type="text"
+            placeholder="닉네임을 입력하세요."
+          />
+          <span className="input_text">님의 2022년</span>
+        </NicknameInputContainer>
         {questions.map((question, index) => (
           <QuestionForm
             key={index}

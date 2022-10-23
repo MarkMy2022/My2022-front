@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BtnContainer = styled.div`
   position: relative;
   width: 500px;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: center;
   background-color: ${(props) => props.background_color};
