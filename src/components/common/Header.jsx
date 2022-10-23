@@ -1,16 +1,74 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
+import { Link, NavLink } from 'react-router-dom';
+import {
+  FaBars,
+  FaTimes,
+  FaUserCircle,
+  FaUserFriends,
+  FaRegListAlt,
+  FaPencilAlt,
+} from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
   position: relative;
   width: 500px;
   height: 60px;
-  background-color: gray;
+  /* background-color: gray; */
+  background-color: #fff;
+  border: 1px solid;
+  border-bottom: none;
 `;
 
-const Menu = styled.div`
+const NavBar = styled.nav`
+  position: absolute;
+  right: 70px;
+  width: 250px;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* background-color: orange; */
+  background-color: #fff;
+`;
+
+const MenuLink = styled(NavLink)`
+  text-decoration: none;
+
+  &:visited {
+    color: gray;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
+`;
+
+// NavLink의 클릭시 색상 변경을 위한 스타일
+// const activeStyle = {
+//   color: 'green',
+// };
+
+// const inActiveStyle = {
+//   color: 'gray',
+// };
+
+const MyPage = styled(FaUserFriends)`
+  color: gray;
+  font-size: 32px;
+`;
+
+const WritePage = styled(FaRegListAlt)`
+  color: gray;
+  font-size: 32px;
+`;
+
+const ModifyPage = styled(FaPencilAlt)`
+  color: gray;
+  font-size: 24px;
+`;
+
+const DropdownMenu = styled.div`
   position: absolute;
   top: 10px;
   right: -250px;
@@ -120,7 +178,34 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <Menu>
+      <NavBar>
+        {/* NavLink active 색상이 왜 적용이 안되는지 모르겠음 */}
+        <MenuLink
+          to="/write"
+          style={({ isActive }) => ({
+            color: isActive ? 'green' : 'gray',
+          })}
+        >
+          <MyPage />
+        </MenuLink>
+        <MenuLink
+          to="/write"
+          style={({ isActive }) => ({
+            color: isActive ? 'green' : 'gray',
+          })}
+        >
+          <WritePage />
+        </MenuLink>
+        <MenuLink
+          to="/write"
+          style={({ isActive }) => ({
+            color: isActive ? 'green' : 'gray',
+          })}
+        >
+          <ModifyPage />
+        </MenuLink>
+      </NavBar>
+      <DropdownMenu>
         <MenuBtn onClick={onMenuActive} />
         <nav className={`menu ${isActive ? 'active' : 'inactive'}`}>
           <CancelBtn onClick={onMenuActive} />
@@ -143,7 +228,7 @@ function Header() {
             <li className="inquiry">문의 하기</li>
           </ul>
         </nav>
-      </Menu>
+      </DropdownMenu>
     </HeaderContainer>
   );
 }
