@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BtnContainer = styled.div`
   position: relative;
   width: 500px;
-  height: 200px;
+  height: 100px;
   display: flex;
   justify-content: center;
   background-color: ${(props) => props.background_color};
@@ -15,7 +15,7 @@ const CustomButtonOne = styled(Link)`
   width: 150px;
   height: 40px;
   position: absolute;
-  bottom: 50%;
+  bottom: 35px;
   left: 85px;
   text-decoration: none;
   background-color: ${(props) => props.main_color1};
@@ -58,7 +58,7 @@ const CustomButtonTwo = styled(Link)`
   width: 150px;
   height: 40px;
   position: absolute;
-  bottom: 50%;
+  bottom: 35px;
   right: 85px;
   text-decoration: none;
   background-color: ${(props) => props.main_color2};
