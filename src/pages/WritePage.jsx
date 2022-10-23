@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../components/common/Button';
+import Header from '../components/common/Header';
 import Write from '../components/Write';
 
 const Base = styled.div`
@@ -20,6 +21,7 @@ const Base = styled.div`
 function WritePage() {
   return (
     <Base>
+      <Header />
       <Write />
       <Button
         main_color1="#0d47a1"
