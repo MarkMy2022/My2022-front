@@ -11,19 +11,23 @@ import {
 } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
-  position: relative;
-  width: 500px;
+  /* position: relative; */
+  width: 100%;
   height: 60px;
+  /* height: calc(var(--vh, 1vh) * 100); */
   /* background-color: gray; */
   background-color: #fff;
-  border: 1px solid;
-  border-bottom: none;
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 const NavBar = styled.nav`
-  position: absolute;
-  right: 70px;
-  width: 250px;
+  /* position: absolute;
+  right: 70px; */
+  /* width: 250px; */
+  width: 40%;
   height: 60px;
   display: flex;
   justify-content: flex-end;
@@ -69,10 +73,11 @@ const ModifyPage = styled(FaPencilAlt)`
 `;
 
 const DropdownMenu = styled.div`
-  position: absolute;
+  /* position: absolute;
   top: 10px;
-  right: -250px;
-  width: 300px;
+  right: -250px; */
+  /* width: 300px; */
+  width: 20%;
   /* display: none; */ // 평소에는 안보이게 none으로, 추후에 화면이 모바일 크기로 작아졌을 때는 없애도록 미디어 쿼리에서 할 예정
 
   & > .menu {
