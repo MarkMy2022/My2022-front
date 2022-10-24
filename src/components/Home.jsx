@@ -11,10 +11,6 @@ export default function Home() {
     height: 700px;
     /* margin-top: 20px; */
     padding: 20px;
-    /* display: flex;
-    flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
   `;
 
   const MyHeading = styled.h1`
