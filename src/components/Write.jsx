@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './common/Button';
 import QuestionForm from './common/QuestionForm';
 
 // const Base = styled.div`
@@ -11,8 +12,10 @@ import QuestionForm from './common/QuestionForm';
 // `;
 
 const WriteContainer = styled.div`
-  width: 500px;
-  height: 550px;
+  width: 100%;
+  /* height: calc(var(--vw, 1vw) * 100); */
+  /* height: 550px; */
+  /* height: calc(var(--vh, 1vh) * 100); */
   border-radius: 2px;
   background-color: darkgreen;
   display: flex;
@@ -21,12 +24,18 @@ const WriteContainer = styled.div`
 `;
 
 const QuestionsContainer = styled.ul`
-  width: 400px;
-  height: 480px;
+  width: 100%;
+  /* height: calc(var(--vw, 1vw) * 100); */
+  /* height: 480px; */
+  /* height: calc(var(--vh, 1vh) * 100); */
   background-color: #fff;
   list-style: none;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
 `;
 
 const NicknameInputContainer = styled.div`
@@ -96,6 +105,17 @@ function Write() {
             question={question.question}
           />
         ))}
+        <Button
+          main_color1="#0d47a1"
+          sub_color1="#003c8f"
+          hover_color1="#1565c0"
+          text1="뒤로가기"
+          background_color="#fff"
+          main_color2="#c62828"
+          sub_color2="#9a0007"
+          hover_color2="#d32f2f"
+          text2="저장하기"
+        />
       </QuestionsContainer>
     </WriteContainer>
   );

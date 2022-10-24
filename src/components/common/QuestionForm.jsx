@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 const QuestionFormContainer = styled.li`
   position: relative;
-  width: 320px;
+  width: 80%;
+  /* height: calc(var(--vw, 1vw) * 100); */
   height: 250px;
+  /* height: calc(var(--vh, 1vh) * 100); */
   background-color: #fff;
   border: 2px solid orange;
   border-radius: 4px;
@@ -38,8 +40,10 @@ const InputForm = styled.textarea`
   width: 300px;
   height: 120px;
   position: absolute;
+  /* top: 120px; */
   bottom: 10px;
   background-color: orange;
+  /* height: calc(var(--vh, 1vh) * 100); */
   resize: none;
   border: none;
   font-size: 18px;

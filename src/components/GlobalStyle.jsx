@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     height: 100vh;
     background-color: white;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     @media only screen and (max-width: 700px) {
         width: 100vw;
