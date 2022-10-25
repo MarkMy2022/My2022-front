@@ -10,7 +10,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { FullscreenExit } from '@material-ui/icons';
 
 const Base = styled.div`
-  width: 500px;
+  width: 80%;
   background-color: olive;
   display: flex;
   flex-direction: column;

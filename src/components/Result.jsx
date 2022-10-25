@@ -6,18 +6,6 @@ import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 /*****End 컴포넌트 저장 모듈*****/
 
-/*****Start 캡쳐 모듈*****/
-import {
-  SafeAreaView,
-  Button,
-  PermissionsAndroid,
-  Platform,
-} from 'react-native';
-import ViewShot from 'react-native-view-shot';
-import Share from 'react-native-share';
-import CameraRoll from '@react-native-community/cameraroll';
-/*****End 캡쳐 모듈*****/
-
 const Base = styled.p`
   width: 500px;
   background-color: #006633;

@@ -5,6 +5,7 @@ const makePdf = () => {
   const converToImg = async () => {
     // html to imageFile
     const paper = document.querySelector('.div_container > .div_paper');
+    /* const paper = document.querySelector('Container > Paper'); */
 
     const canvas = await html2canvas(paper);
     const imageFile = canvas.toDataURL('image/png', 1.0);
@@ -23,6 +24,7 @@ const makePdf = () => {
     doc.addImage(imageFile, 'JPEG', 0, 0, pageWidth, pageHeight);
 
     doc.save('test.pdf');
+    doc.save('test.png');
 
     window.open(doc.output('bloburl'));
 

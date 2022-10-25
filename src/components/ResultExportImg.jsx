@@ -5,6 +5,7 @@ const makeImg = () => {
   const converToImg = async () => {
     // html to imageFile
     const paper = document.querySelector('.div_container > .div_paper');
+    /*     const paper = document.querySelector('Container > Paper'); */
 
     const canvas = await html2canvas(paper);
     const imageFile = canvas.toDataURL('image/png', 1.0);
