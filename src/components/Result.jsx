@@ -7,7 +7,7 @@ import { saveAs } from 'file-saver';
 /*****End 컴포넌트 저장 모듈*****/
 
 const Base = styled.p`
-  width: 500px;
+  width: 100%;
   background-color: #006633;
   display: flex;
   justify-content: center;
@@ -76,11 +76,9 @@ function Result({ title, question, answer }) {
   //사진으로 저장하기 함수
   const onDownloadBtn = () => {
     const wholeCard = cardRef.current;
-    domtoimage
-      .toBlob(document.querySelector('.QuestionFormContainer'))
-      .then((blob) => {
-        saveAs(blob, 'card.png');
-      });
+    domtoimage.toBlob(document.querySelector('.wholeCard')).then((blob) => {
+      saveAs(blob, 'result.png');
+    });
   };
   /*****End 캡쳐 function*****/
 
@@ -104,6 +102,47 @@ function Result({ title, question, answer }) {
         <Answer>{answer}</Answer>
       </QuestionFormContainer>
 
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
+
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
+
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
+
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
+
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
+
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
+
+      <QuestionFormContainer>
+        <Title>{title}</Title>
+        <Question>{question}</Question>
+        <Answer>{answer}</Answer>
+      </QuestionFormContainer>
       <button className="downBtn" onClick={onDownloadBtn}>
         사진으로 저장하기
       </button>

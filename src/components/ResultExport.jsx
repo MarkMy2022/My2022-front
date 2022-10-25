@@ -24,7 +24,6 @@ const makePdf = () => {
     doc.addImage(imageFile, 'JPEG', 0, 0, pageWidth, pageHeight);
 
     doc.save('test.pdf');
-    doc.save('test.png');
 
     window.open(doc.output('bloburl'));
 

@@ -9,20 +9,10 @@ import makeImg from './ResultExportImg';
 import QuestionForm from './common/QuestionForm';
 
 const Container = styled.div`
-  width: 100%;
-  border-radius: 2px;
-  background-color: darkgreen;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: darkcyan;
 `;
 
-const Paper = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #904545;
-`;
+const Paper = styled.div``;
 
 const QuestionsContainer = styled.ul`
   width: 100%;
@@ -39,12 +29,14 @@ const QuestionsContainer = styled.ul`
 const ButtonBlock = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 const PdfButton = styled.button`
   width: 120px;
   height: 40px;
-  background: #df6a38;
+  background: #4cd4c9;
   color: white;
   margin-left: 10px;
   border: none;
@@ -55,9 +47,9 @@ const PdfButton = styled.button`
   }
 `;
 const PicButton = styled.button`
-  width: 120px;
+  width: 130px;
   height: 40px;
-  background: #2959d4;
+  background: #8597c6;
   color: white;
   border: none;
   &:hover {
