@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import TopHeader from '../components/common/TopHeader';
+import Header from '../components/common/Header';
 import ResultMode from '../components/ResultMode';
 
 export default function ResultModePage() {
   return (
     <>
-      <TopHeader></TopHeader>
+      <Header></Header>
       <ResultMode></ResultMode>
     </>
   );

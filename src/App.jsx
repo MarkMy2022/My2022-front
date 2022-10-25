@@ -4,7 +4,6 @@ import GlobalStyle from './components/GlobalStyle';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import ModifyPage from './pages/ModifyPage';
-import ResultPage from './pages/ResultPage';
 import WritePage from './pages/WritePage';
 import ResultPage from './pages/ResultPage';
 import ResultModePage from './pages/ResultModePage';
@@ -23,18 +22,6 @@ function App() {
   });
 
   return (
-<<<<<<< Updated upstream
-    <>
-      <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/write" element={<WritePage />} />
-        <Route path="/modify" element={<ModifyPage />} />
-        <Route path="/result" element={<ResultPage />} />
-      </Routes>
-    </>
-=======
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
@@ -43,7 +30,6 @@ function App() {
       <Route path="/resultmode" element={<ResultModePage />} />
       <Route path="/modify" element={<ModifyPage />} />
     </Routes>
->>>>>>> Stashed changes
   );
 }
 

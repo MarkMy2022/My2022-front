@@ -1,20 +1,12 @@
-<<<<<<< Updated upstream
-import React from 'react';
-import Result from '../components/Result';
-
-function ResultPage() {
-  return <Result />;
-=======
 import React, { useEffect, useState } from 'react';
-import TopHeader from '../components/common/TopHeader';
+import Header from '../components/common/Header';
 import Result3 from '../components/Result3';
 
 export default function ResultPage() {
   return (
     <>
-      <TopHeader></TopHeader>
+      <Header></Header>
       <Result3></Result3>
     </>
   );
->>>>>>> Stashed changes
 }
