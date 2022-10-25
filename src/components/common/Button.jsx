@@ -6,7 +6,6 @@ const BtnContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100px;
-  /* height: calc(var(--vh, 1vh) * 100); */
   display: flex;
   justify-content: center;
   background-color: ${(props) => props.background_color};
