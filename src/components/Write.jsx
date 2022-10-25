@@ -3,31 +3,18 @@ import styled from 'styled-components';
 import Button from './common/Button';
 import QuestionForm from './common/QuestionForm';
 
-// const Base = styled.div`
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
 const WriteContainer = styled.div`
   width: 100%;
-  /* height: calc(var(--vw, 1vw) * 100); */
-  /* height: 550px; */
-  /* height: calc(var(--vh, 1vh) * 100); */
   border-radius: 2px;
-  background-color: darkgreen;
-  display: flex;
+  background-color: #fff;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  border: 1px solid;
 `;
 
 const QuestionsContainer = styled.ul`
   width: 100%;
-  /* height: calc(var(--vw, 1vw) * 100); */
-  /* height: 480px; */
-  /* height: calc(var(--vh, 1vh) * 100); */
   background-color: #fff;
   list-style: none;
   /* overflow-y: scroll; */
@@ -39,7 +26,8 @@ const QuestionsContainer = styled.ul`
 `;
 
 const NicknameInputContainer = styled.div`
-  width: 320px;
+  background-color: green;
+  width: 80%;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -65,6 +53,22 @@ const NicknameInputContainer = styled.div`
     font-size: 32px;
     font-weight: 600;
   }
+
+  @media all and (max-width: 1200px) {
+    & .input_text {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  @media all and (max-width: 1047px) {
+    & .input_text {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  // 900px이하도 추가 해줘야될듯
 `;
 
 function Write() {
