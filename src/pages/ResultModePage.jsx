@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/common/Header';
-import Result from '../components/Result';
+import ResultMode from '../components/ResultMode';
 
-export default function ResultPage() {
+export default function ResultModePage() {
   return (
     <>
       <Header></Header>
-      <Result></Result>
+      <ResultMode></ResultMode>
     </>
   );
 }
