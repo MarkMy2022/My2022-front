@@ -38,7 +38,6 @@ const InputForm = styled.textarea`
   width: 90%;
   height: 120px;
   position: absolute;
-  /* top: 120px; */
   bottom: 10px;
   background-color: orange;
   resize: none;

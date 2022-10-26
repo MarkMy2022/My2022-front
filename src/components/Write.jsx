@@ -7,17 +7,12 @@ const WriteContainer = styled.div`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  border: 1px solid;
 `;
 
 const QuestionsContainer = styled.ul`
   width: 100%;
   background-color: #fff;
   list-style: none;
-  /* overflow-y: scroll; */
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -53,22 +48,6 @@ const NicknameInputContainer = styled.div`
     font-size: 32px;
     font-weight: 600;
   }
-
-  @media all and (max-width: 1200px) {
-    & .input_text {
-      font-size: 24px;
-      font-weight: 600;
-    }
-  }
-
-  @media all and (max-width: 1047px) {
-    & .input_text {
-      font-size: 20px;
-      font-weight: 600;
-    }
-  }
-
-  // 900px이하도 추가 해줘야될듯
 `;
 
 function Write() {
