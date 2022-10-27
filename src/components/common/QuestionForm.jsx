@@ -51,7 +51,7 @@ const SimpleInput = styled.input`
   }
 `;
 
-const InputForm = styled.textarea`
+const DetailInput = styled.textarea`
   width: 90%;
   height: 100px;
   margin-top: 10px;
@@ -70,13 +70,27 @@ const InputForm = styled.textarea`
   }
 `;
 
-function QuestionForm({ title, question }) {
+function QuestionForm({
+  title,
+  question,
+  anwser,
+  simple_anwser,
+  detail_anwser,
+}) {
   return (
     <QuestionFormContainer>
       <Title>{title}</Title>
       <Question>{question}</Question>
-      <SimpleInput type="text" />
-      <InputForm required={true} />
+      <SimpleInput
+        type="text"
+        value={anwser.simpleAnwser}
+        onChange={simple_anwser}
+      />
+      <DetailInput
+        required={true}
+        value={anwser.detailAnwser}
+        onChange={detail_anwser}
+      />
     </QuestionFormContainer>
   );
 }

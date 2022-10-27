@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import QuestionForm from './common/QuestionForm';
 import Button from './common/Button';
+import { createPost } from '../modules/post';
 
 const WriteContainer = styled.form`
   width: 100%;
@@ -88,11 +90,42 @@ const questions = [
 ];
 
 function Write() {
+  const [anwser, setAnwser] = useState({
+    simpleAnswer: '',
+    detailAnswer: '',
+  });
+
+  // const { simpleAnswer, detailAnswer } = anwser;
+
+  // console.log(anwser.simpleAnswer, '심플');
+  // console.log(anwser.detailAnswer, '상세');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const simpleAnwserChangeHandler = (event) => {
+    // console.log('간단 대답');
+    setAnwser({
+      ...anwser,
+      simpleAnswer: event.target.value,
+    });
+  };
+
+  const detailAnwserChangeHandler = (event) => {
+    // console.log('상세 대답');
+    setAnwser({
+      ...anwser,
+      detailAnswer: event.target.value,
+    });
+  };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    navigate('/');
+    // const body = {
+    //   simpleAnswer,
+    //   detailAnswer,
+    // };
+    dispatch(createPost(anwser));
+    // navigate('/');
   };
 
   return (
@@ -118,6 +151,9 @@ function Write() {
             key={index}
             title={question.title}
             question={question.question}
+            anwser={anwser}
+            simple_anwser={simpleAnwserChangeHandler}
+            detail_anwser={detailAnwserChangeHandler}
           />
         ))}
       </QuestionsContainer>
