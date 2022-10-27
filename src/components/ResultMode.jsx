@@ -11,7 +11,7 @@ import { FullscreenExit } from '@material-ui/icons';
 
 const Base = styled.div`
   width: 100%;
-  background-color: olive;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,10 +30,6 @@ function ResultMode() {
             <Typography gutterBottom variant="h5" component="div">
               기본 모드
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
@@ -51,10 +47,6 @@ function ResultMode() {
             <Typography gutterBottom variant="h5" component="div">
               시상 모드
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
@@ -72,10 +64,6 @@ function ResultMode() {
             <Typography gutterBottom variant="h5" component="div">
               태그 모드
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
@@ -93,10 +81,6 @@ function ResultMode() {
             <Typography gutterBottom variant="h5" component="div">
               일기 모드
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
