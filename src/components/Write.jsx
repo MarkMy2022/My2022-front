@@ -51,6 +51,7 @@ const NicknameInputContainer = styled.div`
     border: none;
     outline: 2px solid orange;
     font-size: 32px;
+    padding-left: 5px;
 
     &:focus {
       outline: 2px solid #c17900;

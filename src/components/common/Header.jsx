@@ -11,7 +11,6 @@ import {
 } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
-  /* position: relative; */
   width: 100%;
   height: 60px;
   background-color: #fff;
@@ -19,15 +18,6 @@ const HeaderContainer = styled.header`
   justify-content: flex-end;
   align-items: center;
 `;
-
-// const NavBar = styled.nav`
-//   width: 40%;
-//   height: 60px;
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   background-color: #fff;
-// `;
 
 // const MenuLink = styled(NavLink)`
 //   text-decoration: none;
@@ -53,10 +43,6 @@ const HeaderContainer = styled.header`
 // `;
 
 const DropdownMenu = styled.div`
-  /* position: absolute;
-  top: 10px;
-  right: -250px; */
-  /* width: 300px; */
   width: 20%;
   position: relative;
 
