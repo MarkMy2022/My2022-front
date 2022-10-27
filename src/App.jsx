@@ -22,14 +22,17 @@ function App() {
   });
 
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/write" element={<WritePage />} />
-      <Route path="/result" element={<ResultPage />} />
-      <Route path="/resultmode" element={<ResultModePage />} />
-      <Route path="/modify" element={<ModifyPage />} />
-    </Routes>
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/write" element={<WritePage />} />
+        <Route path="/result" element={<ResultPage />} />
+        <Route path="/resultmode" element={<ResultModePage />} />
+        <Route path="/modify" element={<ModifyPage />} />
+      </Routes>
+    </>
   );
 }
 

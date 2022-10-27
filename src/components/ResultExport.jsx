@@ -4,11 +4,11 @@ import jsPDF from 'jspdf';
 const makePdf = () => {
   const converToImg = async () => {
     // html to imageFile
-    const paper = document.querySelector('.div_container > .div_paper');
-    /* const paper = document.querySelector('Container > Paper'); */
+    /* const paper = document.querySelector('.div_container > .div_paper'); */
+    const paper = document.querySelector('.wholeCard');
 
     const canvas = await html2canvas(paper);
-    const imageFile = canvas.toDataURL('image/png', 1.0);
+    const imageFile = canvas.toDataURL('image/png', 5.0);
 
     return imageFile;
   };
