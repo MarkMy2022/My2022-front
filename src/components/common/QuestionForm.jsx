@@ -8,8 +8,6 @@ const QuestionFormContainer = styled.li`
   background-color: #fff;
   border: 2px solid orange;
   border-radius: 4px;
-  display: flex;
-  justify-content: center;
   margin-top: 50px;
 `;
 
@@ -18,6 +16,7 @@ const Title = styled.div`
   width: 150px;
   height: 50px;
   top: -25px;
+  left: calc(80% - 50%);
   background-color: orange;
   display: flex;
   justify-content: center;
@@ -29,20 +28,46 @@ const Title = styled.div`
 `;
 
 const Question = styled.h3`
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   margin-left: 10px;
   color: #333;
 `;
 
+const SimpleInput = styled.input`
+  width: 90%;
+  height: 50px;
+  background-color: orange;
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media all and (max-width: 380px) {
+    height: 30px;
+  }
+`;
+
 const InputForm = styled.textarea`
   width: 90%;
-  height: 120px;
-  position: absolute;
-  bottom: 10px;
+  height: 100px;
+  margin-top: 10px;
   background-color: orange;
   resize: none;
   border: none;
   font-size: 18px;
+  padding: 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media all and (max-width: 380px) {
+    height: 100px;
+  }
 `;
 
 function QuestionForm({ title, question }) {
@@ -50,7 +75,8 @@ function QuestionForm({ title, question }) {
     <QuestionFormContainer>
       <Title>{title}</Title>
       <Question>{question}</Question>
-      <InputForm required />
+      <SimpleInput type="text" />
+      <InputForm required={true} />
     </QuestionFormContainer>
   );
 }
