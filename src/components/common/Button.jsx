@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const BtnContainer = styled.div`
   position: relative;
@@ -12,7 +11,7 @@ const BtnContainer = styled.div`
   margin-top: 10px;
 `;
 
-const CustomButtonOne = styled(Link)`
+const CustomButtonOne = styled.button`
   width: 150px;
   height: 40px;
   position: absolute;
@@ -53,9 +52,15 @@ const CustomButtonOne = styled(Link)`
     transform: translateY(0.25em);
     color: #333;
   }
+
+  @media all and (max-width: 390px) {
+    width: 130px;
+    font-size: 18px;
+    text-align: center;
+  }
 `;
 
-const CustomButtonTwo = styled(Link)`
+const CustomButtonTwo = styled.button`
   width: 150px;
   height: 40px;
   position: absolute;
@@ -96,6 +101,12 @@ const CustomButtonTwo = styled(Link)`
     transform: translateY(0.25em);
     color: #333;
   }
+
+  @media all and (max-width: 390px) {
+    width: 130px;
+    font-size: 18px;
+    text-align: center;
+  }
 `;
 
 function Button({
@@ -122,6 +133,7 @@ function Button({
         main_color2={main_color2}
         sub_color2={sub_color2}
         hover_color2={hover_color2}
+        type="submit"
       >
         {text2}
       </CustomButtonTwo>
