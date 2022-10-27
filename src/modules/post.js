@@ -5,11 +5,12 @@ const CREATE = 'post/CREATE';
 // const MODIFY = 'post/MODIFY';
 
 export function createPost(payload) {
-  const request = axios.post('url/posts/new', payload).then((res) => res.data);
+  // const request = axios.post('url/posts/new', payload).then((res) => res.data);
+  console.log('포스트 작성!');
 
   return {
     type: CREATE,
-    payload: request,
+    payload,
   };
 }
 
@@ -22,7 +23,7 @@ export default function postReducer(state = initialState, action) {
     case CREATE:
       return {
         ...state,
-        post: action.payload,
+        post: [action.payload],
       };
     default:
       return state;
