@@ -22,7 +22,6 @@ function App() {
   });
 
   return (
-<<<<<<< Updated upstream
     <>
       <GlobalStyle />
       <Routes>
@@ -34,16 +33,6 @@ function App() {
         <Route path="/modify" element={<ModifyPage />} />
       </Routes>
     </>
-=======
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/write" element={<WritePage />} />
-      <Route path="/result" element={<ResultPage />} />
-      <Route path="/resultmode" element={<ResultModePage />} />
-      <Route path="/modify" element={<ModifyPage />} />
-    </Routes>
->>>>>>> Stashed changes
   );
 }
 

@@ -15,6 +15,7 @@ import onShareKakaoClick from './kakaoShareBtn';
 import TitleNick from './TitleNick';
 import AnswerComponent from './AnswerComponent';
 import ShowResult from './ShowResult';
+import { fontSize } from '@mui/system';
 /* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
 
 const Base = styled.p`
@@ -29,23 +30,24 @@ const Base = styled.p`
 
 const ButtonBlock = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
   justify-content: center;
+  padding-bottom: 2rem;
 `;
 
 const Button = styled.button`
   display: flex;
   padding: 0.2rem;
   margin: 1rem;
-  background-color: #c08a8a;
-  background-color: none;
+  background: none;
   border-style: none;
   border-radius: 10px;
-  font-size: 15px;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
-    color: white;
+    color: #dfa446;
     cursor: pointer;
   }
 `;
@@ -69,18 +71,59 @@ function Result() {
     {
       title: '장소',
       question: '1. 올해 가장 기억에 남는 장소는 어디인가요?',
+      post: {
+        _id: '1',
+        post_id: '1',
+        post_user: '홍길동',
+        post_content: {
+          name: '안선영',
+          a1: '안녕',
+          d1: '상세 답변1',
+        },
+        /* post_comments: '저리가', */
+      },
     },
     {
       title: 'Flex',
       question: '2. 올해 가장 기억에 남는 소비는 무엇인가요?',
+      post: {
+        _id: '1',
+        post_id: '1',
+        post_user: '홍길동',
+        post_content: {
+          name: '안선영',
+          a1: '안녕2',
+          d1: '상세 답변2',
+        },
+      },
     },
     {
       title: '사람',
       question: '3. 올해 내 삶에 가장 기여한 사람은 누구인가요?',
+      post: {
+        _id: '1',
+        post_id: '1',
+        post_user: '홍길동',
+        post_content: {
+          name: '안선영',
+          a1: '안녕3',
+          d1: '상세 답변3',
+        },
+      },
     },
     {
       title: '나',
       question: '4. 올해 나를 사로잡은 감정은 무엇인가요?',
+      post: {
+        _id: '1',
+        post_id: '1',
+        post_user: '홍길동',
+        post_content: {
+          name: '안선영',
+          a1: '안녕4',
+          d1: '상세 답변4',
+        },
+      },
     },
   ];
   /* End 질문 객체 직접 선언(백엔드가 아닌 프론트엔드 단에서 질문 직접 푸시)  */
@@ -91,10 +134,21 @@ function Result() {
 
   const [posts, setPosts] = useState([
     {
+      _id: '1',
       post_id: '1',
-      post_user: 'deaf',
-      post_content: '안선영',
-      post_comment: '저리가',
+      post_user: '홍길동',
+      post_content: {
+        name: '안선영',
+        a1: '안녕',
+        a2: '안녕2',
+        a3: '안녕3',
+        a4: '안녕4',
+        d1: '상세 답변1',
+        d2: '상세 답변2',
+        d3: '상세 답변3',
+        d4: '상세 답변4',
+      },
+      /* post_comments: '저리가', */
     },
   ]);
 
@@ -132,39 +186,29 @@ function Result() {
             key={index}
             title={question.title}
             question={question.question}
+            simple_anwser={question.post.post_content.a1}
+            detail_anwser={question.post.post_content.d1}
           />
         ))}
 
-        <div>
+        {/* <div>
           {posts.map(({ post_content }) => {
             return (
               <AnswerComponent postContent={post_content}></AnswerComponent>
             );
           })}
-        </div>
-        {/* {questions.map((question, idx) => (
-        <QuestionFormContainer>
-          <Title>{title}</Title>
-          <Question>{question}</Question>
-        </QuestionFormContainer>
-      ))}
-      ; */}
-        {/* {post_content.map(({ post_content }) => {
-        return <AnswerComponent postcontent={post_content}></AnswerComponent>;
-      })}
-      ; */}
-        {/* <QuestionForm
-          key={idx}
-          title={question.title}
-          question={question.question}
-        /> */}
+        </div> */}
       </Base>
       <ButtonBlock>
         <Button className="downBtn" onClick={onDownloadBtn}>
-          <p>사진으로 저장하기</p>
+          <p href="" style={{ fontSize: '1.5rem' }}>
+            사진으로 저장하기
+          </p>
         </Button>
         <Button className="downPdfBtn" onClick={onDownloadPdfBtn}>
-          <p>PDF로 저장하기</p>
+          <p href="" style={{ fontSize: '1.5rem' }}>
+            PDF로 저장하기
+          </p>
         </Button>
         {/* <Button className="shareBtn" onClick={onShareBtn}>
           <p>공유하기</p>

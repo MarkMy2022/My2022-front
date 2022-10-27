@@ -12,6 +12,7 @@ const ShowResultContainer = styled.li`
   justify-content: center; */
   /* align-items: flex-start; */
   margin-top: 50px;
+  margin-bottom: 3rem;
 `;
 const Title = styled.div`
   position: absolute;
@@ -30,13 +31,12 @@ const Title = styled.div`
 `;
 const Question = styled.h3`
   margin-top: 50px;
+  margin-bottom: 2rem;
   margin-left: 10px;
   color: #333;
 `;
 const SimpleResult = styled.textarea`
-  position: absolute;
-  bottom: 120px;
-  width: 90%;
+  width: 55%;
   height: 50px;
   background-color: orange;
   resize: none;
@@ -52,9 +52,8 @@ const SimpleResult = styled.textarea`
   }
 `;
 const DetailResult = styled.textarea`
-  width: 90%;
+  width: 55%;
   height: 50px;
-  position: absolute;
   bottom: 10px;
   background-color: orange;
   resize: none;
