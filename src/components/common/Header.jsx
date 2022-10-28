@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   FaBars,
   FaTimes,
@@ -11,81 +11,47 @@ import {
 } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
-  /* position: relative; */
   width: 100%;
   height: 60px;
-  /* height: calc(var(--vh, 1vh) * 100); */
-  /* background-color: gray; */
   background-color: #fff;
-  /* border: 1px solid; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
 
-const NavBar = styled.nav`
-  /* position: absolute;
-  right: 70px; */
-  /* width: 250px; */
-  width: 40%;
-  height: 60px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  /* background-color: orange; */
-  background-color: #fff;
-`;
+// const MenuLink = styled(NavLink)`
+//   text-decoration: none;
 
-const MenuLink = styled(NavLink)`
-  text-decoration: none;
+//   &:visited {
+//     color: gray;
+//   }
+// `;
 
-  &:visited {
-    color: gray;
-  }
+// const MyPage = styled(FaUserFriends)`
+//   color: gray;
+//   font-size: 32px;
+// `;
 
-  &:not(:last-of-type) {
-    margin-right: 10px;
-  }
-`;
+// const WritePage = styled(FaRegListAlt)`
+//   color: gray;
+//   font-size: 32px;
+// `;
 
-// NavLink의 클릭시 색상 변경을 위한 스타일
-// const activeStyle = {
-//   color: 'green',
-// };
-
-// const inActiveStyle = {
-//   color: 'gray',
-// };
-
-const MyPage = styled(FaUserFriends)`
-  color: gray;
-  font-size: 32px;
-`;
-
-const WritePage = styled(FaRegListAlt)`
-  color: gray;
-  font-size: 32px;
-`;
-
-const ModifyPage = styled(FaPencilAlt)`
-  color: gray;
-  font-size: 24px;
-`;
+// const ModifyPage = styled(FaPencilAlt)`
+//   color: gray;
+//   font-size: 24px;
+// `;
 
 const DropdownMenu = styled.div`
-  /* position: absolute;
-  top: 10px;
-  right: -250px; */
-  /* width: 300px; */
   width: 20%;
-  /* display: none; */ // 평소에는 안보이게 none으로, 추후에 화면이 모바일 크기로 작아졌을 때는 없애도록 미디어 쿼리에서 할 예정
+  position: relative;
 
   & > .menu {
     background-color: #fff;
     border-radius: 8px;
     position: absolute;
     top: 40px;
-    right: 250px;
+    right: 20px;
     width: 300px;
     height: 450px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -94,6 +60,10 @@ const DropdownMenu = styled.div`
     transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
     z-index: 1;
+
+    @media all and (max-width: 390px) {
+      right: 30px;
+    }
   }
 
   & .menu.active {
@@ -183,33 +153,6 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <NavBar>
-        {/* NavLink active 색상이 왜 적용이 안되는지 모르겠음 */}
-        <MenuLink
-          to="/write"
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'gray',
-          })}
-        >
-          <MyPage />
-        </MenuLink>
-        <MenuLink
-          to="/write"
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'gray',
-          })}
-        >
-          <WritePage />
-        </MenuLink>
-        <MenuLink
-          to="/write"
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'gray',
-          })}
-        >
-          <ModifyPage />
-        </MenuLink>
-      </NavBar>
       <DropdownMenu>
         <MenuBtn onClick={onMenuActive} />
         <nav className={`menu ${isActive ? 'active' : 'inactive'}`}>

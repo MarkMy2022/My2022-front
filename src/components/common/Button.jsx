@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const BtnContainer = styled.div`
   position: relative;
@@ -25,6 +25,7 @@ const CustomButtonOne = styled(Link)`
   color: #fff;
   font-size: 32px;
   text-align: center;
+  cursor: pointer;
 
   transition: transform 0.15s ease-out;
   transform-style: preserve-3d;
@@ -53,9 +54,15 @@ const CustomButtonOne = styled(Link)`
     transform: translateY(0.25em);
     color: #333;
   }
+
+  @media all and (max-width: 390px) {
+    width: 130px;
+    font-size: 18px;
+    text-align: center;
+  }
 `;
 
-const CustomButtonTwo = styled(Link)`
+const CustomButtonTwo = styled.button`
   width: 150px;
   height: 40px;
   position: absolute;
@@ -68,6 +75,7 @@ const CustomButtonTwo = styled(Link)`
   color: #fff;
   font-size: 32px;
   text-align: center;
+  cursor: pointer;
 
   transition: transform 0.15s ease-out;
   transform-style: preserve-3d;
@@ -96,6 +104,12 @@ const CustomButtonTwo = styled(Link)`
     transform: translateY(0.25em);
     color: #333;
   }
+
+  @media all and (max-width: 390px) {
+    width: 130px;
+    font-size: 18px;
+    text-align: center;
+  }
 `;
 
 function Button({
@@ -115,6 +129,7 @@ function Button({
         main_color1={main_color1}
         sub_color1={sub_color1}
         hover_color1={hover_color1}
+        to="/"
       >
         {text1}
       </CustomButtonOne>
@@ -122,6 +137,7 @@ function Button({
         main_color2={main_color2}
         sub_color2={sub_color2}
         hover_color2={hover_color2}
+        type="submit"
       >
         {text2}
       </CustomButtonTwo>
