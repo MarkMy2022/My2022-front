@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 const QuestionFormContainer = styled.li`
   position: relative;
@@ -224,7 +227,7 @@ function QuestionForm({ anwser, anwser_change }) {
         <Title>너에게</Title>
         <Question>올해 함께한 사람들에게 한마디 해주세요.</Question>
         <DetailAnwser
-          name="d8"
+          name="d9"
           required={true}
           value={anwser.d8}
           onChange={anwser_change}
@@ -234,12 +237,22 @@ function QuestionForm({ anwser, anwser_change }) {
         <Title>나에게</Title>
         <Question>나에게 한마디 해주세요.</Question>
         <DetailAnwser
-          name="d8"
+          name="d10"
           required={true}
           value={anwser.d8}
           onChange={anwser_change}
         />
       </QuestionFormContainer>
+      <Stack direction="row" alignItems="center" spacing={2}>
+        <IconButton
+          color="primary"
+          aria-label="upload picture"
+          component="label"
+        >
+          <input hidden accept="image/*" type="file" />
+          <PhotoCamera />
+        </IconButton>
+      </Stack>
     </>
   );
 }
