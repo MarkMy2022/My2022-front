@@ -33,12 +33,18 @@ const ButtonBlock = styled.div`
 `;
 
 const ModifyBtn = styled.button`
-  width: 200px;
-  display: flex;
-  margin: 0 auto;
+  padding: 1rem;
+  background-color: yellow;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #e55591;
+    color: white;
+  }
 `;
 const KakaoShareBtn = styled.button`
-  width: 7rem;
   padding: 1rem;
   background-color: yellow;
   border: none;
@@ -47,6 +53,18 @@ const KakaoShareBtn = styled.button`
   &:hover {
     cursor: pointer;
     background-color: #7d7d17;
+    color: white;
+  }
+`;
+const DifferentModeBtn = styled.button`
+  padding: 1rem;
+  background-color: yellow;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #21d3c7;
     color: white;
   }
 `;
@@ -189,6 +207,10 @@ function Result() {
   const onModifyEvent = () => {
     navigate('/modify');
   };
+
+  const onDifferentClick = () => {
+    navigate('/resultmode');
+  };
   return (
     <>
       <Base className="wholeCard">
@@ -248,10 +270,14 @@ function Result() {
         </Button>
       </ButtonBlock>
       <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
-        <p href="" style={{ fontSize: '1.5rem' }}>
+        <p href="" style={{ fontSize: '1rem' }}>
           수정하기
         </p>
       </ModifyBtn>
+
+      <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
+        다른 모드로 만들기
+      </DifferentModeBtn>
 
       <KakaoShareBtn
         id="kakao-link-btn"
