@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     left: 50%;
     transform: translate(-50%, 0);
     text-align: center;
-    /* height: 98vh; */
+    height: 98vh;
     background-color: white;
 
     box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.05);

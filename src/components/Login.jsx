@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 export default function Login() {
   const LoginContainer = styled.div`
@@ -32,50 +32,50 @@ export default function Login() {
     return (
       <div
         className="LoginBox"
-        style={{ padding: "3rem", marginTop: "3rem", width: "90%" }}
+        style={{ padding: '3rem', marginTop: '3rem', width: '90%' }}
       >
         <a
           href="/login/auth/naver"
           style={{
-            color: "white",
+            color: 'white',
           }}
         >
           <LoginButton
             style={{
-              color: "white",
-              backgroundColor: "#03c75a",
+              color: 'white',
+              backgroundColor: '#03c75a',
             }}
           >
             <img
               src="img/naver.png"
               alt="네이버로그인"
-              style={{ width: "8%", position: "absolute", left: "10%" }}
+              style={{ width: '8%', position: 'absolute', left: '10%' }}
             />
             네이버 간편로그인
           </LoginButton>
         </a>
 
         <a href="/login/auth/kakao">
-          <LoginButton style={{ backgroundColor: " #FEE500" }}>
+          <LoginButton style={{ backgroundColor: ' #FEE500' }}>
             <img
               src="img/kakao.png"
               alt="카카오로그인"
-              style={{ width: "8%", position: "absolute", left: "10%" }}
+              style={{ width: '8%', position: 'absolute', left: '10%' }}
             />
             카카오 간편로그인
           </LoginButton>
         </a>
 
-        <a href="/login/auth/google" style={{ color: "black" }}>
+        <a href="/login/auth/google" style={{ color: 'black' }}>
           <LoginButton
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: '#ffffff',
             }}
           >
             <img
               src="img/google.png"
               alt="구글로그인"
-              style={{ width: "8%", position: "absolute", left: "10%" }}
+              style={{ width: '8%', position: 'absolute', left: '10%' }}
             />
             구글 간편로그인
           </LoginButton>
@@ -136,7 +136,7 @@ export default function Login() {
         <img
           src="img/logo.png"
           alt="logo"
-          style={{ width: "70%", marginTop: "20%" }}
+          style={{ width: '70%', marginTop: '20%' }}
         />
       </a>
       <LoginBtn />
