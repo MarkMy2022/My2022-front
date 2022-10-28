@@ -7,7 +7,7 @@ if (!window.Kakao.isInitialized()) {
   console.log(window.Kakao.isInitialized());
 }
 
-const userId = 'psb04027@naver.com';
+const userId = '난 아이디임';
 
 const shareKakaoLink = (userId) => {
   // @ts-ignore
