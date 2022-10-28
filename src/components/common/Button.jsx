@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BtnContainer = styled.div`
@@ -11,7 +12,7 @@ const BtnContainer = styled.div`
   margin-top: 10px;
 `;
 
-const CustomButtonOne = styled.button`
+const CustomButtonOne = styled(Link)`
   width: 150px;
   height: 40px;
   position: absolute;
@@ -24,6 +25,7 @@ const CustomButtonOne = styled.button`
   color: #fff;
   font-size: 32px;
   text-align: center;
+  cursor: pointer;
 
   transition: transform 0.15s ease-out;
   transform-style: preserve-3d;
@@ -73,6 +75,7 @@ const CustomButtonTwo = styled.button`
   color: #fff;
   font-size: 32px;
   text-align: center;
+  cursor: pointer;
 
   transition: transform 0.15s ease-out;
   transform-style: preserve-3d;
@@ -126,6 +129,7 @@ function Button({
         main_color1={main_color1}
         sub_color1={sub_color1}
         hover_color1={hover_color1}
+        to="/"
       >
         {text1}
       </CustomButtonOne>
