@@ -70,61 +70,97 @@ const NicknameInputContainer = styled.div`
   }
 `;
 
-const questions = [
-  {
-    title: '장소',
-    question: '1.올해 가장 기억에 남는 장소는 어디인가요?',
-  },
-  {
-    title: 'Flex',
-    question: '2.올해 가장 기억에 남는 소비는 무엇인가요?',
-  },
-  {
-    title: '사람',
-    question: '3.올해 내 삶에 가장 기여한 사람은 누구인가요?',
-  },
-  {
-    title: '나',
-    question: '4.올해 나를 사로잡은 감정은 무엇인가요?',
-  },
-];
-
 function Write() {
+  const [nickname, setNickname] = useState('');
   const [anwser, setAnwser] = useState({
-    simpleAnswer: '',
-    detailAnswer: '',
+    a1: '',
+    d1: '',
+    a2: '',
+    d2: '',
+    a3: '',
+    d3: '',
+    a4: '',
+    d4: '',
+    a5: '',
+    d5: '',
+    a6: '',
+    d6: '',
+    a7: '',
+    d7: '',
+    a8: '',
+    d8: '',
+    a9: '',
+    a10: '',
   });
 
-  // const { simpleAnswer, detailAnswer } = anwser;
-
-  // console.log(anwser.simpleAnswer, '심플');
-  // console.log(anwser.detailAnswer, '상세');
+  const {
+    a1,
+    d1,
+    a2,
+    d2,
+    a3,
+    d3,
+    a4,
+    d4,
+    a5,
+    d5,
+    a6,
+    d6,
+    a7,
+    d7,
+    a8,
+    d8,
+    a9,
+    a10,
+  } = anwser;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const simpleAnwserChangeHandler = (event) => {
-    // console.log('간단 대답');
-    setAnwser({
-      ...anwser,
-      simpleAnswer: event.target.value,
-    });
+  // console.log(anwser.a1, '간단 대답1');
+  // console.log(anwser.d1, '상세 대답1');
+  // console.log(anwser.a2, '간단 대답2');
+  // console.log(anwser.d2, '상세 대답2');
+  // console.log(nickname, '닉네임');
+
+  const nicknameChangeHandler = (event) => {
+    setNickname(event.target.value);
   };
 
-  const detailAnwserChangeHandler = (event) => {
-    // console.log('상세 대답');
+  const anwserChangeHandler = (event) => {
+    // console.log('대답');
     setAnwser({
       ...anwser,
-      detailAnswer: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    // const body = {
-    //   simpleAnswer,
-    //   detailAnswer,
-    // };
-    dispatch(createPost(anwser));
+    const body = {
+      post_user: '로그인 아이디(카카오네이버구글)',
+      post_content: {
+        name: nickname,
+        a1,
+        d1,
+        a2,
+        d2,
+        a3,
+        d3,
+        a4,
+        d4,
+        a5,
+        d5,
+        a6,
+        d6,
+        a7,
+        d7,
+        a8,
+        d8,
+        a9,
+        a10,
+      },
+    };
+    dispatch(createPost(body));
     // navigate('/');
   };
 
@@ -143,19 +179,12 @@ function Write() {
             className="nickname_input"
             type="text"
             placeholder="닉네임을 입력"
+            value={nickname}
+            onChange={nicknameChangeHandler}
           />
           <span className="input_text">님의 2022년</span>
         </NicknameInputContainer>
-        {questions.map((question, index) => (
-          <QuestionForm
-            key={index}
-            title={question.title}
-            question={question.question}
-            anwser={anwser}
-            simple_anwser={simpleAnwserChangeHandler}
-            detail_anwser={detailAnwserChangeHandler}
-          />
-        ))}
+        <QuestionForm anwser={anwser} anwser_change={anwserChangeHandler} />
       </QuestionsContainer>
       <Button
         main_color1="#0d47a1"
