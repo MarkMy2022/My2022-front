@@ -5,18 +5,15 @@ import axios from 'axios';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 /*****End 컴포넌트 저장 모듈*****/
-import QuestionForm from './common/QuestionForm';
-import Title from './common/QuestionForm';
-import Question from './common/QuestionForm';
-import QuestionFormContainer from './common/QuestionForm';
-
 import makePdf from './ResultExport';
-import onShareKakaoClick from './kakaoShareBtn';
 import TitleNick from './TitleNick';
 import AnswerComponent from './AnswerComponent';
 import ShowResult from './ShowResult';
-import { fontSize } from '@mui/system';
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
+
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 
 const Base = styled.p`
   width: 100%;
@@ -36,38 +33,46 @@ const ButtonBlock = styled.div`
   padding-bottom: 2rem;
 `;
 
-const Button = styled.button`
-  display: flex;
-  padding: 0.2rem;
-  margin: 1rem;
-  background: none;
-  border-style: none;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-
+const ModifyBtn = styled.button`
+  padding: 1rem;
+  background-color: yellow;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
   &:hover {
-    color: #dfa446;
     cursor: pointer;
+    background-color: #e55591;
+    color: white;
   }
 `;
-
-const InputForm = styled.textarea`
-  width: 300px;
-  height: 120px;
-  position: absolute;
-  /* top: 120px; */
-  bottom: 10px;
-  background-color: orange;
-  /* height: calc(var(--vh, 1vh) * 100); */
-  resize: none;
+const KakaoShareBtn = styled.button`
+  padding: 1rem;
+  background-color: yellow;
   border: none;
-  font-size: 18px;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #7d7d17;
+    color: white;
+  }
+`;
+const DifferentModeBtn = styled.button`
+  padding: 1rem;
+  background-color: yellow;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #21d3c7;
+    color: white;
+  }
 `;
 
 function Result() {
   /* Start 질문 객체 직접 선언(백엔드가 아닌 프론트엔드 단에서 질문 직접 푸시)  */
-  const questions = [
+  /*  const questions = [
     {
       title: '장소',
       question: '1. 올해 가장 기억에 남는 장소는 어디인가요?',
@@ -80,7 +85,7 @@ function Result() {
           a1: '안녕',
           d1: '상세 답변1',
         },
-        /* post_comments: '저리가', */
+        post_comments: '저리가',
       },
     },
     {
@@ -125,14 +130,41 @@ function Result() {
         },
       },
     },
-  ];
+  ]; */
   /* End 질문 객체 직접 선언(백엔드가 아닌 프론트엔드 단에서 질문 직접 푸시)  */
 
   const [users, setUsers] = useState([
     { id: 'van', name: '홍길동', provider: 'naver', posted: true },
   ]);
+  /* ---------- Start KAKAO SHARE ----------*/
+  //Init KAKAO API
+  if (!window.Kakao.isInitialized()) {
+    // @ts-ignore
+    //REST API KEY
+    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    //@ts-ignore
+    console.log(window.Kakao.isInitialized());
+  }
 
-  const [posts, setPosts] = useState([
+  const userId = '';
+
+  const shareKakaoLink = (userId) => {
+    // @ts-ignore
+    window.Kakao.Link.createCustomButton({
+      container: '#kakao-link-btn',
+      templateId: 85063,
+      templateArgs: {
+        userId: `${userId}`,
+      },
+    });
+  };
+
+  const onShareKakaoClick = () => {
+    shareKakaoLink(userId);
+  };
+  /* ---------- End KAKAO SHARE ----------*/
+
+  /* const [posts, setPosts] = useState([
     {
       _id: '1',
       post_id: '1',
@@ -148,9 +180,9 @@ function Result() {
         d3: '상세 답변3',
         d4: '상세 답변4',
       },
-      /* post_comments: '저리가', */
+
     },
-  ]);
+  ]);  */
 
   /*****Start PDF Saving function*****/
   const pdf = makePdf();
@@ -172,16 +204,24 @@ function Result() {
   };
   /*****End Img Saving function *****/
 
+  const navigate = useNavigate();
+  const onModifyEvent = () => {
+    navigate('/modify');
+  };
+
+  const onDifferentClick = () => {
+    navigate('/resultmode');
+  };
   return (
     <>
       <Base className="wholeCard">
         {/*  Start 키워드와 질문 객체 출력 */}
         <div>
-          {users.map(({ name }) => {
-            return <TitleNick username={name}></TitleNick>;
+          {users.map(({ name, index }) => {
+            return <TitleNick key={index} username={name}></TitleNick>;
           })}
         </div>
-        {questions.map((question, index) => (
+        {/* {questions.map((question, index) => (
           <ShowResult
             key={index}
             title={question.title}
@@ -189,8 +229,8 @@ function Result() {
             simple_anwser={question.post.post_content.a1}
             detail_anwser={question.post.post_content.d1}
           />
-        ))}
-
+        ))} */}
+        <ShowResult />
         {/* <div>
           {posts.map(({ post_content }) => {
             return (
@@ -200,28 +240,54 @@ function Result() {
         </div> */}
       </Base>
       <ButtonBlock>
-        <Button className="downBtn" onClick={onDownloadBtn}>
-          <p href="" style={{ fontSize: '1.5rem' }}>
+        <Button
+          style={{
+            width: '200px',
+            display: 'flex',
+            margin: '0 auto',
+            marginBottom: '10px',
+          }}
+          className="downBtn"
+          onClick={onDownloadBtn}
+          variant="contained"
+          color="info"
+          startIcon={<SaveAltIcon />}
+        >
+          <p href="" style={{ fontSize: '1rem' }}>
             사진으로 저장하기
           </p>
         </Button>
-        <Button className="downPdfBtn" onClick={onDownloadPdfBtn}>
-          <p href="" style={{ fontSize: '1.5rem' }}>
+        <Button
+          style={{ width: '200px', display: 'flex', margin: '0 auto' }}
+          className="downPdfBtn"
+          onClick={onDownloadPdfBtn}
+          variant="contained"
+          color="error"
+          startIcon={<PictureAsPdfIcon />}
+        >
+          <p href="" style={{ fontSize: '1rem' }}>
             PDF로 저장하기
           </p>
         </Button>
-        {/* <Button className="shareBtn" onClick={onShareBtn}>
-          <p>공유하기</p>
-        </Button> */}
-        <button
-          id="kakao-link-btn"
-          className="kakaoBtn"
-          type="button"
-          onClick={onShareKakaoClick}
-        >
-          공유하기
-        </button>
       </ButtonBlock>
+      <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
+        <p href="" style={{ fontSize: '1rem' }}>
+          수정하기
+        </p>
+      </ModifyBtn>
+
+      <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
+        다른 모드로 만들기
+      </DifferentModeBtn>
+
+      <KakaoShareBtn
+        id="kakao-link-btn"
+        className="kakaoBtn"
+        type="button"
+        onClick={onShareKakaoClick}
+      >
+        공유하기
+      </KakaoShareBtn>
     </>
   );
 }
