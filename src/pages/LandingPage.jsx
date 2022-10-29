@@ -1,7 +1,10 @@
 import React from 'react';
+import Home from '../components/Home';
 
-function LandingPage() {
-  return <div></div>;
+export default function LandingPage() {
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
-
-export default LandingPage;
