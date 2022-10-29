@@ -1,8 +1,9 @@
-import React from 'react';
-import Diarymode from '../components/Diarymode';
 import React, { useEffect, useState } from 'react';
+import Diarymode from '../components/Diarymode';
 import Header from '../components/common/Header';
 import Result from '../components/Result';
+import CommentForm from '../components/CommentForm';
+import CommentBoard from '../components/CommentBoard';
 
 export default function ResultPage() {
   return (
@@ -10,6 +11,8 @@ export default function ResultPage() {
       <Diarymode />
       <Header></Header>
       <Result></Result>
+      <CommentForm></CommentForm>
+      <CommentBoard></CommentBoard>
     </>
   );
 }

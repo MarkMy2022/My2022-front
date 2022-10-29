@@ -13,6 +13,7 @@ import ShowResult from './ShowResult';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 
 const Base = styled.p`
   width: 100%;
@@ -140,7 +141,7 @@ function Result() {
   if (!window.Kakao.isInitialized()) {
     // @ts-ignore
     //REST API KEY
-    window.Kakao.init('9ac1829fbbfee48aff621ccf2440ac96');
+    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
     //@ts-ignore
     console.log(window.Kakao.isInitialized());
   }
@@ -151,7 +152,7 @@ function Result() {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
       container: '#kakao-link-btn',
-      templateId: 84780,
+      templateId: 85063,
       templateArgs: {
         userId: `${userId}`,
       },
@@ -262,7 +263,7 @@ function Result() {
           onClick={onDownloadPdfBtn}
           variant="contained"
           color="error"
-          startIcon={<SaveAltIcon />}
+          startIcon={<PictureAsPdfIcon />}
         >
           <p href="" style={{ fontSize: '1rem' }}>
             PDF로 저장하기
