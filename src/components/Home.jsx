@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import "../App.css";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Modal from "./Modal";
-import { React, useState } from "react";
+import styled from 'styled-components';
+import '../App.css';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Modal from './Modal';
+import { React, useState } from 'react';
 
 function Header() {
   return (
     <div>
-      <img src="img/005.png" alt="logo" width={150} />
+      <img src="img/logo.png" alt="logo" width={150} />
     </div>
   );
 }
@@ -23,11 +23,11 @@ function HeadingBox() {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: "GangwonEduSaeeum_OTFMediumA";
+    font-family: 'GangwonEduSaeeum_OTFMediumA';
   `;
   return (
-    <div className="wrap" style={{ position: "relative" }}>
-      <img src="img/homememo.png" alt="메모지" width={"90%"} />
+    <div className="wrap" style={{ position: 'relative' }}>
+      <img src="img/homememo.png" alt="메모지" width={'90%'} />
       <HeadingText>
         𝑻𝒉𝒂𝒏𝒌𝒔 𝒂𝒏𝒅 𝑮𝒐𝒐𝒅𝒃𝒚𝒆
         <br />
@@ -40,7 +40,7 @@ function HeadingBox() {
 }
 
 function HomeImg() {
-  return <img alt="peopleimg" src="img/people.png" width={"80%"} />;
+  return <img alt="peopleimg" src="img/home.png" width={'80%'} />;
 }
 
 function TitleBox() {
@@ -72,13 +72,13 @@ function HomeButton() {
   const [modal, setModal] = useState(false);
   return (
     <div className="button" align="center">
-      <Stack spacing={-1} width={"200px"} padding={2}>
+      <Stack spacing={-1} width={'200px'} padding={2}>
         <Button
           variant="contained"
           onClick={() => {
             setModal(true);
           }}
-          style={{ fontSize: "1rem" }}
+          style={{ fontSize: '1rem' }}
         >
           My 2022 만들기
         </Button>
@@ -88,7 +88,7 @@ function HomeButton() {
           variant="outlined"
           color="primary"
           onClick={() => {}}
-          style={{ fontSize: "1rem" }}
+          style={{ fontSize: '1rem' }}
         >
           공유하기
         </Button>
