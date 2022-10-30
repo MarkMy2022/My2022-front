@@ -1,6 +1,5 @@
 import React from 'react';
 import Diarymode from '../components/Diarymode';
-import React, { useEffect, useState } from 'react';
 import Header from '../components/common/Header';
 import Result from '../components/Result';
 

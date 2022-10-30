@@ -10,7 +10,12 @@ export default function GlobalButton() {
         뒤로가기
       </Button>
 
-      <Button variant="text" color="primary" endIcon={<ArrowForwardIosIcon />}>
+      <Button
+        type="submit"
+        variant="text"
+        color="primary"
+        endIcon={<ArrowForwardIosIcon />}
+      >
         저장하기
       </Button>
     </>

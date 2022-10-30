@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
-import Button from './common/Button';
 import { createPost } from '../modules/post';
+import GlobalButton from './common/GlobalButton';
 
 const WriteContainer = styled.form`
   width: 100%;
@@ -47,7 +49,7 @@ const NicknameInputContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  & .nickname_input {
+  /* & .nickname_input {
     width: 100px;
     height: 40px;
     border: none;
@@ -62,7 +64,7 @@ const NicknameInputContainer = styled.div`
     &::placeholder {
       font-size: 16px;
     }
-  }
+  } */
 
   & .input_text {
     font-size: 32px;
@@ -110,29 +112,24 @@ function Write() {
     d7,
     a8,
     d8,
-    a9,
-    a10,
+    d9,
+    d10,
   } = anwser;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  // console.log(anwser.a1, '간단 대답1');
-  // console.log(anwser.d1, '상세 대답1');
-  // console.log(anwser.a2, '간단 대답2');
-  // console.log(anwser.d2, '상세 대답2');
-  // console.log(nickname, '닉네임');
 
   const nicknameChangeHandler = (event) => {
     setNickname(event.target.value);
   };
 
   const anwserChangeHandler = (event) => {
-    // console.log('대답');
     setAnwser({
       ...anwser,
       [event.target.name]: event.target.value,
     });
   };
+
+  const imgChangeHandler = (event) => {};
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -156,12 +153,33 @@ function Write() {
         d7,
         a8,
         d8,
-        a9,
-        a10,
+        d9,
+        d10,
       },
     };
     dispatch(createPost(body));
     // navigate('/');
+    setAnwser({
+      a1: '',
+      d1: '',
+      a2: '',
+      d2: '',
+      a3: '',
+      d3: '',
+      a4: '',
+      d4: '',
+      a5: '',
+      d5: '',
+      a6: '',
+      d6: '',
+      a7: '',
+      d7: '',
+      a8: '',
+      d8: '',
+      d9: '',
+      d10: '',
+    });
+    setNickname('');
   };
 
   return (
@@ -175,28 +193,39 @@ function Write() {
           <span>상세 답변은 자유롭게 작성해주세요</span>
         </Description>
         <NicknameInputContainer>
-          <input
+          {/* <input
             className="nickname_input"
             type="text"
             placeholder="닉네임을 입력"
             value={nickname}
             onChange={nicknameChangeHandler}
-          />
+          /> */}
+          <Box
+            sx={{
+              width: '100px',
+              maxWidth: '100%',
+            }}
+          >
+            <TextField
+              rows={2}
+              fullWidth
+              label="닉네임 입력"
+              required={true}
+              value={nickname}
+              onChange={nicknameChangeHandler}
+              inputProps={{ style: { fontSize: 16 } }}
+              InputLabelProps={{ style: { fontSize: 12 } }}
+            />
+          </Box>
           <span className="input_text">님의 2022년</span>
         </NicknameInputContainer>
-        <QuestionForm anwser={anwser} anwser_change={anwserChangeHandler} />
+        <QuestionForm
+          anwser={anwser}
+          anwser_change={anwserChangeHandler}
+          img_change={imgChangeHandler}
+        />
       </QuestionsContainer>
-      <Button
-        main_color1="#0d47a1"
-        sub_color1="#003c8f"
-        hover_color1="#1565c0"
-        text1="뒤로가기"
-        background_color="#fff"
-        main_color2="#c62828"
-        sub_color2="#9a0007"
-        hover_color2="#d32f2f"
-        text2="저장하기"
-      />
+      <GlobalButton />
     </WriteContainer>
   );
 }
