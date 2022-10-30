@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import Kakao from '../assets/img/kakao_logo.png';
 
 const Base = styled.p`
   width: 100%;
@@ -35,37 +36,35 @@ const ButtonBlock = styled.div`
 
 const ModifyBtn = styled.button`
   padding: 1rem;
-  background-color: yellow;
   border: none;
   margin-bottom: 0.5rem;
   border-radius: 1rem;
   &:hover {
     cursor: pointer;
-    background-color: #e55591;
+    background-color: #444747d3;
     color: white;
   }
 `;
 const KakaoShareBtn = styled.button`
-  padding: 1rem;
-  background-color: yellow;
+  /* padding: 1rem; */
+  background: none;
   border: none;
-  margin-bottom: 0.5rem;
-  border-radius: 1rem;
+  /* margin-bottom: 0.5rem;
+  border-radius: 1rem; */
   &:hover {
     cursor: pointer;
-    background-color: #7d7d17;
-    color: white;
+    color: #000000;
+    text-decoration: underline;
   }
 `;
 const DifferentModeBtn = styled.button`
   padding: 1rem;
-  background-color: yellow;
   border: none;
   margin-bottom: 0.5rem;
   border-radius: 1rem;
   &:hover {
     cursor: pointer;
-    background-color: #21d3c7;
+    background-color: #444747d3;
     color: white;
   }
 `;
@@ -270,24 +269,27 @@ function Result() {
           </p>
         </Button>
       </ButtonBlock>
-      <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
-        <p href="" style={{ fontSize: '1rem' }}>
-          수정하기
-        </p>
-      </ModifyBtn>
+      <ButtonBlock>
+        <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
+          <p href="" style={{ fontSize: '1rem' }}>
+            수정하기
+          </p>
+        </ModifyBtn>
 
-      <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
-        다른 모드로 만들기
-      </DifferentModeBtn>
+        <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
+          다른 모드로 만들기
+        </DifferentModeBtn>
 
-      <KakaoShareBtn
-        id="kakao-link-btn"
-        className="kakaoBtn"
-        type="button"
-        onClick={onShareKakaoClick}
-      >
-        공유하기
-      </KakaoShareBtn>
+        <KakaoShareBtn
+          id="kakao-link-btn"
+          className="kakaoBtn"
+          type="button"
+          onClick={onShareKakaoClick}
+        >
+          공유하기
+          <img src={Kakao} width={'7%'} height={'7%'} alt="kakao logo" />
+        </KakaoShareBtn>
+      </ButtonBlock>
     </>
   );
 }
