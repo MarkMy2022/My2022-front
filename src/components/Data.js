@@ -77,7 +77,7 @@ const postList = [
       "createDate": "2020-10-25",
       "readCount": 6 */
     _id: 'post 고유 id',
-    post_id: 1,
+    post_id: 2,
     post_user: 'ebulsok',
     post_content: {
       name: '글 작성자 이름',
@@ -122,7 +122,7 @@ const postList = [
       "createDate": "2020-10-25",
       "readCount": 6 */
     _id: 'post 고유 id',
-    post_id: 1,
+    post_id: 3,
     post_user: 'lkf290',
     post_content: {
       name: '글 작성자 이름',
@@ -163,8 +163,8 @@ const postList = [
 ];
 
 const getPostByNo = (post_id) => {
-  const array = postList.filter((x) => x.post_id == post_id);
-  if (array.length == 1) {
+  const array = postList.filter((x) => x.post_id === post_id);
+  if (array.length === 1) {
     return array[0];
   }
   return null;
