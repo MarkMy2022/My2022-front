@@ -1,13 +1,26 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-const READ = 'post/READ';
+const POSTS_READ = 'post/POSTS_READ';
+const POST_READ = 'post/POST_READ';
 const CREATE = 'post/CREATE';
-// const MODIFY = 'post/MODIFY';
+const MODIFY = 'post/MODIFY';
+const DELETE = 'post/DELETE';
 
-// 추후 async 처리 할 것
-export function readPost() {
-  // const request = axios.get('url/posts').then((res) => res.data);
-  console.log('포스트 결과!');
+export async function readPosts() {
+  const request = await axios.get(`url`).then((res) => res.data);
+  console.log('포스트들 조회!');
+
+  return {
+    type: POSTS_READ,
+    payload: request,
+  };
+}
+
+export async function readPost(post_id) {
+  const request = await axios
+    .get(`url/posts${post_id}`)
+    .then((res) => res.data);
+  console.log('결과 조회!');
   const response = {
     a1: '무야호1~',
     d1: '그만큼 좋으시다는 거지1~',
@@ -30,24 +43,50 @@ export function readPost() {
   };
 
   return {
-    type: READ,
-    payload: response,
+    type: POST_READ,
+    payload: request,
   };
 }
 
-export function createPost(payload) {
-  // const request = axios.post('url/posts/new', payload).then((res) => res.data);
+export async function createPost(payload) {
+  const request = await axios
+    .post('url/posts/new', payload)
+    .then((res) => res.data);
   console.log('포스트 작성!');
   return {
     type: CREATE,
-    payload,
+    payload: request,
+  };
+}
+
+export async function modifyPost(payload) {
+  const request = await axios
+    .put(`url/posts/${payload._id}/edit`, payload)
+    .then((res) => res.data);
+  console.log('포스트 수정!');
+  return {
+    type: MODIFY,
+    payload: request,
+  };
+}
+
+export async function deletePost(id) {
+  const request = await axios
+    .delete(`url/posts/${id}/delete`)
+    .then((res) => res.data);
+  console.log('포스트 삭제!');
+  return {
+    type: DELETE,
+    payload: request,
+    id,
   };
 }
 
 const initialState = {
-  // post: [],
+  posts: [],
   post: {},
-  result: {},
+  posted: {}, // 추후에 문자열로 바꿔야 할 수도
+  // result: {},
 };
 
 export default function postReducer(state = initialState, action) {
@@ -55,12 +94,29 @@ export default function postReducer(state = initialState, action) {
     case CREATE:
       return {
         ...state,
-        post: { ...action.payload },
+        posted: { ...action.payload },
       };
-    case READ:
+    case POSTS_READ:
       return {
         ...state,
-        result: { ...action.payload },
+        posts: [...action.payload],
+      };
+    case POST_READ:
+      return {
+        ...state,
+        post: { ...action.payload },
+      };
+    case MODIFY:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === action.payload._id ? action.payload : post
+        ),
+      };
+    case DELETE:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post._id !== action.id),
       };
     default:
       return state;
