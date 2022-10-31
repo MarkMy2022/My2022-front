@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from '../components/common/Header';
+import Modify from '../components/Modify';
 
-function ModifyPage() {
-  return <div></div>;
+export default function ModifyPage() {
+  return (
+    <>
+      <Header></Header>
+      <Modify></Modify>
+    </>
+  );
 }
-
-export default ModifyPage;
