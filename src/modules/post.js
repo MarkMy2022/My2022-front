@@ -1,36 +1,94 @@
 import axios from 'axios';
 
+const POSTS_READ = 'post/POSTS_READ';
+const POST_READ = 'post/POST_READ';
 const CREATE = 'post/CREATE';
-const READ = 'post/READ';
-// const MODIFY = 'post/MODIFY';
+const MODIFY = 'post/MODIFY';
+const DELETE = 'post/DELETE';
 
-export function createPost(payload) {
-  // const request = axios.post('url/posts/new', payload).then((res) => res.data);
-  console.log('포스트 작성!');
-  return {
-    type: CREATE,
-    payload,
-  };
-}
-
-export function readPost() {
-  // const request = axios.get('url/posts').then((res) => res.data);
-  console.log('포스트 결과!');
-  const request = {
-    a1: '무야호~',
-    d1: '그만큼 좋으시다는 거지~',
-  };
+export async function readPosts() {
+  const request = await axios
+    .get('http://localhost:4000/')
+    .then((res) => res.data);
+  console.log('포스트들 조회!');
 
   return {
-    type: READ,
+    type: POSTS_READ,
     payload: request,
   };
 }
 
+export async function readPost(payload) {
+  // const request = await axios
+  //   .get(`http://localhost:4000/posts/${user_id}`)
+  //   .then((res) => res.data.post);
+  // console.log('결과 조회!');
+  const response = {
+    a1: '무야호1~',
+    d1: '그만큼 좋으시다는 거지1~',
+    a2: '무야호2~',
+    d2: '그만큼 좋으시다는 거지2~',
+    a3: '무야호3~',
+    d3: '그만큼 좋으시다는 거지3~',
+    a4: '무야호4~',
+    d4: '그만큼 좋으시다는 거지4~',
+    a5: '무야호5~',
+    d5: '그만큼 좋으시다는 거지5~',
+    a6: '무야호6~',
+    d6: '그만큼 좋으시다는 거지6~',
+    a7: '무야호7~',
+    d7: '그만큼 좋으시다는 거지7~',
+    a8: '무야호8~',
+    d8: '그만큼 좋으시다는 거지8~',
+    d9: '그만큼 좋으시다는 거지9~',
+    d10: '그만큼 좋으시다는 거지10~',
+  };
+
+  return {
+    type: POST_READ,
+    payload,
+  };
+}
+
+export async function createPost(payload) {
+  // const request = await axios
+  //   .post('http://localhost:4000/posts/new', payload)
+  //   .then((res) => res.data);
+  // console.log('포스트 작성!');
+  return {
+    type: CREATE,
+    payload: payload.message,
+  };
+}
+
+export async function modifyPost(payload) {
+  const request = await axios
+    .post(`http://localhost:4000/posts/${payload.post_id}/edit`, payload)
+    .then((res) => res.data);
+  console.log('포스트 수정!');
+  return {
+    type: MODIFY,
+    payload: request,
+  };
+}
+
+export async function deletePost(post_id) {
+  const request = await axios
+    .delete(`http://localhost:4000/posts/${post_id}/delete`)
+    .then((res) => res.data);
+  console.log('포스트 삭제!');
+  return {
+    type: DELETE,
+    payload: request,
+    post_id,
+  };
+}
+
 const initialState = {
-  // post: [],
-  post: {},
-  result: {},
+  posts: [],
+  answer: [],
+  posted: '', // 추후에 문자열로 바꿔야 할 수도
+  // result: {},
 };
 
 export default function postReducer(state = initialState, action) {
@@ -38,12 +96,29 @@ export default function postReducer(state = initialState, action) {
     case CREATE:
       return {
         ...state,
-        post: { ...action.payload },
+        posted: action.payload,
       };
-    case READ:
+    case POSTS_READ:
       return {
         ...state,
-        result: { ...action.payload },
+        posts: [...action.payload],
+      };
+    case POST_READ:
+      return {
+        ...state,
+        post: [...action.payload],
+      };
+    case MODIFY:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === action.payload._id ? action.payload : post
+        ),
+      };
+    case DELETE:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post._id !== action.post_id),
       };
     default:
       return state;
