@@ -7,11 +7,13 @@ import ModifyPage from './pages/ModifyPage';
 import WritePage from './pages/WritePage';
 import ResultPage from './pages/ResultPage';
 import ResultModePage from './pages/ResultModePage';
+import Diary from './components/Diary';
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <Diary />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />

@@ -1,7 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Button } from "@mui/material";
-import Container from "@mui/material/Container";
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from '@mui/material';
 
 export default function Home() {
   const Container = styled.div`
