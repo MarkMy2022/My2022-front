@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
-import { createPost } from '../modules/post';
+import { createPost, readPost } from '../modules/post';
 import GlobalButton from './common/GlobalButton';
 
 const WriteContainer = styled.form`
@@ -73,6 +74,7 @@ const NicknameInputContainer = styled.div`
 `;
 
 function Write() {
+  const { post } = useSelector((state) => state.post);
   const [nickname, setNickname] = useState('');
   const [anwser, setAnwser] = useState({
     a1: '',
@@ -131,7 +133,17 @@ function Write() {
 
   const imgChangeHandler = (event) => {};
 
-  const onSubmitHandler = (event) => {
+  async function createPostApi(body) {
+    await axios
+      .post('http://localhost:4000/posts/new', body)
+      .then((res) => {
+        console.log(res.data);
+        return res.data;
+      })
+      .catch((err) => console.log(err));
+  }
+
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
       post_user: '로그인 아이디(카카오네이버구글)',
@@ -157,8 +169,10 @@ function Write() {
         d10,
       },
     };
-    dispatch(createPost(body));
-    // navigate('/');
+
+    const request = createPostApi(body);
+
+    dispatch(createPost(request));
     setAnwser({
       a1: '',
       d1: '',
@@ -180,7 +194,21 @@ function Write() {
       d10: '',
     });
     setNickname('');
+    // navigate('/');
   };
+
+  // 결과 조회
+  // const getPost = async () => {
+  //   const request = await axios
+  //     .get(`http://localhost:4000/posts/a`)
+  //     .then((res) => {
+  //       console.log(res.data.post);
+  //       return res.data.post;
+  //     });
+
+  //   dispatch(readPost(request));
+  //   console.log(post.post_content.name);
+  // };
 
   return (
     <WriteContainer onSubmit={onSubmitHandler}>
@@ -225,6 +253,8 @@ function Write() {
           img_change={imgChangeHandler}
         />
       </QuestionsContainer>
+      {/* <div>{post?.post_content.name}</div> */}
+      {/* <button onClick={getPost}>조회!</button> */}
       <GlobalButton />
     </WriteContainer>
   );
