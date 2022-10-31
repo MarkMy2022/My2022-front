@@ -1,10 +1,15 @@
+<<<<<<< Updated upstream:src/components/Diarymode.jsx
+=======
+import { Container } from '@mui/material';
+import { height } from '@mui/system';
+>>>>>>> Stashed changes:src/components/Diary.jsx
 import React from 'react';
 import styled from 'styled-components';
 
 // 첨부 이미지 규격 정해서 width 100
 // 날짜, 데이터 값 받아오기
 
-export default function Diarymode() {
+export default function Diary() {
   const DiaryImg = styled.div`
     width: 90%;
     height: auto;
