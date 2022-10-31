@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream:src/components/Diarymode.jsx
-=======
 import { Container } from '@mui/material';
 import { height } from '@mui/system';
->>>>>>> Stashed changes:src/components/Diary.jsx
 import React from 'react';
 import styled from 'styled-components';
 
