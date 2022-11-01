@@ -194,9 +194,9 @@ function Write() {
         <Description>
           <span>
             간단한 답변은 ‘명사’로 작성해주세요 (결과 페이지에는 간단한 답변만
-            나와요:미소짓는_상기된_얼굴:)
+            나와요.😊)
           </span>
-          <span>상세 답변은 자유롭게 작성해주세요</span>
+          <span>상세 답변은 자유롭게 작성해주세요.</span>
         </Description>
         <NicknameInputContainer>
           {/* <input
