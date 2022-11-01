@@ -537,9 +537,9 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             rows={6}
             fullWidth
             label="상세 답변"
-            name="d9"
+            name="a9"
             required={true}
-            value={anwser.d9}
+            value={anwser.a9}
             onChange={anwser_change}
           />
         </Box>
@@ -566,9 +566,9 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             rows={6}
             fullWidth
             label="상세 답변"
-            name="d10"
+            name="a10"
             required={true}
-            value={anwser.d10}
+            value={anwser.a10}
             onChange={anwser_change}
           />
         </Box>

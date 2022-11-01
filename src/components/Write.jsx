@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
-import { createPost, readPost } from '../modules/post';
+import { createPost } from '../modules/post';
 import GlobalButton from './common/GlobalButton';
 const WriteContainer = styled.form`
   width: 100%;
@@ -63,7 +63,6 @@ const NicknameInputContainer = styled.div`
   }
 `;
 function Write() {
-  const { post } = useSelector((state) => state.post);
   const [nickname, setNickname] = useState('');
   const [anwser, setAnwser] = useState({
     a1: '',
@@ -102,8 +101,8 @@ function Write() {
     d7,
     a8,
     d8,
-    d9,
-    d10,
+    a9,
+    a10,
   } = anwser;
   // const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -122,14 +121,14 @@ function Write() {
       .post('http://localhost:3030/posts/new', body)
       .then((res) => {
         console.log(res.data);
-        return res.data;
+        return res.data.message;
       })
       .catch((err) => console.log(err));
   }
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
-      post_user: '로그인 아이디(카카오네이버구글)',
+      post_user: 'b',
       post_content: {
         name: nickname,
         a1,
@@ -148,8 +147,8 @@ function Write() {
         d7,
         a8,
         d8,
-        d9,
-        d10,
+        a9,
+        a10,
       },
     };
     const request = createPostApi(body);
@@ -171,8 +170,8 @@ function Write() {
       d7: '',
       a8: '',
       d8: '',
-      d9: '',
-      d10: '',
+      a9: '',
+      a10: '',
     });
     setNickname('');
     // navigate('/');
