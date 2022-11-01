@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+
 import { useSelector } from 'react-redux';
 /*****Start 컴포넌트 저장 모듈*****/
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 /*****End 컴포넌트 저장 모듈*****/
 import makePdf from './ResultExport';
-import TitleNick from './TitleNick';
 import ShowResult from './ShowResult';
 
-import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
@@ -67,10 +65,6 @@ const DifferentModeBtn = styled.button`
 `;
 
 function Result({ no }) {
-  const [users, setUsers] = useState([
-    { id: 'van', name: '홍길동', provider: 'naver', posted: true },
-  ]);
-
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
   if (!window.Kakao.isInitialized()) {
@@ -119,42 +113,18 @@ function Result({ no }) {
   };
   /*****End Img Saving function *****/
 
-  const navigate = useNavigate();
   const onModifyEvent = () => {
     window.location.href = `/modify?post_id=${no}`;
   };
 
   const onDifferentClick = () => {
-    /* navigate('/resultmode'); */
     window.location.href = `/resultmode?post_id=${no}`;
   };
 
   return (
     <>
       <Base className="wholeCard">
-        {/*  Start 키워드와 질문 객체 출력 */}
-        {/* <div>
-          {users.map(({ name, index }) => {
-            return <TitleNick key={index} username={name}></TitleNick>;
-          })}
-        </div> */}
-        {/* {questions.map((question, index) => (
-          <ShowResult
-            key={index}
-            title={question.title}
-            question={question.question}
-            simple_anwser={question.post.post_content.a1}
-            detail_anwser={question.post.post_content.d1}
-          />
-        ))} */}
         <ShowResult />
-        {/* <div>
-          {posts.map(({ post_content }) => {
-            return (
-              <AnswerComponent postContent={post_content}></AnswerComponent>
-            );
-          })}
-        </div> */}
       </Base>
       <ButtonBlock>
         <Button
