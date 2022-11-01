@@ -1,5 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import NaverLogin from './NaverLogin';
+import GoogleLogin from './GoogleLogin';
+
+// KAKAO 로그인 용
+// CLIENT_ID 로 REST API 키 사용 필요
+const KAKAO_CLIENT_ID = '8c4fe302ab56aaa4483671505fe3adff';
+const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
 
 export default function Login() {
   const LoginContainer = styled.div`
@@ -34,28 +42,23 @@ export default function Login() {
         className="LoginBox"
         style={{ padding: '3rem', marginTop: '3rem', width: '90%' }}
       >
-        <a
-          href="/login/auth/naver"
+        <LoginButton
           style={{
             color: 'white',
+            backgroundColor: '#03c75a',
           }}
         >
-          <LoginButton
-            style={{
-              color: 'white',
-              backgroundColor: '#03c75a',
-            }}
-          >
-            <img
-              src="img/naver.png"
-              alt="네이버로그인"
-              style={{ width: '8%', position: 'absolute', left: '10%' }}
-            />
-            네이버 간편로그인
-          </LoginButton>
-        </a>
+          <img
+            src="img/naver.png"
+            alt="네이버로그인"
+            style={{ width: '8%', position: 'absolute', left: '10%' }}
+          />
+          네이버 간편로그인
+        </LoginButton>
 
-        <a href="/login/auth/kakao">
+        <NaverLogin />
+
+        <a href={KAKAO_AUTH_URL}>
           <LoginButton style={{ backgroundColor: ' #FEE500' }}>
             <img
               src="img/kakao.png"
@@ -80,53 +83,9 @@ export default function Login() {
             구글 간편로그인
           </LoginButton>
         </a>
+        <GoogleLogin />
       </div>
     );
-
-    // 공식 png
-    //   return (
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         alignItems: "center",
-    //       }}
-    //     >
-    //       <div
-    //         className="LoginBox"
-    //         style={{ padding: "3rem", marginTop: "3rem" }}
-    //       >
-    //         <p>
-    //           <a href="/login/auth/naver" style={{ color: "white" }}>
-    //             <img
-    //               src="img/네이버로그인.png"
-    //               alt="네이버로그인"
-    //               style={{ width: "35%" }}
-    //             />
-    //           </a>
-    //         </p>
-    //         <p>
-    //           <a href="/login/auth/kakao">
-    //             <img
-    //               src="img/카카오로그인.png"
-    //               alt="카카오로그인"
-    //               style={{ width: "40%" }}
-    //             />
-    //           </a>
-    //         </p>
-
-    //         <p>
-    //           <a href="/login/auth/google" style={{ color: "white" }}>
-    //             <img
-    //               src="img/구글로그인.png"
-    //               alt="구글로그인"
-    //               style={{ width: "40%" }}
-    //             />
-    //           </a>
-    //         </p>
-    //       </div>
-    //     </div>
-    //   );
   }
 
   return (
@@ -141,6 +100,7 @@ export default function Login() {
       </a>
       <LoginBtn />
       Login
+      <NaverLogin />
     </LoginContainer>
   );
 }
