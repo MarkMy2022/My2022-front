@@ -6,7 +6,7 @@ export default function ModeHouse() {
     border-radius: 2px;
     font-size: 1rem;
     /* background-color: #ffffff; */
-    background-image: url('img/modeHouse.png');
+    background-image: url('img/modeHouse2.png');
     background-size: cover;
     /* background-size: contain; */
     background-repeat: no-repeat;
@@ -15,6 +15,8 @@ export default function ModeHouse() {
     text-align: center;
     margin: auto;
     padding: 3rem;
+    padding-top: 6rem;
+
     word-break: keep-all;
     color: #fff;
     font-family: 'GongGothicMedium';
@@ -36,6 +38,7 @@ export default function ModeHouse() {
             <p
               style={{
                 fontSize: '1.5rem',
+                paddingTop: '8rem',
               }}
             >
               ㅇㅇ님의
@@ -45,6 +48,7 @@ export default function ModeHouse() {
                 color: '#FFCD4A',
                 paddingLeft: '0.5rem',
                 fontSize: '2rem',
+                paddingTop: '8rem',
               }}
             >
               2022년

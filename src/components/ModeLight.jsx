@@ -25,7 +25,7 @@ export default function ModeLight() {
     padding: 3rem;
     word-break: keep-all;
     color: #787878;
-    font-family: 'GongGothicMedium';
+    font-family: 'GmarketSansMedium';
     line-height: 1.8rem;
     top: 0%;
   `;
