@@ -28,7 +28,8 @@ export default function Login() {
       font-weight: bold;
       border-radius: 10px;
       padding: 1rem;
-      margin: 0.5rem;
+      margin-top: 5rem;
+      margin: auto;
       cursor: pointer;
       border: solid 0.5px;
       border-color: #c8c8c8;
@@ -40,9 +41,14 @@ export default function Login() {
     return (
       <div
         className="LoginBox"
-        style={{ padding: '3rem', marginTop: '3rem', width: '90%' }}
+        style={{
+          padding: '3rem',
+          // margin: '5rem',
+          marginTop: '3rem',
+          width: '70%',
+        }}
       >
-        <LoginButton
+        {/* <LoginButton
           style={{
             color: 'white',
             backgroundColor: '#03c75a',
@@ -54,21 +60,41 @@ export default function Login() {
             style={{ width: '8%', position: 'absolute', left: '10%' }}
           />
           네이버 간편로그인
-        </LoginButton>
+        </LoginButton> */}
 
         <NaverLogin />
 
+        {/* <a href={KAKAO_AUTH_URL}>
+          <LoginButton>
+            <img
+              src="img/카카오로그인.jpg"
+              alt="카카오로그인"
+              style={{
+                width: '100%',
+                height: '140%',
+                position: 'absolute',
+                margin: '1rem',
+                border: 'solid 0.5px',
+                borderColor: '#c8c8c8',
+                borderRadius: '10px',
+              }}
+            />
+          </LoginButton>
+        </a> */}
+
+        <br />
         <a href={KAKAO_AUTH_URL}>
           <LoginButton style={{ backgroundColor: ' #FEE500' }}>
             <img
               src="img/kakao.png"
               alt="카카오로그인"
-              style={{ width: '8%', position: 'absolute', left: '10%' }}
+              style={{ width: '10%', position: 'absolute', left: '8%' }}
             />
-            카카오 간편로그인
+            카카오 아이디로 로그인
           </LoginButton>
         </a>
 
+        <br />
         <a href="/login/auth/google" style={{ color: 'black' }}>
           <LoginButton
             style={{
@@ -78,12 +104,12 @@ export default function Login() {
             <img
               src="img/google.png"
               alt="구글로그인"
-              style={{ width: '8%', position: 'absolute', left: '10%' }}
+              style={{ width: '10%', position: 'absolute', left: '8%' }}
             />
-            구글 간편로그인
+            구글 아이디로 로그인
           </LoginButton>
         </a>
-        <GoogleLogin />
+        {/* <GoogleLogin /> */}
       </div>
     );
   }
@@ -100,7 +126,6 @@ export default function Login() {
       </a>
       <LoginBtn />
       Login
-      <NaverLogin />
     </LoginContainer>
   );
 }

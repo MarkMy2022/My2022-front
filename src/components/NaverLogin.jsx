@@ -12,7 +12,7 @@ export default function NaverLogin({ setGetToken, setUserInfo }) {
       // 팝업창으로 로그인을 진행할 것인지?
       isPopup: false,
       // 버튼 타입 ( 색상, 타입, 크기 변경 가능 )
-      loginButton: { color: 'green', type: 3, height: 58 },
+      loginButton: { color: 'green', type: 4, height: 58 },
       callbackHandle: true,
     });
     naverLogin.init();
@@ -67,7 +67,7 @@ export default function NaverLogin({ setGetToken, setUserInfo }) {
     <>
       {/* // 구현할 위치에 아래와 같이 코드를 입력해주어야 한다. // 태그에
         id="naverIdLogin" 를 해주지 않으면 오류가 발생한다! */}
-      <div id="naverIdLogin">fdsfssssf</div>
+      <div id="naverIdLogin"></div>
     </>
   );
 }
