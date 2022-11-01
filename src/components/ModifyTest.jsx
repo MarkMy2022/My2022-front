@@ -7,8 +7,9 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { readPost } from '../modules/post';
+import { deletePost, modifyPost, readPost } from '../modules/post';
 import { useEffect } from 'react';
+import { red } from '@material-ui/core/colors';
 
 const QuestionFormContainer = styled.li`
   position: relative;
@@ -102,28 +103,11 @@ function QuestionForm({ img_change }) {
   // const imgInputRef = useRef();
   const dispatch = useDispatch();
   const { anwser } = useSelector((state) => state.post);
-  const [anwsers, setAnwsers] = useState({
-    a1: '',
-    d1: '',
-    a2: '',
-    d2: '',
-    a3: '',
-    d3: '',
-    a4: '',
-    d4: '',
-    a5: '',
-    d5: '',
-    a6: '',
-    d6: '',
-    a7: '',
-    d7: '',
-    a8: '',
-    d8: '',
-    a9: '',
-    a10: '',
-  });
-
+  const [anwsers, setAnwsers] = useState(anwser);
+  // console.log(anwser, '대답!');
+  console.log(anwsers.a1, 'a1');
   const {
+    name,
     a1,
     d1,
     a2,
@@ -149,13 +133,14 @@ function QuestionForm({ img_change }) {
       ...anwsers,
       [event.target.name]: event.target.value,
     });
+    console.log(a1, d1, '체인지!');
   };
 
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:4000/posts/a`)
+      .get(`http://localhost:4000/posts/b`)
       .then((res) => {
-        console.log(res.data.post);
+        console.log(res.data.post.post_content);
         return res.data.post.post_content;
       });
 
@@ -163,42 +148,58 @@ function QuestionForm({ img_change }) {
     // console.log(post.post_content.name);
   };
 
-  const modify = async (payload) => {
+  const onUpdatePost = async (payload) => {
     await axios
-      .post(`http://localhost:4000/posts/1/edit`, payload)
+      .post('http://localhost:4000/posts/1/edit', payload)
       .then((res) => {
-        console.log(res.data);
-        return res.data;
-      });
+        console.log(res.data.message);
+        return res.data.message;
+      })
+      .catch((err) => console.log(err));
   };
 
-  const body = {
-    post_content: {
-      a1,
-      d1,
-      a2,
-      d2,
-      a3,
-      d3,
-      a4,
-      d4,
-      a5,
-      d5,
-      a6,
-      d6,
-      a7,
-      d7,
-      a8,
-      d8,
-      d9,
-      d10,
-    },
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    const body = {
+      post_user: 'sdfsdf',
+      post_content: {
+        name,
+        a1,
+        d1,
+        a2,
+        d2,
+        a3,
+        d3,
+        a4,
+        d4,
+        a5,
+        d5,
+        a6,
+        d6,
+        a7,
+        d7,
+        a8,
+        d8,
+        d9,
+        d10,
+      },
+    };
+
+    const request = onUpdatePost(body);
+    dispatch(modifyPost(request));
   };
 
-  const onUpdatePost = () => {
-    console.log(body.a1);
-    const request = modify(body);
-    dispatch(request);
+  const deleteApi = async () => {
+    await axios.delete('http://localhost:4000/posts/6/delete').then((res) => {
+      console.log(res.data.message);
+      return res.data.message;
+    });
+  };
+
+  const deleteP = () => {
+    const request = deleteApi();
+    dispatch(deletePost(request));
   };
 
   useEffect(() => {
@@ -206,7 +207,7 @@ function QuestionForm({ img_change }) {
   }, []);
 
   return (
-    <>
+    <form onSubmit={onSubmit}>
       <QuestionFormContainer>
         <Title>장소</Title>
         <Question>1.올해 가장 기억에 남는 장소는 어디인가요?</Question>
@@ -215,14 +216,15 @@ function QuestionForm({ img_change }) {
           type="text"
           value={anwser.a1}
           onChange={anwser_change}
-        /> */}
-        {/* <DetailInput
+        />
+        <DetailInput
           name="d1"
           required={true}
           value={anwser.d1}
           onChange={anwser_change}
         /> */}
-        <button onClick={onUpdatePost}>수정!</button>
+        <button type="submit">수정!</button>
+        <button onClick={deleteP}>삭제!</button>
         <Box
           sx={{
             width: '90%',
@@ -694,7 +696,7 @@ function QuestionForm({ img_change }) {
           />
         </Button>
       </Stack>
-    </>
+    </form>
   );
 }
 
