@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 const POSTS_READ = 'post/POSTS_READ';
 const POST_READ = 'post/POST_READ';
 const CREATE = 'post/CREATE';
@@ -88,7 +88,7 @@ export default function postReducer(state = initialState, action) {
     case CREATE:
       return {
         ...state,
-        posted: { ...action.payload },
+        posted: action.payload,
       };
     case POSTS_READ:
       return {
@@ -106,7 +106,7 @@ export default function postReducer(state = initialState, action) {
         // anwser: state.anwser.map((anwser) =>
         //   anwser._id === action.payload._id ? action.payload : anwser
         // ),
-        updated: { ...action.payload },
+        updated: action.payload,
       };
     case DELETE:
       return {

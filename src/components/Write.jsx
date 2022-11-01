@@ -13,6 +13,7 @@ const WriteContainer = styled.form`
   border-radius: 2px;
   background-color: #fff;
 `;
+
 const QuestionsContainer = styled.ul`
   width: 100%;
   background-color: #fff;
@@ -23,6 +24,7 @@ const QuestionsContainer = styled.ul`
   align-items: center;
   padding-left: 0;
 `;
+
 const Description = styled.div`
   width: 100%;
   & span {
@@ -37,6 +39,7 @@ const Description = styled.div`
     }
   }
 `;
+
 const NicknameInputContainer = styled.div`
   width: 80%;
   height: 100px;
@@ -62,6 +65,7 @@ const NicknameInputContainer = styled.div`
     font-weight: 600;
   }
 `;
+
 function Write() {
   const [nickname, setNickname] = useState('');
   const [anwser, setAnwser] = useState({
@@ -84,6 +88,7 @@ function Write() {
     a9: '',
     a10: '',
   });
+
   const {
     a1,
     d1,
@@ -104,27 +109,33 @@ function Write() {
     a9,
     a10,
   } = anwser;
+
   // const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const nicknameChangeHandler = (event) => {
     setNickname(event.target.value);
   };
+
   const anwserChangeHandler = (event) => {
     setAnwser({
       ...anwser,
       [event.target.name]: event.target.value,
     });
   };
+
   const imgChangeHandler = (event) => {};
+
   async function createPostApi(body) {
     await axios
-      .post('http://localhost:3030/posts/new', body)
+      .post('http://localhost:4000/posts/new', body)
       .then((res) => {
         console.log(res.data);
         return res.data.message;
       })
       .catch((err) => console.log(err));
   }
+
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
@@ -176,17 +187,7 @@ function Write() {
     setNickname('');
     // navigate('/');
   };
-  // 결과 조회
-  // const getPost = async () => {
-  //   const request = await axios
-  //     .get(`http://localhost:4000/posts/a`)
-  //     .then((res) => {
-  //       console.log(res.data.post);
-  //       return res.data.post;
-  //     });
-  //   dispatch(readPost(request));
-  //   console.log(post.post_content.name);
-  // };
+
   return (
     <WriteContainer onSubmit={onSubmitHandler}>
       <QuestionsContainer>
@@ -230,8 +231,6 @@ function Write() {
           img_change={imgChangeHandler}
         />
       </QuestionsContainer>
-      {/* <div>{post?.post_content.name}</div> */}
-      {/* <button onClick={getPost}>조회!</button> */}
       <GlobalButton />
     </WriteContainer>
   );
