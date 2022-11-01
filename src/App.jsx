@@ -7,6 +7,8 @@ import ModifyPage from './pages/ModifyPage';
 import WritePage from './pages/WritePage';
 import ResultPage from './pages/ResultPage';
 import ResultModePage from './pages/ResultModePage';
+import Diary from './components/Diary';
+import ModifyPageTest from './pages/ModifyPageTest';
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path="/result" element={<ResultPage />} />
         <Route path="/resultmode" element={<ResultModePage />} />
         <Route path="/modify" element={<ModifyPage />} />
+        <Route path="/modifyTest" element={<ModifyPageTest />} />
       </Routes>
     </>
   );

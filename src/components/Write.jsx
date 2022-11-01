@@ -8,13 +8,11 @@ import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
 import { createPost, readPost } from '../modules/post';
 import GlobalButton from './common/GlobalButton';
-
 const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
 `;
-
 const QuestionsContainer = styled.ul`
   width: 100%;
   background-color: #fff;
@@ -25,31 +23,26 @@ const QuestionsContainer = styled.ul`
   align-items: center;
   padding-left: 0;
 `;
-
 const Description = styled.div`
   width: 100%;
-
   & span {
     display: block;
     text-align: start;
     padding-left: 16px;
     margin: 0 auto;
   }
-
   @media all and (max-width: 550px) {
     & span {
       font-size: 15px;
     }
   }
 `;
-
 const NicknameInputContainer = styled.div`
   width: 80%;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-
   /* & .nickname_input {
     width: 100px;
     height: 40px;
@@ -57,22 +50,18 @@ const NicknameInputContainer = styled.div`
     outline: 2px solid orange;
     font-size: 32px;
     padding-left: 5px;
-
     &:focus {
-      outline: 2px solid #c17900;
+      outline: 2px solid #C17900;
     }
-
     &::placeholder {
       font-size: 16px;
     }
   } */
-
   & .input_text {
     font-size: 32px;
     font-weight: 600;
   }
 `;
-
 function Write() {
   const { post } = useSelector((state) => state.post);
   const [nickname, setNickname] = useState('');
@@ -96,7 +85,6 @@ function Write() {
     a9: '',
     a10: '',
   });
-
   const {
     a1,
     d1,
@@ -119,30 +107,25 @@ function Write() {
   } = anwser;
   // const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const nicknameChangeHandler = (event) => {
     setNickname(event.target.value);
   };
-
   const anwserChangeHandler = (event) => {
     setAnwser({
       ...anwser,
       [event.target.name]: event.target.value,
     });
   };
-
   const imgChangeHandler = (event) => {};
-
   async function createPostApi(body) {
     await axios
-      .post('http://localhost:3030/posts/new', body)
+      .post('http://localhost:4000/posts/new', body)
       .then((res) => {
         console.log(res.data);
         return res.data;
       })
       .catch((err) => console.log(err));
   }
-
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
@@ -169,9 +152,7 @@ function Write() {
         d10,
       },
     };
-
     const request = createPostApi(body);
-
     dispatch(createPost(request));
     setAnwser({
       a1: '',
@@ -196,7 +177,6 @@ function Write() {
     setNickname('');
     // navigate('/');
   };
-
   // 결과 조회
   // const getPost = async () => {
   //   const request = await axios
@@ -205,18 +185,16 @@ function Write() {
   //       console.log(res.data.post);
   //       return res.data.post;
   //     });
-
   //   dispatch(readPost(request));
   //   console.log(post.post_content.name);
   // };
-
   return (
     <WriteContainer onSubmit={onSubmitHandler}>
       <QuestionsContainer>
         <Description>
           <span>
             간단한 답변은 ‘명사’로 작성해주세요 (결과 페이지에는 간단한 답변만
-            나와요😊)
+            나와요:미소짓는_상기된_얼굴:)
           </span>
           <span>상세 답변은 자유롭게 작성해주세요</span>
         </Description>
@@ -259,5 +237,4 @@ function Write() {
     </WriteContainer>
   );
 }
-
 export default Write;
