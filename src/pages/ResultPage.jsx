@@ -1,5 +1,4 @@
 import React from 'react';
-import Diary from '../components/Diary';
 import { useEffect, useState } from 'react';
 import Header from '../components/common/Header';
 import Result from '../components/Result';
@@ -9,11 +8,10 @@ import CommentBoard from '../components/CommentBoard';
 export default function ResultPage() {
   return (
     <>
-      <Diary />
       <Header></Header>
       <Result></Result>
-      <CommentForm></CommentForm>
-      <CommentBoard></CommentBoard>
+      {/* <CommentForm></CommentForm>
+      <CommentBoard></CommentBoard> */}
     </>
   );
 }

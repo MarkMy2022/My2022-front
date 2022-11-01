@@ -83,7 +83,7 @@ const Button = styled.button`
   }
 `;
 
-function Modify({ content }) {
+function Modify({ no }) {
   /* Start DB 스키마 */
   const [users, setUsers] = useState([
     {
@@ -186,6 +186,10 @@ function Modify({ content }) {
 
   const onSubmit = (event) => {
     event.preventDefault();
+  };
+
+  const handleEditButton = () => {
+    window.location.href = `/modify?post_id=${no}`;
   };
 
   return (

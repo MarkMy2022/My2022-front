@@ -14,12 +14,11 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Diary />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/write" element={<WritePage />} />
-        <Route path="/result/:no" element={<ResultPage />} />
+        <Route path="/result" element={<ResultPage />} />
         <Route path="/resultmode" element={<ResultModePage />} />
         <Route path="/modify" element={<ModifyPage />} />
         <Route path="/modifyTest" element={<ModifyPageTest />} />

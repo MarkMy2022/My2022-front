@@ -1,23 +1,19 @@
 import axios from 'axios';
-
 const POSTS_READ = 'post/POSTS_READ';
 const POST_READ = 'post/POST_READ';
 const CREATE = 'post/CREATE';
 const MODIFY = 'post/MODIFY';
 const DELETE = 'post/DELETE';
-
 // export async function readPosts() {
 //   const request = await axios
 //     .get('http://localhost:4000/')
 //     .then((res) => res.data);
 //   console.log('포스트들 조회!');
-
 //   return {
 //     type: POSTS_READ,
 //     payload: request,
 //   };
 // }
-
 export function readPost(payload) {
   // const request = await axios
   //   .get(`http://localhost:4000/posts/${user_id}`)
@@ -43,13 +39,11 @@ export function readPost(payload) {
   //   d9: '그만큼 좋으시다는 거지9~',
   //   d10: '그만큼 좋으시다는 거지10~',
   // };
-
   return {
     type: POST_READ,
     payload,
   };
 }
-
 export function createPost(payload) {
   // const request = await axios
   //   .post('http://localhost:4000/posts/new', payload)
@@ -60,7 +54,6 @@ export function createPost(payload) {
     payload: payload.message,
   };
 }
-
 export function modifyPost(payload) {
   // const request = await axios
   //   .post(`http://localhost:4000/posts/${payload.post_id}/edit`, payload)
@@ -71,7 +64,6 @@ export function modifyPost(payload) {
     payload,
   };
 }
-
 export function deletePost(post_id) {
   const request = axios
     .delete(`http://localhost:4000/posts/${post_id}/delete`)
@@ -83,21 +75,19 @@ export function deletePost(post_id) {
     post_id,
   };
 }
-
 const initialState = {
   anwser: {}, // posts로 바꿔야 함
   post: [],
-  posted: '', // 추후에 문자열로 바꿔야 할 수도
-  updated: '',
+  posted: {}, // 추후에 문자열로 바꿔야 할 수도
+  updated: {},
   // result: {},
 };
-
 export default function postReducer(state = initialState, action) {
   switch (action.type) {
     case CREATE:
       return {
         ...state,
-        posted: action.payload,
+        posted: { ...action.payload },
       };
     case POSTS_READ:
       return {
@@ -115,7 +105,7 @@ export default function postReducer(state = initialState, action) {
         // anwser: state.anwser.map((anwser) =>
         //   anwser._id === action.payload._id ? action.payload : anwser
         // ),
-        updated: action.payload,
+        updated: { ...action.payload },
       };
     case DELETE:
       return {
