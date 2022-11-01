@@ -162,7 +162,7 @@ function QuestionForm({ img_change }) {
     event.preventDefault();
 
     const body = {
-      post_user: 'sdfsdf',
+      post_user: '코린이',
       post_content: {
         name,
         a1,
@@ -191,7 +191,7 @@ function QuestionForm({ img_change }) {
   };
 
   const deleteApi = async () => {
-    await axios.delete('http://localhost:4000/posts/6/delete').then((res) => {
+    await axios.delete('http://localhost:4000/posts/5/delete').then((res) => {
       console.log(res.data.message);
       return res.data.message;
     });
