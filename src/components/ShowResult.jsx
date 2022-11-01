@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { postList } from './Data';
+/* import { postList } from './Data'; */
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import GlobalStyle from './GlobalStyle';
+
+import axios from 'axios';
 
 //icon
 import Diversity1TwoToneIcon from '@mui/icons-material/Diversity1TwoTone';
@@ -17,6 +19,8 @@ import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
 import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
 import AccessibilityTwoToneIcon from '@mui/icons-material/AccessibilityTwoTone';
 import WcTwoToneIcon from '@mui/icons-material/WcTwoTone';
+import { useDispatch, useSelector } from 'react-redux';
+import { readPost } from '../modules/post';
 
 /* const Img = styled('img')({
   margin: 'auto',
@@ -26,25 +30,28 @@ import WcTwoToneIcon from '@mui/icons-material/WcTwoTone';
 }); */
 
 export default function ComplexGrid() {
-  /* const [dataList, setDataList] = useState([]);
+  const dispatch = useDispatch();
+  const [dataList, setDataList] = useState({});
+  const state = useSelector((state) => state.post);
 
-  console.log(postList);
-
-  useEffect(() => {
-    setDataList(postList);
-  }, []); */
-
-  // 결과 조회
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:4000/posts/a`)
+      .get(`http://localhost:3030/posts/a`)
       .then((res) => {
         console.log(res.data.post);
+        setDataList(res.data.post);
         return res.data.post;
       });
+
+    console.log('들어와라..', dataList);
+    console.log('$$', state);
+    console.log('@@', request);
     dispatch(readPost(request));
-    console.log(post.post_content.name);
   };
+
+  useEffect(() => {
+    getPost();
+  }, []);
 
   return (
     <Paper
@@ -58,7 +65,6 @@ export default function ComplexGrid() {
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
     >
-      {/* 1번쨰 질문 */}
       {dataList ? (
         <>
           <Grid container spacing={1}>
@@ -93,7 +99,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a1}
+                    {dataList.post_content.a1}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -101,7 +107,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d1}
+                    {dataList.post_content.d1}
                   </Typography>
                 </Grid>
               </Grid>
@@ -142,7 +148,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a2}
+                    {dataList.post_content.a2}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -150,7 +156,7 @@ export default function ComplexGrid() {
                     textAlign={'start'}
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d2}
+                    {dataList.post_content.d2}
                   </Typography>
                 </Grid>
               </Grid>
@@ -191,7 +197,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a3}
+                    {dataList.post_content.a3}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -199,7 +205,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d3}
+                    {dataList.post_content.d3}
                   </Typography>
                 </Grid>
               </Grid>
@@ -235,7 +241,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a4}
+                    {dataList.post_content.a4}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -243,7 +249,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d4}
+                    {dataList.post_content.d4}
                   </Typography>
                 </Grid>
               </Grid>
@@ -284,7 +290,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a5}
+                    {dataList.post_content.a5}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -292,7 +298,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d5}
+                    {dataList.post_content.d5}
                   </Typography>
                 </Grid>
               </Grid>
@@ -333,7 +339,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a6}
+                    {dataList.post_content.a6}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -341,7 +347,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d6}
+                    {dataList.post_content.d6}
                   </Typography>
                 </Grid>
               </Grid>
@@ -382,7 +388,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a7}
+                    {dataList.post_content.a7}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -390,7 +396,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d7}
+                    {dataList.post_content.d7}
                   </Typography>
                 </Grid>
               </Grid>
@@ -431,7 +437,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a8}
+                    {dataList.post_content.a8}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -439,7 +445,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.d8}
+                    {dataList.post_content.d8}
                   </Typography>
                 </Grid>
               </Grid>
@@ -480,7 +486,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a9}
+                    {dataList.post_content.a9}
                   </Typography>
                 </Grid>
               </Grid>
@@ -521,7 +527,7 @@ export default function ComplexGrid() {
                     textAlign="start"
                     fontFamily="Pretendard-Regular"
                   >
-                    {postList[0].post_content.a10}
+                    {dataList.post_content.a10}
                   </Typography>
                 </Grid>
               </Grid>

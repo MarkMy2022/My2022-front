@@ -133,11 +133,11 @@ function Result({ no }) {
     <>
       <Base className="wholeCard">
         {/*  Start 키워드와 질문 객체 출력 */}
-        <div>
+        {/* <div>
           {users.map(({ name, index }) => {
             return <TitleNick key={index} username={name}></TitleNick>;
           })}
-        </div>
+        </div> */}
         {/* {questions.map((question, index) => (
           <ShowResult
             key={index}
