@@ -119,7 +119,7 @@ function Write() {
   const imgChangeHandler = (event) => {};
   async function createPostApi(body) {
     await axios
-      .post('http://localhost:4000/posts/new', body)
+      .post('http://localhost:3030/posts/new', body)
       .then((res) => {
         console.log(res.data);
         return res.data;

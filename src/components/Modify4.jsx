@@ -4,6 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { readPost } from '../modules/post';
 
 const ModifyContainer = styled.form`
   width: 100%;
@@ -41,8 +44,6 @@ const QuestionListContainer = styled.li`
   /* height: 250px; */
   height: 260px;
   background-color: #fff;
-  /* border: 2px solid orange;
-  border-radius: 4px; */
   margin-top: 50px;
 `;
 
@@ -98,6 +99,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Modify4({ handleModify, modiData, selectedData }) {
+  const dispatch = useDispatch();
+  const [dataList, setDataList] = useState({});
+  const { anwser } = useSelector((state) => state.post);
+
+  const getPost = async () => {
+    const request = await axios
+      .get(`http://localhost:3030/posts/b`)
+      .then((res) => {
+        console.log(anwser.name);
+        setDataList(res.data.post);
+        return res.data.post.post_content;
+      });
+    dispatch(readPost(request));
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
   const classes = useStyles();
   const [nickname, setNickname] = useState('');
 
