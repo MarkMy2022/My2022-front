@@ -4,20 +4,21 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
 export default function ModeSummary() {
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    fontFamily: 'GongGothicMedium',
+  }));
+
   return (
     <div
       className="wrap"
       style={{
-        backgroundColor: '#F8F7DE',
+        backgroundColor: '#f3ece3',
         boxShadow: '0 3px 6px rgba(0,0,0,0.16)',
         width: '90%',
         paddingTop: '5%',
@@ -60,87 +61,77 @@ export default function ModeSummary() {
           <Grid item xs={5}>
             <Item
               style={{
-                backgroundColor: '#FFDA77',
-                // backgroundColor: '#E5EBB2',
+                backgroundColor: '#f1685e',
                 color: 'black',
-                fontFamily: 'PretendardRegular',
+                fontFamily: 'GongGothicMedium',
               }}
             >
-              사람
-            </Item>
-            <Item
-              style={{
-                fontFamily: 'PretendardRegular',
-                color: 'black',
-                // fontFamily: 'ACCchildrensky',
-              }}
-            >
-              간단 답변
-            </Item>
-          </Grid>
-          <Grid item xs={5}>
-            <Item
-              style={{
-                backgroundColor: '#FFDA77',
-                color: 'black',
-                // background: 'linear-gradient(180deg, #E5EBB2, #59956c)',
-              }}
-            >
-              🏆장소
+              #사람
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={5}>
-            <Item style={{ backgroundColor: '#FFDA77', color: 'black' }}>
+            <Item
+              style={{
+                backgroundColor: '#f1685e',
+                color: 'black',
+                // background: 'linear-gradient(180deg, #E5EBB2, #59956c)',
+              }}
+            >
+              #장소
+            </Item>
+            <Item>간단 답변</Item>
+          </Grid>
+          <Grid item xs={5}>
+            <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #소비
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={5}>
-            <Item style={{ backgroundColor: '#FFDA77', color: 'black' }}>
+            <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #음식
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={5}>
-            <Item style={{ backgroundColor: '#FFDA77', color: 'black' }}>
+            <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #콘텐츠
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={5}>
-            <Item style={{ backgroundColor: '#FFDA77', color: 'black' }}>
+            <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #도전
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={5}>
-            <Item style={{ backgroundColor: '#FFDA77', color: 'black' }}>
+            <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #성취
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={5}>
-            <Item style={{ backgroundColor: '#FFDA77', color: 'black' }}>
+            <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #감정
             </Item>
             <Item>간단 답변</Item>
           </Grid>
           <Grid item xs={10}>
-            <Item style={{ backgroundColor: '#c9d46a ', color: 'black' }}>
-              #너에게
+            <Item style={{ backgroundColor: '#3b2b57 ', color: 'white' }}>
+              🏆 너에게 🏆
             </Item>
-            <Item>간단 답변</Item>
+            <Item>상세 답변</Item>
           </Grid>
           <Grid item xs={10}>
-            <Item style={{ backgroundColor: '#c9d46a', color: 'black' }}>
-              #나에게
+            <Item style={{ backgroundColor: '#3b2b57 ', color: 'white' }}>
+              🏆 나에게 🏆
             </Item>
             <Item>
-              간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단
-              답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변
-              간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단
-              답변 간단 답변
+              상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세
+              답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변
+              상세 답변 상세 답변 상세 답변 상세 답변
             </Item>
           </Grid>
         </Grid>
