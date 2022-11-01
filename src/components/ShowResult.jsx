@@ -36,7 +36,7 @@ export default function ComplexGrid() {
 
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:3030/posts/a`)
+      .get(`http://localhost:4000posts/a`)
       .then((res) => {
         console.log(res.data.post);
         setDataList(res.data.post);
