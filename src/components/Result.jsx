@@ -66,7 +66,7 @@ const DifferentModeBtn = styled.button`
   }
 `;
 
-function Result({ no }) {
+function Result({ no, user_id }) {
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
   if (!window.Kakao.isInitialized()) {
@@ -128,7 +128,7 @@ function Result({ no }) {
   return (
     <>
       <Base className="wholeCard">
-        <ShowResult />
+        <ShowResult user_id={user_id} />
       </Base>
       <ButtonBlock>
         <Button
