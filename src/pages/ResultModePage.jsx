@@ -12,11 +12,32 @@ import ModeHouse from '../components/ModeHouse';
 
 import ModeStar from '../components/ModeStar';
 
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { readPost } from '../modules/post';
+
 export default function ResultModePage() {
+  const dispatch = useDispatch();
+  const { answer } = useSelector((state) => state.post);
+
+  const getPost = async () => {
+    const request = await axios
+      .get(`http://localhost:4000/posts/a`)
+      .then((res) => {
+        return res.data.post;
+      });
+    dispatch(readPost(request));
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
   return (
     <>
-      <ModeNight />
-      {/* <ModeStar />
+      {/* <ModeNight />
+      <ModeStar />
       <ModeHouse />
       <ModeMoonF />
       <ModeMoonM />
@@ -24,8 +45,8 @@ export default function ResultModePage() {
       <ModeSunset />
       <ModeSummary />
       <ModeDiary /> */}
-      {/* <Header></Header>
-      <ResultMode /> */}
+      <Header></Header>
+      <ResultMode />
     </>
   );
 }

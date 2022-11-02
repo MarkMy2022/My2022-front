@@ -42,7 +42,7 @@ const KakaoRedirectHandler = () => {
           const userKaKaoInfo = await userResponese.json();
 
           console.log(userKaKaoInfo);
-          navigate('/');
+          navigate('/write');
         } else {
           alert('카카오 로그인 회원 정보 획득 실패');
           navigate('/login');

@@ -9,94 +9,31 @@ import Box from '@mui/material/Box';
 const QuestionFormContainer = styled.li`
   position: relative;
   width: 80%;
-  /* height: 250px; */
-  height: 260px;
+  /* height: 50%; */
   background-color: #fff;
-  /* border: 2px solid orange;
-  border-radius: 4px; */
-  margin-top: 50px;
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled.div`
-  position: absolute;
-  width: 150px;
-  height: 50px;
-  top: -25px;
-  left: calc(80% - 50%);
+  width: 40%;
+  padding: 0.5rem;
+  text-align: center;
   background-color: orange;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 15px;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #fff;
   font-weight: 600;
 `;
 
 const Question = styled.h3`
-  margin-top: 40px;
-  margin-bottom: 20px;
-  margin-left: 10px;
+  margin: 1rem 0;
   color: #333;
 `;
 
-// const SimpleInput = styled.input`
-//   width: 90%;
-//   height: 50px;
-//   background-color: orange;
-//   border: none;
-//   font-size: 18px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media all and (max-width: 380px) {
-//     height: 30px;
-//   }
-// `;
-
-// const DetailInput = styled.textarea`
-//   width: 90%;
-//   height: 100px;
-//   margin-top: 10px;
-//   background-color: orange;
-//   resize: none;
-//   border: none;
-//   font-size: 18px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media all and (max-width: 380px) {
-//     height: 100px;
-//   }
-// `;
-
-// const DetailAnwser = styled.textarea`
-//   width: 90%;
-//   height: 160px;
-//   background-color: orange;
-//   resize: none;
-//   border: none;
-//   font-size: 18px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media all and (max-width: 380px) {
-//     height: 100px;
-//   }
-// `;
-
-function QuestionForm({ anwser, anwser_change, img_change }) {
-  // const imgInputRef = useRef();
-
+function QuestionForm({ answer, answer_change, img_change }) {
   return (
     <>
       <QuestionFormContainer>
@@ -105,14 +42,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a1"
           type="text"
-          value={anwser.a1}
-          onChange={anwser_change}
+          value={answer.a1}
+          onChange={answer_change}
         /> */}
         {/* <DetailInput
           name="d1"
           required={true}
-          value={anwser.d1}
-          onChange={anwser_change}
+          value={answer.d1}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -126,8 +63,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a1"
-            value={anwser.a1}
-            onChange={anwser_change}
+            value={answer.a1}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -146,8 +83,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d1"
             required={true}
-            value={anwser.d1}
-            onChange={anwser_change}
+            value={answer.d1}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -157,14 +94,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a2"
           type="text"
-          value={anwser.a2}
-          onChange={anwser_change}
+          value={answer.a2}
+          onChange={answer_change}
         />
         <DetailInput
           name="d2"
           required={true}
-          value={anwser.d2}
-          onChange={anwser_change}
+          value={answer.d2}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -178,8 +115,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a2"
-            value={anwser.a2}
-            onChange={anwser_change}
+            value={answer.a2}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -198,8 +135,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d2"
             required={true}
-            value={anwser.d2}
-            onChange={anwser_change}
+            value={answer.d2}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -209,14 +146,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a3"
           type="text"
-          value={anwser.a3}
-          onChange={anwser_change}
+          value={answer.a3}
+          onChange={answer_change}
         />
         <DetailInput
           name="d3"
           required={true}
-          value={anwser.d3}
-          onChange={anwser_change}
+          value={answer.d3}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -230,8 +167,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a3"
-            value={anwser.a3}
-            onChange={anwser_change}
+            value={answer.a3}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -250,8 +187,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d3"
             required={true}
-            value={anwser.d3}
-            onChange={anwser_change}
+            value={answer.d3}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -261,14 +198,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a4"
           type="text"
-          value={anwser.a4}
-          onChange={anwser_change}
+          value={answer.a4}
+          onChange={answer_change}
         />
         <DetailInput
           name="d4"
           required={true}
-          value={anwser.d4}
-          onChange={anwser_change}
+          value={answer.d4}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -282,8 +219,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a4"
-            value={anwser.a4}
-            onChange={anwser_change}
+            value={answer.a4}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -302,8 +239,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d4"
             required={true}
-            value={anwser.d4}
-            onChange={anwser_change}
+            value={answer.d4}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -313,14 +250,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a5"
           type="text"
-          value={anwser.a5}
-          onChange={anwser_change}
+          value={answer.a5}
+          onChange={answer_change}
         />
         <DetailInput
           name="d5"
           required={true}
-          value={anwser.d5}
-          onChange={anwser_change}
+          value={answer.d5}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -334,8 +271,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a5"
-            value={anwser.a5}
-            onChange={anwser_change}
+            value={answer.a5}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -354,8 +291,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d5"
             required={true}
-            value={anwser.d5}
-            onChange={anwser_change}
+            value={answer.d5}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -365,14 +302,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a6"
           type="text"
-          value={anwser.a6}
-          onChange={anwser_change}
+          value={answer.a6}
+          onChange={answer_change}
         />
         <DetailInput
           name="d6"
           required={true}
-          value={anwser.d6}
-          onChange={anwser_change}
+          value={answer.d6}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -386,8 +323,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a6"
-            value={anwser.a6}
-            onChange={anwser_change}
+            value={answer.a6}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -406,8 +343,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d6"
             required={true}
-            value={anwser.d6}
-            onChange={anwser_change}
+            value={answer.d6}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -417,14 +354,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a7"
           type="text"
-          value={anwser.a7}
-          onChange={anwser_change}
+          value={answer.a7}
+          onChange={answer_change}
         />
         <DetailInput
           name="d7"
           required={true}
-          value={anwser.d7}
-          onChange={anwser_change}
+          value={answer.d7}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -438,8 +375,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a7"
-            value={anwser.a7}
-            onChange={anwser_change}
+            value={answer.a7}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -458,8 +395,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d7"
             required={true}
-            value={anwser.d7}
-            onChange={anwser_change}
+            value={answer.d7}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -469,14 +406,14 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <SimpleInput
           name="a8"
           type="text"
-          value={anwser.a8}
-          onChange={anwser_change}
+          value={answer.a8}
+          onChange={answer_change}
         />
         <DetailInput
           name="d8"
           required={true}
-          value={anwser.d8}
-          onChange={anwser_change}
+          value={answer.d8}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -490,8 +427,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             fullWidth
             label="간단 답변"
             name="a8"
-            value={anwser.a8}
-            onChange={anwser_change}
+            value={answer.a8}
+            onChange={answer_change}
             required={true}
           />
         </Box>
@@ -510,8 +447,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="d8"
             required={true}
-            value={anwser.d8}
-            onChange={anwser_change}
+            value={answer.d8}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -521,8 +458,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <DetailAnwser
           name="d9"
           required={true}
-          value={anwser.d9}
-          onChange={anwser_change}
+          value={answer.d9}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -539,8 +476,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="a9"
             required={true}
-            value={anwser.a9}
-            onChange={anwser_change}
+            value={answer.a9}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
@@ -550,8 +487,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
         {/* <DetailAnwser
           name="d10"
           required={true}
-          value={anwser.d10}
-          onChange={anwser_change}
+          value={answer.d10}
+          onChange={answer_change}
         /> */}
         <Box
           sx={{
@@ -568,8 +505,8 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
             label="상세 답변"
             name="a10"
             required={true}
-            value={anwser.a10}
-            onChange={anwser_change}
+            value={answer.a10}
+            onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>

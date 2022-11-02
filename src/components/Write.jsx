@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -26,15 +26,15 @@ const QuestionsContainer = styled.ul`
 `;
 
 const Description = styled.div`
-  width: 100%;
-  & span {
-    display: block;
-    text-align: start;
-    padding-left: 16px;
-    margin: 0 auto;
+  width: 80%;
+  background-color: aliceblue;
+  padding: 1rem 0;
+  & p {
+    text-align: center;
+    line-height: 1.5rem;
   }
   @media all and (max-width: 550px) {
-    & span {
+    & p {
       font-size: 15px;
     }
   }
@@ -42,24 +42,10 @@ const Description = styled.div`
 
 const NicknameInputContainer = styled.div`
   width: 80%;
-  height: 100px;
+  padding-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* & .nickname_input {
-    width: 100px;
-    height: 40px;
-    border: none;
-    outline: 2px solid orange;
-    font-size: 32px;
-    padding-left: 5px;
-    &:focus {
-      outline: 2px solid #C17900;
-    }
-    &::placeholder {
-      font-size: 16px;
-    }
-  } */
   & .input_text {
     font-size: 32px;
     font-weight: 600;
@@ -68,7 +54,7 @@ const NicknameInputContainer = styled.div`
 
 function Write() {
   const [nickname, setNickname] = useState('');
-  const [anwser, setAnwser] = useState({
+  const [answer, setAnswer] = useState({
     a1: '',
     d1: '',
     a2: '',
@@ -108,18 +94,18 @@ function Write() {
     d8,
     a9,
     a10,
-  } = anwser;
+  } = answer;
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const nicknameChangeHandler = (event) => {
     setNickname(event.target.value);
   };
 
-  const anwserChangeHandler = (event) => {
-    setAnwser({
-      ...anwser,
+  const answerChangeHandler = (event) => {
+    setAnswer({
+      ...answer,
       [event.target.name]: event.target.value,
     });
   };
@@ -139,7 +125,7 @@ function Write() {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
-      post_user: 'b',
+      user_id: 'b',
       post_content: {
         name: nickname,
         a1,
@@ -164,48 +150,18 @@ function Write() {
     };
     const request = createPostApi(body);
     dispatch(createPost(request));
-    setAnwser({
-      a1: '',
-      d1: '',
-      a2: '',
-      d2: '',
-      a3: '',
-      d3: '',
-      a4: '',
-      d4: '',
-      a5: '',
-      d5: '',
-      a6: '',
-      d6: '',
-      a7: '',
-      d7: '',
-      a8: '',
-      d8: '',
-      a9: '',
-      a10: '',
-    });
-    setNickname('');
-    // navigate('/');
+    navigate(`/result/b`);
   };
 
   return (
     <WriteContainer onSubmit={onSubmitHandler}>
       <QuestionsContainer>
         <Description>
-          <span>
-            간단한 답변은 ‘명사’로 작성해주세요 (결과 페이지에는 간단한 답변만
-            나와요.😊)
-          </span>
-          <span>상세 답변은 자유롭게 작성해주세요.</span>
+          <p>간단한 답변은 ‘명사’로 작성해주세요</p>
+          <p>(결과 페이지에는 간단한 답변만 나와요.😊)</p>
+          <p>상세 답변은 자유롭게 작성해주세요.</p>
         </Description>
         <NicknameInputContainer>
-          {/* <input
-            className="nickname_input"
-            type="text"
-            placeholder="닉네임을 입력"
-            value={nickname}
-            onChange={nicknameChangeHandler}
-          /> */}
           <Box
             sx={{
               width: '100px',
@@ -226,8 +182,8 @@ function Write() {
           <span className="input_text">님의 2022년</span>
         </NicknameInputContainer>
         <QuestionForm
-          anwser={anwser}
-          anwser_change={anwserChangeHandler}
+          answer={answer}
+          answer_change={answerChangeHandler}
           img_change={imgChangeHandler}
         />
       </QuestionsContainer>
