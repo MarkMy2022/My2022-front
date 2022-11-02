@@ -9,9 +9,7 @@ import ModeMoonM from '../components/ModeMoonM';
 import ModeLight from '../components/ModeLight';
 import ModeSunset from '../components/ModeSunset';
 import ModeHouse from '../components/ModeHouse';
-
 import ModeStar from '../components/ModeStar';
-
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';

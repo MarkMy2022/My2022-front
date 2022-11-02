@@ -8,13 +8,10 @@ export default function ModeMoonF() {
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
-    /* background-color: #ffffff; */
     background-image: url('img/modeMoonF.png');
     background-size: cover;
-    /* background-size: contain; */
     background-repeat: no-repeat;
     width: 90%;
-    /* height: 1000px; */
     text-align: center;
     margin: auto;
     padding: 3rem;

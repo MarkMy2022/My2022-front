@@ -149,7 +149,7 @@ function ResultMode({}) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary" onClick={ModediaryBtn}>
+            <Button size="small" color="primary" onClick={ModeDiaryBtn}>
               <SaveAltIcon />
               <p>사진으로 저장</p>
             </Button>
