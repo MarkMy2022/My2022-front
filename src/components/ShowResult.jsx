@@ -9,17 +9,17 @@ import styled from 'styled-components';
 
 import axios from 'axios';
 
-//icon
-import Diversity1TwoToneIcon from '@mui/icons-material/Diversity1TwoTone';
-import PlaceTwoToneIcon from '@mui/icons-material/PlaceTwoTone';
-import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
-import DinnerDiningTwoToneIcon from '@mui/icons-material/DinnerDiningTwoTone';
-import MovieTwoToneIcon from '@mui/icons-material/MovieTwoTone';
-import WhatshotTwoToneIcon from '@mui/icons-material/WhatshotTwoTone';
-import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
-import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
-import AccessibilityTwoToneIcon from '@mui/icons-material/AccessibilityTwoTone';
-import WcTwoToneIcon from '@mui/icons-material/WcTwoTone';
+// //icon
+// import Diversity1TwoToneIcon from '@mui/icons-material/Diversity1TwoTone';
+// import PlaceTwoToneIcon from '@mui/icons-material/PlaceTwoTone';
+// import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
+// import DinnerDiningTwoToneIcon from '@mui/icons-material/DinnerDiningTwoTone';
+// import MovieTwoToneIcon from '@mui/icons-material/MovieTwoTone';
+// import WhatshotTwoToneIcon from '@mui/icons-material/WhatshotTwoTone';
+// import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
+// import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
+// import AccessibilityTwoToneIcon from '@mui/icons-material/AccessibilityTwoTone';
+// import WcTwoToneIcon from '@mui/icons-material/WcTwoTone';
 import { useDispatch, useSelector } from 'react-redux';
 import { readPost } from '../modules/post';
 
@@ -67,11 +67,11 @@ export default function ShowResult() {
       <>
         <NickBlock>{anwser.name}님의 2022년</NickBlock>
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <Diversity1TwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -109,11 +109,11 @@ export default function ShowResult() {
         <br />
         {/* 2번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <PlaceTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -158,11 +158,11 @@ export default function ShowResult() {
 
         {/* 3번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <ShoppingBagTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={1}>
               <Grid item xs>
@@ -207,11 +207,11 @@ export default function ShowResult() {
 
         {/* 4번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <DinnerDiningTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -251,11 +251,11 @@ export default function ShowResult() {
 
         {/* 5번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <MovieTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -300,11 +300,11 @@ export default function ShowResult() {
 
         {/* 6번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <WhatshotTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -349,11 +349,11 @@ export default function ShowResult() {
 
         {/* 7번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <EmojiEventsTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -398,11 +398,11 @@ export default function ShowResult() {
 
         {/* 8번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <AddReactionTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -447,11 +447,11 @@ export default function ShowResult() {
 
         {/* 9번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <AccessibilityTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>
@@ -488,11 +488,11 @@ export default function ShowResult() {
 
         {/* 10번쨰 질문 */}
         <Grid container spacing={1}>
-          <Grid item>
+          {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
               <WcTwoToneIcon fontSize="large" />
             </ButtonBase>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column">
               <Grid item xs>

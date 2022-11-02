@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+// import FilesUpload from '../components/common/FilesUpload';
 
 const QuestionFormContainer = styled.li`
   position: relative;
   width: 80%;
-  /* height: 250px; */
   height: 260px;
   background-color: #fff;
-  /* border: 2px solid orange;
-  border-radius: 4px; */
   margin-top: 50px;
 `;
 
@@ -40,80 +38,18 @@ const Question = styled.h3`
   color: #333;
 `;
 
-// const SimpleInput = styled.input`
-//   width: 90%;
-//   height: 50px;
-//   background-color: orange;
-//   border: none;
-//   font-size: 18px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media all and (max-width: 380px) {
-//     height: 30px;
-//   }
-// `;
-
-// const DetailInput = styled.textarea`
-//   width: 90%;
-//   height: 100px;
-//   margin-top: 10px;
-//   background-color: orange;
-//   resize: none;
-//   border: none;
-//   font-size: 18px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media all and (max-width: 380px) {
-//     height: 100px;
-//   }
-// `;
-
-// const DetailAnwser = styled.textarea`
-//   width: 90%;
-//   height: 160px;
-//   background-color: orange;
-//   resize: none;
-//   border: none;
-//   font-size: 18px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media all and (max-width: 380px) {
-//     height: 100px;
-//   }
-// `;
-
 function QuestionForm({ anwser, anwser_change, img_change }) {
-  // const imgInputRef = useRef();
+  /*   const [Images, setImages] = useState([]);
+
+  const updateImages = (newImages) => {
+    setImages(newImages);
+  }; */
 
   return (
     <>
       <QuestionFormContainer>
         <Title>장소</Title>
         <Question>1.올해 가장 기억에 남는 장소는 어디인가요?</Question>
-        {/* <SimpleInput
-          name="a1"
-          type="text"
-          value={anwser.a1}
-          onChange={anwser_change}
-        /> */}
-        {/* <DetailInput
-          name="d1"
-          required={true}
-          value={anwser.d1}
-          onChange={anwser_change}
-        /> */}
         <Box
           sx={{
             width: '90%',
@@ -154,18 +90,6 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>Flex</Title>
         <Question>2.올해 가장 기억에 남는 소비는 무엇인가요?</Question>
-        {/* <SimpleInput
-          name="a2"
-          type="text"
-          value={anwser.a2}
-          onChange={anwser_change}
-        />
-        <DetailInput
-          name="d2"
-          required={true}
-          value={anwser.d2}
-          onChange={anwser_change}
-        /> */}
         <Box
           sx={{
             width: '90%',
@@ -206,18 +130,6 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>사람</Title>
         <Question>3.올해 내 삶에 가장 기여한 사람은 누구인가요?</Question>
-        {/* <SimpleInput
-          name="a3"
-          type="text"
-          value={anwser.a3}
-          onChange={anwser_change}
-        />
-        <DetailInput
-          name="d3"
-          required={true}
-          value={anwser.d3}
-          onChange={anwser_change}
-        /> */}
         <Box
           sx={{
             width: '90%',
@@ -310,18 +222,6 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>콘텐츠</Title>
         <Question>올해 인상 깊었던 콘텐츠는 무엇인가요?</Question>
-        {/* <SimpleInput
-          name="a5"
-          type="text"
-          value={anwser.a5}
-          onChange={anwser_change}
-        />
-        <DetailInput
-          name="d5"
-          required={true}
-          value={anwser.d5}
-          onChange={anwser_change}
-        /> */}
         <Box
           sx={{
             width: '90%',
@@ -362,18 +262,7 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>도전</Title>
         <Question>올해 도전한 것은 무엇인가요?</Question>
-        {/* <SimpleInput
-          name="a6"
-          type="text"
-          value={anwser.a6}
-          onChange={anwser_change}
-        />
-        <DetailInput
-          name="d6"
-          required={true}
-          value={anwser.d6}
-          onChange={anwser_change}
-        /> */}
+
         <Box
           sx={{
             width: '90%',
@@ -414,18 +303,7 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>성취</Title>
         <Question>올해 성취한 것은 무엇인가요?</Question>
-        {/* <SimpleInput
-          name="a7"
-          type="text"
-          value={anwser.a7}
-          onChange={anwser_change}
-        />
-        <DetailInput
-          name="d7"
-          required={true}
-          value={anwser.d7}
-          onChange={anwser_change}
-        /> */}
+
         <Box
           sx={{
             width: '90%',
@@ -466,18 +344,7 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>장소</Title>
         <Question>장소</Question>
-        {/* <SimpleInput
-          name="a8"
-          type="text"
-          value={anwser.a8}
-          onChange={anwser_change}
-        />
-        <DetailInput
-          name="d8"
-          required={true}
-          value={anwser.d8}
-          onChange={anwser_change}
-        /> */}
+
         <Box
           sx={{
             width: '90%',
@@ -518,12 +385,7 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>너에게</Title>
         <Question>올해 함께한 사람들에게 한마디 해주세요.</Question>
-        {/* <DetailAnwser
-          name="d9"
-          required={true}
-          value={anwser.d9}
-          onChange={anwser_change}
-        /> */}
+
         <Box
           sx={{
             width: '90%',
@@ -547,12 +409,7 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
       <QuestionFormContainer>
         <Title>나에게</Title>
         <Question>나에게 한마디 해주세요.</Question>
-        {/* <DetailAnwser
-          name="d10"
-          required={true}
-          value={anwser.d10}
-          onChange={anwser_change}
-        /> */}
+
         <Box
           sx={{
             width: '90%',
@@ -587,7 +444,6 @@ function QuestionForm({ anwser, anwser_change, img_change }) {
           />
         </Button>
       </Stack>
-      {/* <FilesUpload /> */}
     </>
   );
 }

@@ -55,11 +55,12 @@ const KakaoShareBtn = styled.button`
 const DifferentModeBtn = styled.button`
   padding: 1rem;
   border: none;
+  background: none;
   margin-bottom: 0.5rem;
   border-radius: 1rem;
   &:hover {
     cursor: pointer;
-    background-color: #444747d3;
+    background-color: #444747a4;
     color: white;
   }
 `;
@@ -94,6 +95,7 @@ function Result({ no }) {
   /* ---------- End KAKAO SHARE ----------*/
 
   /*****Start PDF Saving function*****/
+  //PDF로 저장하기 버튼 이벤트
   const pdf = makePdf();
 
   const onDownloadPdfBtn = async (e) => {
@@ -104,7 +106,7 @@ function Result({ no }) {
 
   /*****Start Img Saving function*****/
   const cardRef = useRef();
-  //사진으로 저장하기 함수
+  //사진으로 저장하기 버튼 이벤트
   const onDownloadBtn = () => {
     const wholeCard = cardRef.current;
     domtoimage.toBlob(document.querySelector('.wholeCard')).then((blob) => {
@@ -117,6 +119,7 @@ function Result({ no }) {
     window.location.href = `/modify?post_id=${no}`;
   };
 
+  //다른 모드로 만들기 버튼 이벤트
   const onDifferentClick = () => {
     window.location.href = `/resultmode?post_id=${no}`;
   };
