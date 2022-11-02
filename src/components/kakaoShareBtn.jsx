@@ -1,9 +1,6 @@
 //Init KAKAO API
 if (!window.Kakao.isInitialized()) {
-  // @ts-ignore
-  //REST API KEY
   window.Kakao.init('9ac1829fbbfee48aff621ccf2440ac96');
-  //@ts-ignore
   console.log(window.Kakao.isInitialized());
 }
 

@@ -1,5 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import GoogleLoginBtn from './GoogleLoginBtn';
+import NaverLogin from './NaverLogin';
+
+// KAKAO 로그인 용
+// CLIENT_ID 로 REST API 키 사용 필요
+const KAKAO_CLIENT_ID = '8c4fe302ab56aaa4483671505fe3adff';
+const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
 
 export default function Login() {
   const LoginContainer = styled.div`
@@ -20,7 +28,8 @@ export default function Login() {
       font-weight: bold;
       border-radius: 10px;
       padding: 1rem;
-      margin: 0.5rem;
+      margin-top: 5rem;
+      margin: auto;
       cursor: pointer;
       border: solid 0.5px;
       border-color: #c8c8c8;
@@ -32,40 +41,60 @@ export default function Login() {
     return (
       <div
         className="LoginBox"
-        style={{ padding: '3rem', marginTop: '3rem', width: '90%' }}
+        style={{
+          padding: '3rem',
+          // margin: '5rem',
+          marginTop: '3rem',
+          width: '70%',
+        }}
       >
-        <a
-          href="/login/auth/naver"
+        {/* <LoginButton
           style={{
             color: 'white',
+            backgroundColor: '#03c75a',
           }}
         >
-          <LoginButton
-            style={{
-              color: 'white',
-              backgroundColor: '#03c75a',
-            }}
-          >
-            <img
-              src="img/naver.png"
-              alt="네이버로그인"
-              style={{ width: '8%', position: 'absolute', left: '10%' }}
-            />
-            네이버 간편로그인
-          </LoginButton>
-        </a>
+          <img
+            src="img/naver.png"
+            alt="네이버로그인"
+            style={{ width: '8%', position: 'absolute', left: '10%' }}
+          />
+          네이버 간편로그인
+        </LoginButton> */}
 
-        <a href="/login/auth/kakao">
+        <NaverLogin />
+
+        {/* <a href={KAKAO_AUTH_URL}>
+          <LoginButton>
+            <img
+              src="img/카카오로그인.jpg"
+              alt="카카오로그인"
+              style={{
+                width: '100%',
+                height: '140%',
+                position: 'absolute',
+                margin: '1rem',
+                border: 'solid 0.5px',
+                borderColor: '#c8c8c8',
+                borderRadius: '10px',
+              }}
+            />
+          </LoginButton>
+        </a> */}
+
+        <br />
+        <a href={KAKAO_AUTH_URL}>
           <LoginButton style={{ backgroundColor: ' #FEE500' }}>
             <img
               src="img/kakao.png"
               alt="카카오로그인"
-              style={{ width: '8%', position: 'absolute', left: '10%' }}
+              style={{ width: '10%', position: 'absolute', left: '8%' }}
             />
-            카카오 간편로그인
+            카카오 아이디로 로그인
           </LoginButton>
         </a>
 
+        <br />
         <a href="/login/auth/google" style={{ color: 'black' }}>
           <LoginButton
             style={{
@@ -75,58 +104,14 @@ export default function Login() {
             <img
               src="img/google.png"
               alt="구글로그인"
-              style={{ width: '8%', position: 'absolute', left: '10%' }}
+              style={{ width: '10%', position: 'absolute', left: '8%' }}
             />
-            구글 간편로그인
+            구글 아이디로 로그인
           </LoginButton>
         </a>
+        <GoogleLoginBtn />
       </div>
     );
-
-    // 공식 png
-    //   return (
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         alignItems: "center",
-    //       }}
-    //     >
-    //       <div
-    //         className="LoginBox"
-    //         style={{ padding: "3rem", marginTop: "3rem" }}
-    //       >
-    //         <p>
-    //           <a href="/login/auth/naver" style={{ color: "white" }}>
-    //             <img
-    //               src="img/네이버로그인.png"
-    //               alt="네이버로그인"
-    //               style={{ width: "35%" }}
-    //             />
-    //           </a>
-    //         </p>
-    //         <p>
-    //           <a href="/login/auth/kakao">
-    //             <img
-    //               src="img/카카오로그인.png"
-    //               alt="카카오로그인"
-    //               style={{ width: "40%" }}
-    //             />
-    //           </a>
-    //         </p>
-
-    //         <p>
-    //           <a href="/login/auth/google" style={{ color: "white" }}>
-    //             <img
-    //               src="img/구글로그인.png"
-    //               alt="구글로그인"
-    //               style={{ width: "40%" }}
-    //             />
-    //           </a>
-    //         </p>
-    //       </div>
-    //     </div>
-    //   );
   }
 
   return (
