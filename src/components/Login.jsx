@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import GoogleLoginBtn from './GoogleLoginBtn';
-import NaverLogin from './NaverLogin';
+import Header from './common/Header';
 
 // KAKAO 로그인 용
 // CLIENT_ID 로 REST API 키 사용 필요
@@ -28,7 +27,7 @@ export default function Login() {
       font-weight: bold;
       border-radius: 10px;
       padding: 1rem;
-      margin-top: 5rem;
+      margin-top: 2rem;
       margin: auto;
       cursor: pointer;
       border: solid 0.5px;
@@ -44,79 +43,30 @@ export default function Login() {
         style={{
           padding: '3rem',
           // margin: '5rem',
-          marginTop: '3rem',
+          marginTop: '10rem',
           width: '70%',
         }}
       >
-        {/* <LoginButton
-          style={{
-            color: 'white',
-            backgroundColor: '#03c75a',
-          }}
-        >
-          <img
-            src="img/naver.png"
-            alt="네이버로그인"
-            style={{ width: '8%', position: 'absolute', left: '10%' }}
-          />
-          네이버 간편로그인
-        </LoginButton> */}
-
-        <NaverLogin />
-
-        {/* <a href={KAKAO_AUTH_URL}>
-          <LoginButton>
-            <img
-              src="img/카카오로그인.jpg"
-              alt="카카오로그인"
-              style={{
-                width: '100%',
-                height: '140%',
-                position: 'absolute',
-                margin: '1rem',
-                border: 'solid 0.5px',
-                borderColor: '#c8c8c8',
-                borderRadius: '10px',
-              }}
-            />
-          </LoginButton>
-        </a> */}
-
-        <br />
         <a href={KAKAO_AUTH_URL}>
           <LoginButton style={{ backgroundColor: ' #FEE500' }}>
             <img
               src="img/kakao.png"
               alt="카카오로그인"
-              style={{ width: '10%', position: 'absolute', left: '8%' }}
+              style={{ width: '10%', position: 'absolute', left: '6%' }}
             />
             카카오 아이디로 로그인
           </LoginButton>
         </a>
-
-        <br />
-        <a href="/login/auth/google" style={{ color: 'black' }}>
-          <LoginButton
-            style={{
-              backgroundColor: '#ffffff',
-            }}
-          >
-            <img
-              src="img/google.png"
-              alt="구글로그인"
-              style={{ width: '10%', position: 'absolute', left: '8%' }}
-            />
-            구글 아이디로 로그인
-          </LoginButton>
-        </a>
-        <GoogleLoginBtn />
       </div>
     );
+  }
+  function HomeImg() {
+    return <img alt="peopleimg" src="img/home.png" width={'80%'} />;
   }
 
   return (
     <LoginContainer>
-      <header>sssss</header>
+      <Header />
       <a href="/">
         <img
           src="img/logo.png"
@@ -124,8 +74,8 @@ export default function Login() {
           style={{ width: '70%', marginTop: '20%' }}
         />
       </a>
+      <HomeImg />
       <LoginBtn />
-      Login
     </LoginContainer>
   );
 }

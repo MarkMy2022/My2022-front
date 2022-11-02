@@ -25,14 +25,6 @@ function App() {
           path="/oauth/callback/kakao"
           element={<KakaoRedirectHandler />}
         />
-        {/* <Route
-          path="/oauth/callback/naver"
-          element={<NaverRedirectHandler />}
-        />
-        <Route
-          path="/oauth/callback/google"
-          element={<GoogleRedirectHandler />}
-        /> */}
       </Routes>
     </>
   );

@@ -4,13 +4,26 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Modal from './Modal';
 import { React, useState } from 'react';
-import onShareKakaoClick from './kakaoShareBtn';
+import Header from './common/Header';
 
-function Header() {
+function HomeHeader() {
   return (
-    <div>
-      <img src="img/logo.png" alt="logo" width={150} />
-    </div>
+    <>
+      <div style={{ position: 'relative' }}>
+        <img
+          src="img/logo.png"
+          alt="logo"
+          width={150}
+          style={{
+            position: 'absolute',
+            left: '0',
+            right: '0',
+            margin: 'auto',
+          }}
+        />
+      </div>
+      <Header />
+    </>
   );
 }
 
@@ -93,15 +106,6 @@ function HomeButton() {
         >
           공유하기
         </Button>
-
-        <button
-          id="kakao-link-btn"
-          className="kakaoBtn"
-          type="button"
-          onClick={onShareKakaoClick}
-        >
-          공유하기
-        </button>
       </Stack>
     </div>
   );
@@ -119,7 +123,7 @@ export default function Home() {
   return (
     <>
       <Container fixed>
-        <Header />
+        <HomeHeader />
         <HeadingBox />
         <TitleBox />
         <HomeImg />
