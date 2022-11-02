@@ -9,7 +9,8 @@ import {
   FaRegListAlt,
   FaPencilAlt,
 } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../store/modules/users';
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -123,12 +124,19 @@ const MenuBtn = styled(FaBars)`
 `;
 
 function Header() {
+  const dispatch = useDispatch();
+
   const [isActive, setIsActive] = useState(false);
   const { userId } = useSelector((state) => state.user);
 
   const onMenuActive = () => {
     setIsActive(!isActive);
   };
+
+  const logoutUser = ()=>  {
+    dispatch(logout());
+    // navigate('/');
+  }
 
   return (
     <HeaderContainer>
@@ -146,9 +154,16 @@ function Header() {
               </ListItm>
             </li>
             <li className="list">
-              <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
-                마이페이지
-              </ListItm>
+              { userId ? <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
+                MY 2022 보기
+              </ListItm> : <ListItm to={`/login`} onClick={onMenuActive}>
+                MY 2022 작성하기
+              </ListItm>}
+            </li>
+            <li className="list">
+              { userId ? <ListItm to={`/`} onClick={logoutUser}>
+                로그아웃
+              </ListItm> : null}
             </li>
             <hr />
             <li className="intro">나만의 시상식 소개</li>

@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import React, { useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 // 각 댓글  틀
 // 수정버튼!!!!!!!!!!!!!!!!
 // 삭제 버튼 !!!!!!!!!!!!!1
 // 이름+비번+내용 모두 입력해야 등록될 수 있도록
-
 export default function CommentItem(props) {
+  const { answer } = useSelector((state) => state.post);
+
   // 수정
   async function editComment(editComment) {
     const result = await fetch(
-      `http://localhost:4000/posts/1/${props.item.comment_id}/editComment`,
+      `http://localhost:4000/posts/${answer.post_id}/${props.item.comment_id}/editComment`,
       {
         method: 'POST',
         headers: {
@@ -27,7 +29,7 @@ export default function CommentItem(props) {
   // 삭제
   async function delComment() {
     const result = await fetch(
-      `http://localhost:4000/posts/1/${props.item.comment_id}/delComment`,
+      `http://localhost:4000/posts/${answer.post_id}/${props.item.comment_id}/delComment`,
       {
         method: 'DELETE',
       }
@@ -48,7 +50,6 @@ export default function CommentItem(props) {
   const CommentItem = styled.div`
     width: 70%;
     height: auto;
-    /* border: 2px solid #fcf3d7; */
     border-radius: 10px;
     padding: 1rem;
     margin: 0.4rem;
@@ -59,11 +60,9 @@ export default function CommentItem(props) {
 
   const TextGroup = styled.div`
     margin-right: 1rem;
-    /* border: 1px solid; */
   `;
 
   function Button() {
-    // console.log("b", props);
     const BtnGroup = styled.ul`
       display: flex;
     `;
@@ -174,7 +173,6 @@ export default function CommentItem(props) {
               rows="3"
               placeholder="내용을 수정해주세요!"
               style={{
-                // marginRight: "1rem",
                 outline: 'none',
                 width: '100%',
                 padding: '0.3rem',
