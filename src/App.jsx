@@ -7,8 +7,9 @@ import ModifyPage from './pages/ModifyPage';
 import WritePage from './pages/WritePage';
 import ResultPage from './pages/ResultPage';
 import ResultModePage from './pages/ResultModePage';
-import Diary from './components/Diary';
 import ModifyPageTest from './pages/ModifyPageTest';
+import KakaoRedirectHandler from './components/KakaoRedirectHandler';
+import ModeChoosePage from './pages/ModeChoosePage';
 
 function App() {
   return (
@@ -19,9 +20,21 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/write" element={<WritePage />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/resultChoose" element={<ModeChoosePage />} />
         <Route path="/resultmode" element={<ResultModePage />} />
         <Route path="/modify" element={<ModifyPage />} />
-        <Route path="/modifyTest" element={<ModifyPageTest />} />
+        <Route
+          path="/oauth/callback/kakao"
+          element={<KakaoRedirectHandler />}
+        />
+        {/* <Route
+          path="/oauth/callback/naver"
+          element={<NaverRedirectHandler />}
+        />
+        <Route
+          path="/oauth/callback/google"
+          element={<GoogleRedirectHandler />}
+        /> */}
       </Routes>
     </>
   );

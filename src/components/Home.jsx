@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Modal from './Modal';
 import { React, useState } from 'react';
+import onShareKakaoClick from './kakaoShareBtn';
 
 function Header() {
   return (
@@ -92,6 +93,15 @@ function HomeButton() {
         >
           공유하기
         </Button>
+
+        <button
+          id="kakao-link-btn"
+          className="kakaoBtn"
+          type="button"
+          onClick={onShareKakaoClick}
+        >
+          공유하기
+        </button>
       </Stack>
     </div>
   );

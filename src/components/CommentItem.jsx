@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import React, { useState, useRef } from "react";
+import styled from 'styled-components';
+import React, { useState, useRef } from 'react';
 
 // 각 댓글  틀
 // 수정버튼!!!!!!!!!!!!!!!!
@@ -13,9 +13,9 @@ export default function CommentItem(props) {
     const result = await fetch(
       `http://localhost:4000/posts/1/${props.item.comment_id}/editComment`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(editComment),
       }
@@ -23,7 +23,7 @@ export default function CommentItem(props) {
     if (result.status === 201) {
       console.log(await result.json());
       props.getComment();
-    } else throw new Error("상태 이상");
+    } else throw new Error('상태 이상');
   }
 
   // 삭제
@@ -31,13 +31,13 @@ export default function CommentItem(props) {
     const result = await fetch(
       `http://localhost:4000/posts/1/${props.item.comment_id}/delComment`,
       {
-        method: "DELETE",
+        method: 'DELETE',
       }
     );
     if (result.status === 200) {
-      console.log("삭제 완료");
+      console.log('삭제 완료');
       props.getComment();
-    } else throw new Error("상태 이상");
+    } else throw new Error('상태 이상');
   }
 
   const [content, setContent] = useState(props.item.content);
@@ -92,19 +92,19 @@ export default function CommentItem(props) {
 
     // 수정 버튼
     const handleModify = () => {
-      const pwInput = prompt("비밀번호를 입력하세요.");
+      const pwInput = prompt('비밀번호를 입력하세요.');
       if (pwInput === props.item.password) {
-        modiDiv.current.style.display = "block";
+        modiDiv.current.style.display = 'block';
         reply.current.value = content;
-      } else alert("비밀번호가 틀렸습니다.");
+      } else alert('비밀번호가 틀렸습니다.');
     };
 
     // 삭제 버튼
     const handelDelete = (comment) => {
-      const pwInput = prompt("삭제하시겠습니까? 비밀번호를 입력하세요.");
+      const pwInput = prompt('삭제하시겠습니까? 비밀번호를 입력하세요.');
       if (pwInput === props.item.password) {
         delComment();
-      } else alert("비밀번호가 틀렸습니다.");
+      } else alert('비밀번호가 틀렸습니다.');
     };
 
     return (
@@ -124,8 +124,8 @@ export default function CommentItem(props) {
       content: reply.current.value,
     };
     editComment(comment);
-    // setContent(reply.current.value);
-    modiDiv.current.style.display = "none";
+    setContent(reply.current.value);
+    modiDiv.current.style.display = 'none';
   };
 
   const ModiModifyBtn = styled.button`
@@ -144,10 +144,10 @@ export default function CommentItem(props) {
       <Wrap>
         <CommentItem>
           <TextGroup>
-            <p className="nickName" style={{ paddingBottom: "0.3rem" }}>
+            <p className="nickName" style={{ paddingBottom: '0.3rem' }}>
               {props.item.name}
             </p>
-            <p className="content" style={{ wordBreak: "break-word" }}>
+            <p className="content" style={{ wordBreak: 'break-word' }}>
               {props.item.content}
             </p>
           </TextGroup>
@@ -156,20 +156,20 @@ export default function CommentItem(props) {
 
         <div
           className="modify"
-          style={{ display: "none", width: "60%" }}
+          style={{ display: 'none', width: '60%' }}
           ref={modiDiv}
         >
           <div
             className="modifybox"
             style={{
-              display: "flex",
-              padding: "0.7rem",
-              wordBreak: "break-word",
-              backgroundColor: "#ffeeee",
+              display: 'flex',
+              padding: '0.7rem',
+              wordBreak: 'break-word',
+              backgroundColor: '#ffeeee',
 
-              borderRadius: "10px",
-              flexDirection: "column",
-              alignItems: "center",
+              borderRadius: '10px',
+              flexDirection: 'column',
+              alignItems: 'center',
             }}
           >
             <textarea
@@ -178,11 +178,11 @@ export default function CommentItem(props) {
               placeholder="내용을 수정해주세요!"
               style={{
                 // marginRight: "1rem",
-                outline: "none",
-                width: "100%",
-                padding: "0.3rem",
-                height: "auto",
-                resize: "none",
+                outline: 'none',
+                width: '100%',
+                padding: '0.3rem',
+                height: 'auto',
+                resize: 'none',
               }}
             />
 

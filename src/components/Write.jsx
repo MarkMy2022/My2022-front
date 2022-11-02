@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
-import { createPost, readPost } from '../modules/post';
+import { createPost } from '../modules/post';
 import GlobalButton from './common/GlobalButton';
 const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
 `;
+
 const QuestionsContainer = styled.ul`
   width: 100%;
   background-color: #fff;
@@ -23,6 +24,7 @@ const QuestionsContainer = styled.ul`
   align-items: center;
   padding-left: 0;
 `;
+
 const Description = styled.div`
   width: 100%;
   & span {
@@ -37,6 +39,7 @@ const Description = styled.div`
     }
   }
 `;
+
 const NicknameInputContainer = styled.div`
   width: 80%;
   height: 100px;
@@ -62,8 +65,8 @@ const NicknameInputContainer = styled.div`
     font-weight: 600;
   }
 `;
+
 function Write() {
-  const { post } = useSelector((state) => state.post);
   const [nickname, setNickname] = useState('');
   const [anwser, setAnwser] = useState({
     a1: '',
@@ -85,6 +88,7 @@ function Write() {
     a9: '',
     a10: '',
   });
+
   const {
     a1,
     d1,
@@ -102,34 +106,40 @@ function Write() {
     d7,
     a8,
     d8,
-    d9,
-    d10,
+    a9,
+    a10,
   } = anwser;
+
   // const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const nicknameChangeHandler = (event) => {
     setNickname(event.target.value);
   };
+
   const anwserChangeHandler = (event) => {
     setAnwser({
       ...anwser,
       [event.target.name]: event.target.value,
     });
   };
+
   const imgChangeHandler = (event) => {};
+
   async function createPostApi(body) {
     await axios
-      .post('http://localhost:3030/posts/new', body)
+      .post('http://localhost:4000/posts/new', body)
       .then((res) => {
         console.log(res.data);
-        return res.data;
+        return res.data.message;
       })
       .catch((err) => console.log(err));
   }
+
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
-      post_user: '로그인 아이디(카카오네이버구글)',
+      user_id: 'b',
       post_content: {
         name: nickname,
         a1,
@@ -148,8 +158,8 @@ function Write() {
         d7,
         a8,
         d8,
-        d9,
-        d10,
+        a9,
+        a10,
       },
     };
     const request = createPostApi(body);
@@ -171,32 +181,22 @@ function Write() {
       d7: '',
       a8: '',
       d8: '',
-      d9: '',
-      d10: '',
+      a9: '',
+      a10: '',
     });
     setNickname('');
     // navigate('/');
   };
-  // 결과 조회
-  // const getPost = async () => {
-  //   const request = await axios
-  //     .get(`http://localhost:4000/posts/a`)
-  //     .then((res) => {
-  //       console.log(res.data.post);
-  //       return res.data.post;
-  //     });
-  //   dispatch(readPost(request));
-  //   console.log(post.post_content.name);
-  // };
+
   return (
     <WriteContainer onSubmit={onSubmitHandler}>
       <QuestionsContainer>
         <Description>
           <span>
             간단한 답변은 ‘명사’로 작성해주세요 (결과 페이지에는 간단한 답변만
-            나와요:미소짓는_상기된_얼굴:)
+            나와요.😊)
           </span>
-          <span>상세 답변은 자유롭게 작성해주세요</span>
+          <span>상세 답변은 자유롭게 작성해주세요.</span>
         </Description>
         <NicknameInputContainer>
           {/* <input
@@ -231,8 +231,6 @@ function Write() {
           img_change={imgChangeHandler}
         />
       </QuestionsContainer>
-      {/* <div>{post?.post_content.name}</div> */}
-      {/* <button onClick={getPost}>조회!</button> */}
       <GlobalButton />
     </WriteContainer>
   );
