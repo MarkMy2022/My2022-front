@@ -11,12 +11,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { readPost } from '../modules/post';
 
 export default function ResultPage() {
+  const params = useParams();
+  const id = params.id;
+
   const dispatch = useDispatch();
   const { answer } = useSelector((state) => state.post);
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:4000/posts/a`)
+      .get(`http://localhost:4000/posts/${id}`)
       .then((res) => {
+        console.log(res.data);
         return res.data.post;
       });
     dispatch(readPost(request));
@@ -26,15 +30,12 @@ export default function ResultPage() {
     getPost();
   }, []);
 
-  const params = useParams();
-  const id = params.id;
-
   return (
     <>
       <Header />
       {answer.post_content ? (
         <>
-          <Result user_id={id} /> <CommentForm />
+          <Result /> <CommentForm />
         </>
       ) : null}
     </>

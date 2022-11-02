@@ -152,7 +152,7 @@ function Write() {
     };
     const request = createPostApi(body);
     dispatch(createPost(request));
-    navigate(`/result/b`);
+    navigate(`/result/${userId}`);
   };
 
   return (

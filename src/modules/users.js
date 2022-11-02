@@ -1,10 +1,12 @@
 const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';
 
-export function login(loginInfo) {
+export function login(loginInfo, posted) {
   return {
     type: LOGIN,
-    payload: loginInfo,
+    id: loginInfo.id,
+    name: loginInfo.kakao_account.profile.nickname,
+    posted,
   };
 }
 
@@ -16,7 +18,9 @@ export function logout() {
 
 const initState = {
   userId: '',
+  userName: '',
   isLogin: false,
+  havePost: false,
 };
 
 export default function usersReducer(state = initState, action) {
@@ -27,14 +31,18 @@ export default function usersReducer(state = initState, action) {
     case LOGIN:
       return {
         ...state,
-        userId: action.payload.id,
+        userId: action.id,
+        userName: action.name,
         isLogin: true,
+        havePost: action.posted,
       };
     case LOGOUT:
       return {
         ...state,
         userId: '',
+        userName: '',
         isLogin: false,
+        havePost: false,
       };
     default:
       return state;
