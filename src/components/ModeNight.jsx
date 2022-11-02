@@ -8,14 +8,14 @@ import axios from 'axios';
 export default function ModeNight() {
   const dispatch = useDispatch();
   const [dataList, setDataList] = useState({});
-  const { anwser } = useSelector((state) => state.post);
+  const { answer } = useSelector((state) => state.post);
 
   const getPost = async () => {
-    console.log('리덕스', anwser);
+    console.log('리덕스', answer);
     const request = await axios
-      .get(`http://localhost:4000/posts/a`)
+      .get(`http://localhost:3030/posts/b`)
       .then((res) => {
-        console.log(anwser.name);
+        console.log(answer.name);
         setDataList(res.data.post);
         return res.data.post.post_content;
       });
@@ -63,7 +63,7 @@ export default function ModeNight() {
                 fontSize: '1.5rem',
               }}
             >
-              {anwser.name}님의
+              {answer.name}님의
             </p>
             <p
               style={{
@@ -85,7 +85,7 @@ export default function ModeNight() {
           }}
         >
           <p>1. 올해 가장 기억에 남는 사람은?</p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{anwser.a1}</p>
+          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{answer.a1}</p>
         </div>
 
         <div
@@ -96,7 +96,7 @@ export default function ModeNight() {
           }}
         >
           <p>2. 올해 가장 기억에 남는 장소는?</p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{anwser.a2}</p>
+          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{answer.a2}</p>
         </div>
 
         <div
@@ -107,7 +107,7 @@ export default function ModeNight() {
           }}
         >
           <p>3. 올해 가장 가치 있는 소비는?</p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{anwser.a3}</p>
+          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{answer.a3}</p>
         </div>
 
         <div
@@ -118,7 +118,7 @@ export default function ModeNight() {
           }}
         >
           <p>4. 올해 가장 기억에 남는 음식은? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{anwser.a4}</p>
+          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{answer.a4}</p>
         </div>
 
         <div
@@ -129,7 +129,7 @@ export default function ModeNight() {
           }}
         >
           <p>5. 올해 인상 깊었던 콘텐츠는? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{anwser.a5}</p>
+          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{answer.a5}</p>
         </div>
 
         <div
@@ -140,7 +140,7 @@ export default function ModeNight() {
           }}
         >
           <p>6. 올해 도전한 것은? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{anwser.a6}</p>
+          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>{answer.a6}</p>
         </div>
 
         <div

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import img1 from '../assets/img/primary_img(resultPage).JPG';
 import img2 from '../assets/img/prize(resultPage).JPG';
@@ -12,11 +12,27 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { FullscreenExit } from '@material-ui/icons';
 import GlobalStyle from './GlobalStyle';
-import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
-import SummarizeTwoToneIcon from '@mui/icons-material/SummarizeTwoTone';
+// import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
+/* import SummarizeTwoToneIcon from '@mui/icons-material/SummarizeTwoTone';
 import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
 import TagTwoToneIcon from '@mui/icons-material/TagTwoTone';
-import CollectionsTwoToneIcon from '@mui/icons-material/CollectionsTwoTone';
+import CollectionsTwoToneIcon from '@mui/icons-material/CollectionsTwoTone'; */
+
+// 다른 모드로 보기 컴포넌트(9개)
+import ModeNight from './ModeNight';
+import ModeHouse from './ModeHouse';
+import ModeMoonF from './ModeMoonF';
+import ModeMoonM from './ModeMoonM';
+import ModeLight from './ModeLight';
+import ModeSunset from './ModeSunset';
+import ModeSummary from './ModeSummary';
+import ModeDiary from './ModeDiary';
+
+/*****Start 컴포넌트 저장 모듈*****/
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+/*****End 컴포넌트 저장 모듈*****/
 
 const Base = styled.div`
   width: 100%;
@@ -28,7 +44,25 @@ const Base = styled.div`
   margin: 0 auto;
 `;
 
+const CenterPosition = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+`;
+
 function ResultMode({ no }) {
+  /*****Start Img Saving function*****/
+  const cardRef = useRef();
+  //사진으로 저장하기 버튼 이벤트
+  const onImgDownBtn = () => {
+    const mode = cardRef.current;
+    domtoimage.toBlob(document.querySelector('.mode')).then((blob) => {
+      saveAs(blob, 'result.png');
+    });
+  };
+  /*****End Img Saving function *****/
+
   const primaryModeBtn = () => {
     window.location.href = `/resultmode?post_id=${no}`;
   };
@@ -44,10 +78,11 @@ function ResultMode({ no }) {
 
   return (
     <Base>
-      <Card sx={{ width: 280, marginTop: 2, marginBottom: 2 }}>
-        <CardActionArea>
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <CardActionArea className="mode">
           <CardMedia />
-          <img style={{ width: '300px' }} src={img1} alt="기본 모드" />
+          <ModeNight />
+          {/* <img style={{ width: '300px' }} src={img1} alt="기본 모드" /> */}
           <CardContent>
             <Typography
               gutterBottom
@@ -55,23 +90,26 @@ function ResultMode({ no }) {
               component="div"
               fontFamily="InfinitySans-RegularA1"
             >
-              기본 모드
-              <SummarizeTwoToneIcon />
+              모드1
+              {/* <SummarizeTwoToneIcon /> */}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary" onClick={primaryModeBtn}>
-            <CheckTwoToneIcon />
-            <p>선택</p>
-          </Button>
-        </CardActions>
+        <CenterPosition>
+          <CardActions>
+            <Button size="small" color="primary" onClick={onImgDownBtn}>
+              <SaveAltIcon />
+              <p>사진으로 저장</p>
+            </Button>
+          </CardActions>
+        </CenterPosition>
       </Card>
 
-      <Card sx={{ width: 300, marginTop: 2, marginBottom: 2 }}>
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
         <CardActionArea>
           <CardMedia />
-          <img style={{ width: '300px' }} src={img2} alt="시상 모드" />
+          {/* <img style={{ width: '300px' }} src={img2} alt="시상 모드" /> */}
+          <ModeHouse />
           <CardContent>
             <Typography
               gutterBottom
@@ -79,23 +117,24 @@ function ResultMode({ no }) {
               component="div"
               fontFamily="InfinitySans-RegularA1"
             >
-              시상 모드
-              <EmojiEventsTwoToneIcon />
+              모드2
+              {/* <EmojiEventsTwoToneIcon /> */}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary" onClick={prizeModeBtn}>
-            <CheckTwoToneIcon />
-            <p>선택</p>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
           </Button>
         </CardActions>
       </Card>
 
-      <Card sx={{ width: 300, marginTop: 2, marginBottom: 2 }}>
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
         <CardActionArea>
           <CardMedia />
-          <img style={{ width: '300px' }} src={img3} alt="태그 모드" />
+          {/*           <img style={{ width: '300px' }} src={img3} alt="태그 모드" /> */}
+          <ModeMoonF />
           <CardContent>
             <Typography
               gutterBottom
@@ -103,23 +142,24 @@ function ResultMode({ no }) {
               component="div"
               fontFamily="InfinitySans-RegularA1"
             >
-              태그 모드
-              <TagTwoToneIcon />
+              모드3
+              {/* <TagTwoToneIcon /> */}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary" onClick={tagModeBtn}>
-            <CheckTwoToneIcon />
-            <p>선택</p>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
           </Button>
         </CardActions>
       </Card>
 
-      <Card sx={{ width: 300, marginTop: 2, marginBottom: 2 }}>
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
         <CardActionArea>
           <CardMedia />
-          <img style={{ width: '300px' }} src={img4} alt="일기 모드" />
+          {/*           <img style={{ width: '300px' }} src={img3} alt="태그 모드" /> */}
+          <ModeMoonM />
           <CardContent>
             <Typography
               gutterBottom
@@ -127,15 +167,115 @@ function ResultMode({ no }) {
               component="div"
               fontFamily="InfinitySans-RegularA1"
             >
-              일기 모드
-              <CollectionsTwoToneIcon />
+              모드4
+              {/* <TagTwoToneIcon /> */}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" onClick={tagModeBtn}>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
+          </Button>
+        </CardActions>
+      </Card>
+
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <CardActionArea>
+          <CardMedia />
+          {/*           <img style={{ width: '300px' }} src={img3} alt="태그 모드" /> */}
+          <ModeLight />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontFamily="InfinitySans-RegularA1"
+            >
+              모드5
+              {/* <TagTwoToneIcon /> */}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" onClick={tagModeBtn}>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
+          </Button>
+        </CardActions>
+      </Card>
+
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <CardActionArea>
+          <CardMedia />
+          {/*           <img style={{ width: '300px' }} src={img3} alt="태그 모드" /> */}
+          <ModeSunset />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontFamily="InfinitySans-RegularA1"
+            >
+              모드6
+              {/* <TagTwoToneIcon /> */}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" onClick={tagModeBtn}>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
+          </Button>
+        </CardActions>
+      </Card>
+
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <CardActionArea>
+          <CardMedia />
+          {/*           <img style={{ width: '300px' }} src={img3} alt="태그 모드" /> */}
+          <ModeSummary />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontFamily="InfinitySans-RegularA1"
+            >
+              모드7
+              {/* <TagTwoToneIcon /> */}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" onClick={tagModeBtn}>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
+          </Button>
+        </CardActions>
+      </Card>
+
+      <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <CardActionArea>
+          <CardMedia />
+          {/* <img style={{ width: '300px' }} src={img4} alt="일기 모드" /> */}
+          <ModeDiary />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontFamily="InfinitySans-RegularA1"
+            >
+              모드8
+              {/* <CollectionsTwoToneIcon /> */}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary" onClick={diaryModeBtn}>
-            <CheckTwoToneIcon />
-            <p>선택</p>
+            <SaveAltIcon />
+            <p>사진으로 저장</p>
           </Button>
         </CardActions>
       </Card>

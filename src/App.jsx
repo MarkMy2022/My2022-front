@@ -8,6 +8,7 @@ import WritePage from './pages/WritePage';
 import ResultPage from './pages/ResultPage';
 import ResultModePage from './pages/ResultModePage';
 import KakaoRedirectHandler from './components/KakaoRedirectHandler';
+import ModeChoosePage from './pages/ModeChoosePage';
 
 function App() {
   return (
