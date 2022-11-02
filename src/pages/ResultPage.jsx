@@ -8,8 +8,8 @@ import CommentForm from '../components/CommentForm';
 export default function ResultPage() {
   return (
     <>
-      {/* <Header />
-      <Result /> */}
+      <Header />
+      <Result />
       <CommentForm />
     </>
   );

@@ -4,9 +4,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import GlobalStyle from './GlobalStyle';
 import styled from 'styled-components';
-
 import axios from 'axios';
 
 // //icon
@@ -39,7 +37,7 @@ export default function ShowResult() {
 
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:3030/posts/b`)
+      .get(`http://localhost:4000/posts/c`)
       .then((res) => {
         console.log(anwser.name);
         setDataList(res.data.post);

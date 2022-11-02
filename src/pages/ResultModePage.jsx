@@ -15,17 +15,16 @@ import ModeStar from '../components/ModeStar';
 export default function ResultModePage() {
   return (
     <>
+      <Header></Header>
       <ModeNight />
-      {/* <ModeStar />
+      <ModeStar />
       <ModeHouse />
       <ModeMoonF />
       <ModeMoonM />
       <ModeLight />
       <ModeSunset />
       <ModeSummary />
-      <ModeDiary /> */}
-      {/* <Header></Header>
-      <ResultMode /> */}
+      <ModeDiary />
     </>
   );
 }
