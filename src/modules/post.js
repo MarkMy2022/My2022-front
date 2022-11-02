@@ -77,7 +77,7 @@ export function deletePost(payload) {
   };
 }
 const initialState = {
-  anwser: {},
+  answer: {},
   // posts: [],
   posted: null,
   updated: null,
@@ -98,20 +98,20 @@ export default function postReducer(state = initialState, action) {
     case POST_READ:
       return {
         ...state,
-        anwser: { ...action.payload },
+        answer: { ...action.payload },
       };
     case MODIFY:
       return {
         ...state,
-        // anwser: state.anwser.map((anwser) =>
-        //   anwser._id === action.payload._id ? action.payload : anwser
+        // answer: state.answer.map((answer) =>
+        //   answer._id === action.payload._id ? action.payload : answer
         // ),
         updated: action.payload,
       };
     case DELETE:
       return {
         ...state,
-        // anwser: state.anwser.filter((anwser) => anwser._id !== action.post_id),
+        // answer: state.answer.filter((answer) => answer._id !== action.post_id),
         deleted: action.payload,
       };
     default:
