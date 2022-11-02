@@ -12,22 +12,18 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { FullscreenExit } from '@material-ui/icons';
 import GlobalStyle from './GlobalStyle';
-// import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
-/* import SummarizeTwoToneIcon from '@mui/icons-material/SummarizeTwoTone';
-import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
-import TagTwoToneIcon from '@mui/icons-material/TagTwoTone';
-import CollectionsTwoToneIcon from '@mui/icons-material/CollectionsTwoTone'; */
 
 // 다른 모드로 보기 컴포넌트(9개)
-import ModeNight from './ModeNight';
-import ModeHouse from './ModeHouse';
-import ModeMoonF from './ModeMoonF';
-import ModeMoonM from './ModeMoonM';
-import ModeLight from './ModeLight';
-import ModeSunset from './ModeSunset';
-import ModeSummary from './ModeSummary';
-import ModeDiary from './ModeDiary';
+import ModeDiary from '../components/ModeDiary';
+import ModeSummary from '../components/ModeSummary';
+import ModeStar from '../components/ModeStar';
+import ModeNight from '../components/ModeNight';
+import ModeMoonF from '../components/ModeMoonF';
+import ModeMoonM from '../components/ModeMoonM';
+import ModeLight from '../components/ModeLight';
+import ModeSunset from '../components/ModeSunset';
+import ModeHouse from '../components/ModeHouse';
 
 /*****Start 컴포넌트 저장 모듈*****/
 import domtoimage from 'dom-to-image';

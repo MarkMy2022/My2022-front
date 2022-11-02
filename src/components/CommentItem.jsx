@@ -7,7 +7,6 @@ import React, { useState, useRef } from 'react';
 // 이름+비번+내용 모두 입력해야 등록될 수 있도록
 
 export default function CommentItem(props) {
-  // console.log(props.item);
   // 수정
   async function editComment(editComment) {
     const result = await fetch(
@@ -21,7 +20,6 @@ export default function CommentItem(props) {
       }
     );
     if (result.status === 201) {
-      console.log(await result.json());
       props.getComment();
     } else throw new Error('상태 이상');
   }
@@ -35,7 +33,6 @@ export default function CommentItem(props) {
       }
     );
     if (result.status === 200) {
-      console.log('삭제 완료');
       props.getComment();
     } else throw new Error('상태 이상');
   }

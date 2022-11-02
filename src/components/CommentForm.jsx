@@ -3,24 +3,41 @@ import React, { useEffect } from 'react';
 import { useState, useRef } from 'react';
 import CommentBoard from './CommentBoard';
 import Button from '@mui/material/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { readPost } from '../modules/post';
+import axios from 'axios';
 
 // 댓글폼!
 // 이름 , 비번, 내용 인풋!
 // 그리고 아래 (컴포넌트) **댓글 리스트(커멘트 보드) 보임
 
 export default function CommentForm() {
-  const [commentList, setCommentList] = useState([]);
+  const dispatch = useDispatch();
+  // 리덕스로 불러온 것
+  const { answer } = useSelector((state) => state.post);
+  // const [commentList, setCommentList] = useState([]);
+  const commentList = answer.post_comments;
 
   // 댓글 백엔드 연결
-  async function getComment() {
-    const result = await fetch('http://localhost:4000/posts/1');
-    if (result.status === 200) {
-      const post = await result.json();
-      if (post) setCommentList(post.post.post_comments);
-    } else throw new Error('상태 이상');
-  }
+  // async function getComment() {
+  //   const result = await fetch('http://localhost:4000/posts/a');
+  //   if (result.status === 200) {
+  //     const post = await result.json();
+  //     if (post) setCommentList(post.post.post_comments);
+  //     setDataList(answer.post_comments);
+  //   } else throw new Error('상태 이상');
+  // }
 
-  // 글 등록 백엔드 연결
+  const getPost = async () => {
+    const request = await axios
+      .get(`http://localhost:4000/posts/a`)
+      .then((res) => {
+        return res.data.post;
+      });
+    dispatch(readPost(request));
+  };
+
+  // 댓글 등록 백엔드 연결
   async function postComment(newComment) {
     const result = await fetch('http://localhost:4000/posts/1/newComment', {
       method: 'POST',
@@ -30,30 +47,9 @@ export default function CommentForm() {
       body: JSON.stringify(newComment),
     });
     if (result.status === 201) {
-      console.log(await result.json());
-      getComment();
+      getPost();
     } else throw new Error('상태 이상');
   }
-
-  // const [commentList, setCommentList] = useState([
-  //   { name: "혜영", password: "", content: "고생했어요 " },
-  //   { name: "종익", password: "", content: "고생하셨습니다." },
-  //   {
-  //     name: "다영",
-  //     password: "",
-  //     content: " 고생했어요~~ ",
-  //   },
-  //   {
-  //     name: "지현",
-  //     password: "",
-  //     content:
-  //       "모두 고생하셨습니다! 모두 고생하셨습니다! 모두 고생하셨습니다! 모두 고생하셨습니다!",
-  //   },
-  // ]);
-
-  useEffect(() => {
-    getComment();
-  }, []);
 
   const addComment = () => {
     const newComment = {
@@ -62,7 +58,6 @@ export default function CommentForm() {
       content: contentRef.current.value,
     };
     postComment(newComment);
-    setCommentList([...commentList, newComment]);
   };
 
   const nameRef = useRef();
@@ -149,10 +144,13 @@ export default function CommentForm() {
 
   return (
     <>
+      {/* <Container>
+        <CommentForm />
+      </Container> */}
+      <CommentBoard commentList={commentList} getComment={getPost} />
       <Container>
         <CommentForm />
       </Container>
-      <CommentBoard commentList={commentList} getComment={getComment} />
     </>
   );
 }

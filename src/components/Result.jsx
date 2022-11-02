@@ -25,6 +25,7 @@ const Base = styled.p`
 `;
 
 const ButtonBlock = styled.div`
+  width: 80%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -65,7 +66,7 @@ const DifferentModeBtn = styled.button`
   }
 `;
 
-function Result({ no }) {
+function Result({ no, user_id }) {
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
   if (!window.Kakao.isInitialized()) {
@@ -127,7 +128,7 @@ function Result({ no }) {
   return (
     <>
       <Base className="wholeCard">
-        <ShowResult />
+        <ShowResult user_id={user_id} />
       </Base>
       <ButtonBlock>
         <Button
@@ -147,18 +148,15 @@ function Result({ no }) {
             사진으로 저장하기
           </p>
         </Button>
-        <Button
-          style={{ width: '200px', display: 'flex', margin: '0 auto' }}
-          className="downPdfBtn"
-          onClick={onDownloadPdfBtn}
-          variant="contained"
-          color="error"
-          startIcon={<PictureAsPdfIcon />}
+        <KakaoShareBtn
+          id="kakao-link-btn"
+          className="kakaoBtn"
+          type="button"
+          onClick={onShareKakaoClick}
         >
-          <p href="" style={{ fontSize: '1rem' }}>
-            PDF로 저장하기
-          </p>
-        </Button>
+          공유하기
+          <img src={KakaoLogo} width={'7%'} height={'7%'} alt="kakao logo" />
+        </KakaoShareBtn>
       </ButtonBlock>
       <ButtonBlock>
         <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
@@ -170,16 +168,6 @@ function Result({ no }) {
         <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
           다른 모드로 만들기
         </DifferentModeBtn>
-
-        <KakaoShareBtn
-          id="kakao-link-btn"
-          className="kakaoBtn"
-          type="button"
-          onClick={onShareKakaoClick}
-        >
-          공유하기
-          <img src={KakaoLogo} width={'7%'} height={'7%'} alt="kakao logo" />
-        </KakaoShareBtn>
       </ButtonBlock>
     </>
   );

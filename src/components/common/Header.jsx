@@ -20,29 +20,6 @@ const HeaderContainer = styled.header`
   align-items: center;
 `;
 
-// const MenuLink = styled(NavLink)`
-//   text-decoration: none;
-
-//   &:visited {
-//     color: gray;
-//   }
-// `;
-
-// const MyPage = styled(FaUserFriends)`
-//   color: gray;
-//   font-size: 32px;
-// `;
-
-// const WritePage = styled(FaRegListAlt)`
-//   color: gray;
-//   font-size: 32px;
-// `;
-
-// const ModifyPage = styled(FaPencilAlt)`
-//   color: gray;
-//   font-size: 24px;
-// `;
-
 const DropdownMenu = styled.div`
   width: 20%;
   position: relative;
@@ -140,7 +117,7 @@ const UserCircle = styled(FaUserCircle)`
 
 const MenuBtn = styled(FaBars)`
   color: #333;
-  font-size: 32px;
+  font-size: 150%;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
 `;

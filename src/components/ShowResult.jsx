@@ -32,23 +32,22 @@ const NickBlock = styled.h1`
 
 export default function ShowResult() {
   const dispatch = useDispatch();
-  const [dataList, setDataList] = useState({});
-  const { anwser } = useSelector((state) => state.post);
+  const { answer } = useSelector((state) => state.post);
 
-  const getPost = async () => {
-    const request = await axios
-      .get(`http://localhost:4000/posts/c`)
-      .then((res) => {
-        console.log(anwser.name);
-        setDataList(res.data.post);
-        return res.data.post.post_content;
-      });
-    dispatch(readPost(request));
-  };
+  // const getPost = async () => {
+  //   const request = await axios
+  //     .get(`http://localhost:4000/posts/a`)
+  //     .then((res) => {
+  //       // setDataList(res.data.post);
+  //       dispatch(readPost(res.data.post));
+  //       return res.data.post;
+  //     });
+  //   // await dispatch(readPost(request));
+  // };
 
-  useEffect(() => {
-    getPost();
-  }, []);
+  // useEffect(() => {
+  //   getPost();
+  // }, []);
 
   return (
     <Paper
@@ -56,14 +55,14 @@ export default function ShowResult() {
         p: 4,
         margin: 'auto',
         mb: 4,
-        maxWidth: 500,
+        width: '80%',
         flexGrow: 1,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
     >
       <>
-        <NickBlock>{anwser.name}님의 2022년</NickBlock>
+        <NickBlock>{answer.post_content.name}님의 2022년</NickBlock>
         <Grid container spacing={1}>
           {/* <Grid item>
             <ButtonBase sx={{ width: 80, height: 140 }}>
@@ -90,7 +89,7 @@ export default function ShowResult() {
                   display={'flex'}
                   textAlign="start"
                 >
-                  {anwser.a1}
+                  {answer.post_content.a1}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -98,7 +97,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d1}
+                  {answer.post_content.d1}
                 </Typography>
               </Grid>
             </Grid>
@@ -138,7 +137,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a2}
+                  {answer.post_content.a2}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -146,7 +145,7 @@ export default function ShowResult() {
                   textAlign={'start'}
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d2}
+                  {answer.post_content.d2}
                 </Typography>
               </Grid>
             </Grid>
@@ -187,7 +186,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a3}
+                  {answer.post_content.a3}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -195,7 +194,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d3}
+                  {answer.post_content.d3}
                 </Typography>
               </Grid>
             </Grid>
@@ -231,7 +230,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a4}
+                  {answer.post_content.a4}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -239,7 +238,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d4}
+                  {answer.post_content.d4}
                 </Typography>
               </Grid>
             </Grid>
@@ -280,7 +279,7 @@ export default function ShowResult() {
                   textAlign="start"
                   // fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a5}
+                  {answer.post_content.a5}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -288,7 +287,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d5}
+                  {answer.post_content.d5}
                 </Typography>
               </Grid>
             </Grid>
@@ -329,7 +328,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a6}
+                  {answer.post_content.a6}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -337,7 +336,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d6}
+                  {answer.post_content.d6}
                 </Typography>
               </Grid>
             </Grid>
@@ -378,7 +377,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a7}
+                  {answer.post_content.a7}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -386,7 +385,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d7}
+                  {answer.post_content.d7}
                 </Typography>
               </Grid>
             </Grid>
@@ -427,7 +426,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a8}
+                  {answer.post_content.a8}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -435,7 +434,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.d8}
+                  {answer.post_content.d8}
                 </Typography>
               </Grid>
             </Grid>
@@ -476,7 +475,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a9}
+                  {answer.post_content.a9}
                 </Typography>
               </Grid>
             </Grid>
@@ -517,7 +516,7 @@ export default function ShowResult() {
                   textAlign="start"
                   fontFamily="Pretendard-Regular"
                 >
-                  {anwser.a10}
+                  {answer.post_content.a10}
                 </Typography>
               </Grid>
             </Grid>
