@@ -22,7 +22,6 @@ function App() {
         <Route path="/result" element={<ResultPage />} />
         <Route path="/resultmode" element={<ResultModePage />} />
         <Route path="/modify" element={<ModifyPage />} />
-        <Route path="/modeChoose" element={<ModifyPage />} />
         <Route
           path="/oauth/callback/kakao"
           element={<KakaoRedirectHandler />}
