@@ -9,7 +9,6 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, modifyPost, readPost } from '../modules/post';
 import { useEffect } from 'react';
-import { red } from '@material-ui/core/colors';
 
 const QuestionFormContainer = styled.li`
   position: relative;
@@ -103,11 +102,10 @@ function QuestionForm({ img_change }) {
   // const imgInputRef = useRef();
   const dispatch = useDispatch();
   const { anwser } = useSelector((state) => state.post);
-  const [anwsers, setAnwsers] = useState(anwser);
-  // console.log(anwser, '대답!');
-  console.log(anwsers.a1, 'a1');
+  const [anwsers, setAnwsers] = useState({});
+  // console.log(anwanser, '대답!');
+  // console.log(anwsers.a1, 'a1');
   const {
-    name,
     a1,
     d1,
     a2,
@@ -124,8 +122,8 @@ function QuestionForm({ img_change }) {
     d7,
     a8,
     d8,
-    d9,
-    d10,
+    a9,
+    a10,
   } = anwsers;
 
   const anwserChangeHandler = (event) => {
@@ -133,24 +131,22 @@ function QuestionForm({ img_change }) {
       ...anwsers,
       [event.target.name]: event.target.value,
     });
-    console.log(a1, d1, '체인지!');
   };
 
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:4000/posts/b`)
+      .get(`http://localhost:4000/posts/a`)
       .then((res) => {
-        console.log(res.data.post.post_content);
+        setAnwsers(res.data.post.post_content);
         return res.data.post.post_content;
       });
 
     dispatch(readPost(request));
-    // console.log(post.post_content.name);
   };
 
   const onUpdatePost = async (payload) => {
     await axios
-      .post('http://localhost:4000/posts/1/edit', payload)
+      .post('http://localhost:4000/posts/4/edit', payload)
       .then((res) => {
         console.log(res.data.message);
         return res.data.message;
@@ -160,32 +156,9 @@ function QuestionForm({ img_change }) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
     const body = {
-      post_user: '코린이',
-      post_content: {
-        name,
-        a1,
-        d1,
-        a2,
-        d2,
-        a3,
-        d3,
-        a4,
-        d4,
-        a5,
-        d5,
-        a6,
-        d6,
-        a7,
-        d7,
-        a8,
-        d8,
-        d9,
-        d10,
-      },
+      post_content: anwsers,
     };
-
     const request = onUpdatePost(body);
     dispatch(modifyPost(request));
   };
@@ -233,7 +206,8 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             name="a1"
             defaultValue={anwser.a1}
@@ -283,11 +257,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a2"
-            value={anwser.a2}
+            defaultValue={anwser.a2}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -307,7 +282,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d2"
             required={true}
-            value={anwser.d2}
+            defaultValue={anwser.d2}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -335,11 +310,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a3"
-            value={anwser.a3}
+            defaultValue={anwser.a3}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -359,7 +335,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d3"
             required={true}
-            value={anwser.d3}
+            defaultValue={anwser.d3}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -387,11 +363,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a4"
-            value={anwser.a4}
+            defaultValue={anwser.a4}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -411,7 +388,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d4"
             required={true}
-            value={anwser.d4}
+            defaultValue={anwser.d4}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -439,11 +416,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a5"
-            value={anwser.a5}
+            defaultValue={anwser.a5}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -463,7 +441,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d5"
             required={true}
-            value={anwser.d5}
+            defaultValue={anwser.d5}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -491,11 +469,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a6"
-            value={anwser.a6}
+            defaultValue={anwser.a6}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -515,7 +494,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d6"
             required={true}
-            value={anwser.d6}
+            defaultValue={anwser.d6}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -543,11 +522,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a7"
-            value={anwser.a7}
+            defaultValue={anwser.a7}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -567,7 +547,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d7"
             required={true}
-            value={anwser.d7}
+            defaultValue={anwser.d7}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -595,11 +575,12 @@ function QuestionForm({ img_change }) {
           }}
         >
           <TextField
-            rows={2}
+            multiline
+            rows={1}
             fullWidth
             label="간단 답변"
             name="a8"
-            value={anwser.a8}
+            defaultValue={anwser.a8}
             onChange={anwserChangeHandler}
             required={true}
           />
@@ -619,7 +600,7 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d8"
             required={true}
-            value={anwser.d8}
+            defaultValue={anwser.d8}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -646,9 +627,9 @@ function QuestionForm({ img_change }) {
             rows={6}
             fullWidth
             label="상세 답변"
-            name="d9"
+            name="a9"
             required={true}
-            value={anwser.d9}
+            defaultValue={anwser.a9}
             onChange={anwserChangeHandler}
           />
         </Box>
@@ -675,9 +656,9 @@ function QuestionForm({ img_change }) {
             rows={6}
             fullWidth
             label="상세 답변"
-            name="d10"
+            name="a10"
             required={true}
-            value={anwser.d10}
+            defaultValue={anwser.a10}
             onChange={anwserChangeHandler}
           />
         </Box>
