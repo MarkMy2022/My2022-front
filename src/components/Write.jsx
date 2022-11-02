@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
 import { createPost } from '../modules/post';
 import GlobalButton from './common/GlobalButton';
+import { useSelector } from 'react-redux';
 const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
@@ -67,6 +68,7 @@ const NicknameInputContainer = styled.div`
 `;
 
 function Write() {
+  const { userId } = useSelector((state) => state.user);
   const [nickname, setNickname] = useState('');
   const [anwser, setAnwser] = useState({
     a1: '',
@@ -139,7 +141,7 @@ function Write() {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const body = {
-      post_user: 'b',
+      user_id: userId,
       post_content: {
         name: nickname,
         a1,

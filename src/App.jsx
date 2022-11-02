@@ -7,8 +7,6 @@ import ModifyPage from './pages/ModifyPage';
 import WritePage from './pages/WritePage';
 import ResultPage from './pages/ResultPage';
 import ResultModePage from './pages/ResultModePage';
-import Diary from './components/Diary';
-import ModifyPageTest from './pages/ModifyPageTest';
 import KakaoRedirectHandler from './components/KakaoRedirectHandler';
 
 function App() {
@@ -19,7 +17,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/write" element={<WritePage />} />
-        <Route path="/result" element={<ResultPage />} />
+        <Route path="/result/:id" element={<ResultPage />} />
         <Route path="/resultmode" element={<ResultModePage />} />
         <Route path="/modify" element={<ModifyPage />} />
         <Route

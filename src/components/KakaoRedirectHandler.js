@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../modules/users';
 
 const KakaoRedirectHandler = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,9 +42,9 @@ const KakaoRedirectHandler = () => {
 
         if (userResponese.status === 200) {
           const userKaKaoInfo = await userResponese.json();
-
           console.log(userKaKaoInfo);
-          navigate('/');
+          dispatch(login(userKaKaoInfo));
+          navigate('/write');
         } else {
           alert('카카오 로그인 회원 정보 획득 실패');
           navigate('/login');
@@ -53,7 +55,7 @@ const KakaoRedirectHandler = () => {
       }
     }
     loginFetch();
-  }, []);
+  }, [dispatch, navigate]);
 };
 
 export default KakaoRedirectHandler;

@@ -9,6 +9,7 @@ import {
   FaRegListAlt,
   FaPencilAlt,
 } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -146,6 +147,7 @@ const MenuBtn = styled(FaBars)`
 
 function Header() {
   const [isActive, setIsActive] = useState(false);
+  const { userId } = useSelector((state) => state.user);
 
   const onMenuActive = () => {
     setIsActive(!isActive);
@@ -167,7 +169,7 @@ function Header() {
               </ListItm>
             </li>
             <li className="list">
-              <ListItm to="/" onClick={onMenuActive}>
+              <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
                 마이페이지
               </ListItm>
             </li>
