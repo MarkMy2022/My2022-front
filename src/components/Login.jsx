@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import GoogleLoginBtn from './GoogleLoginBtn';
 import NaverLogin from './NaverLogin';
-import GoogleLogin from './GoogleLogin';
 
 // KAKAO 로그인 용
 // CLIENT_ID 로 REST API 키 사용 필요
@@ -109,7 +109,7 @@ export default function Login() {
             구글 아이디로 로그인
           </LoginButton>
         </a>
-        {/* <GoogleLogin /> */}
+        <GoogleLoginBtn />
       </div>
     );
   }
