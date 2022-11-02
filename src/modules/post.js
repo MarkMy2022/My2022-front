@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 const POSTS_READ = 'post/POSTS_READ';
 const POST_READ = 'post/POST_READ';
 const CREATE = 'post/CREATE';
@@ -51,7 +51,7 @@ export function createPost(payload) {
   console.log('포스트 작성!');
   return {
     type: CREATE,
-    payload: payload.message,
+    payload: payload,
   };
 }
 export function modifyPost(payload) {
@@ -64,30 +64,31 @@ export function modifyPost(payload) {
     payload,
   };
 }
-export function deletePost(post_id) {
-  const request = axios
-    .delete(`http://localhost:4000/posts/${post_id}/delete`)
-    .then((res) => res.data);
+
+export function deletePost(payload) {
+  // const request = axios
+  //   .delete(`http://localhost:4000/posts/${post_id}/delete`)
+  //   .then((res) => res.data);
   console.log('포스트 삭제!');
   return {
     type: DELETE,
-    payload: request,
-    post_id,
+    payload,
+    // post_id,
   };
 }
 const initialState = {
-  anwser: {}, // posts로 바꿔야 함
-  post: [],
-  posted: {}, // 추후에 문자열로 바꿔야 할 수도
-  updated: {},
-  // result: {},
+  anwser: {},
+  // posts: [],
+  posted: null,
+  updated: null,
+  deleted: null,
 };
 export default function postReducer(state = initialState, action) {
   switch (action.type) {
     case CREATE:
       return {
         ...state,
-        posted: { ...action.payload },
+        posted: action.payload,
       };
     case POSTS_READ:
       return {
@@ -105,12 +106,13 @@ export default function postReducer(state = initialState, action) {
         // anwser: state.anwser.map((anwser) =>
         //   anwser._id === action.payload._id ? action.payload : anwser
         // ),
-        updated: { ...action.payload },
+        updated: action.payload,
       };
     case DELETE:
       return {
         ...state,
         // anwser: state.anwser.filter((anwser) => anwser._id !== action.post_id),
+        deleted: action.payload,
       };
     default:
       return state;
