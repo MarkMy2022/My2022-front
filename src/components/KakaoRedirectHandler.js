@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../modules/users';
+import axios from 'axios';
 
 const KakaoRedirectHandler = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,24 @@ const KakaoRedirectHandler = () => {
     const KAKAO_CLIENT_ID = '8c4fe302ab56aaa4483671505fe3adff';
     const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
 
-    console.log(CODE);
+    // console.log(CODE);
 
     async function loginFetch() {
+      const getInfo = async (info) => {
+        const request = await axios
+          .get(`http://localhost:4000/posts/new/${info.id}`)
+          .then((res) => {
+            return res.data.posted;
+          });
+        if (request) {
+          dispatch(login(info, true));
+          navigate(`/result/${info.id}`);
+        } else {
+          dispatch(login(info, false));
+          navigate('/write');
+        }
+      };
+
       const tokenResponse = await fetch(
         `https://kauth.kakao.com/oauth/token?grant_type=${GRANT_TYPE}&client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&code=${CODE}`,
         {
@@ -30,7 +46,7 @@ const KakaoRedirectHandler = () => {
       if (tokenResponse.status === 200) {
         const tokenData = await tokenResponse.json();
 
-        console.log(tokenData);
+        // console.log(tokenData);
 
         const userResponese = await fetch(`https://kapi.kakao.com/v2/user/me`, {
           method: 'POST',
@@ -43,8 +59,7 @@ const KakaoRedirectHandler = () => {
         if (userResponese.status === 200) {
           const userKaKaoInfo = await userResponese.json();
           console.log(userKaKaoInfo);
-          dispatch(login(userKaKaoInfo));
-          navigate('/write');
+          getInfo(userKaKaoInfo);
         } else {
           alert('카카오 로그인 회원 정보 획득 실패');
           navigate('/login');

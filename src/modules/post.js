@@ -36,7 +36,6 @@ export function deletePost(payload) {
 }
 const initialState = {
   answer: {},
-  // posts: [],
   posted: null,
   updated: null,
   deleted: null,

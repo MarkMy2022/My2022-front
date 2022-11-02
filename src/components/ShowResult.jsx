@@ -31,7 +31,7 @@ const NickBlock = styled.h1`
   align-items: center;
 `;
 
-export default function ShowResult({ user_id }) {
+export default function ShowResult() {
   const dispatch = useDispatch();
   const { answer } = useSelector((state) => state.post);
 
