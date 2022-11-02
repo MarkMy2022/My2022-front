@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 function Logo() {
   return (
@@ -10,6 +11,8 @@ function Logo() {
 }
 
 export default function ModeLight() {
+  const { answer } = useSelector((state) => state.post);
+
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
@@ -55,7 +58,7 @@ export default function ModeLight() {
             }}
           >
             <p>기억에 남는 사람</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a1}</p>
           </div>
 
           <div
@@ -68,7 +71,7 @@ export default function ModeLight() {
             }}
           >
             <p>기억에 남는 장소</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a2}</p>
           </div>
         </div>
 
@@ -92,7 +95,7 @@ export default function ModeLight() {
             }}
           >
             <p>가치 있는 소비</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a3}</p>
           </div>
 
           <div
@@ -104,7 +107,7 @@ export default function ModeLight() {
             }}
           >
             <p>기억에 남는 음식</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a4}</p>
           </div>
         </div>
 
@@ -128,7 +131,7 @@ export default function ModeLight() {
             }}
           >
             <p>인상 깊었던 콘텐츠</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a5}</p>
           </div>
 
           <div
@@ -141,7 +144,7 @@ export default function ModeLight() {
             }}
           >
             <p>도전</p>
-            <p style={{ color: '#12887A' }}> 간단 답변</p>
+            <p style={{ color: '#12887A' }}> {answer.a6}</p>
           </div>
         </div>
 
@@ -166,7 +169,7 @@ export default function ModeLight() {
             }}
           >
             <p>성취</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a7}</p>
           </div>
 
           <div
@@ -178,7 +181,7 @@ export default function ModeLight() {
             }}
           >
             <p>나를 사로잡은 감정</p>
-            <p style={{ color: '#12887A' }}>간단 답변</p>
+            <p style={{ color: '#12887A' }}>{answer.a8}</p>
           </div>
         </div>
 
@@ -201,10 +204,7 @@ export default function ModeLight() {
             }}
           >
             <p>함께한 사람들에게</p>
-            <p style={{ color: '#FFFAEE' }}>
-              간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변간단
-              답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변
-            </p>
+            <p style={{ color: '#FFFAEE' }}>{answer.a9}</p>
           </div>
           <br />
           <div
@@ -214,10 +214,7 @@ export default function ModeLight() {
             }}
           >
             <p>나에게</p>
-            <p style={{ color: '#FFFAEE' }}>
-              간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변간단
-              답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변
-            </p>
+            <p style={{ color: '#FFFAEE' }}>{answer.a10}</p>
           </div>
         </div>
       </>

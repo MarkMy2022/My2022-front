@@ -19,8 +19,8 @@ import TagTwoToneIcon from '@mui/icons-material/TagTwoTone';
 import CollectionsTwoToneIcon from '@mui/icons-material/CollectionsTwoTone';
 import { useState } from 'react';
 
-import ModeDiary from '../components/ModeDiary';
 import ModeSummary from '../components/ModeSummary';
+import ModeDiary from '../components/ModeDiary';
 import ModeStar from '../components/ModeStar';
 import ModeNight from '../components/ModeNight';
 import ModeMoonF from '../components/ModeMoonF';
@@ -49,7 +49,6 @@ function ResultMode() {
   const ModeStarBtn = () => {
     setMode('star');
   };
-  const diaryModeBtn = () => {};
 
   const [mode, setMode] = useState('');
 

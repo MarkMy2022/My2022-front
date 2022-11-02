@@ -1,18 +1,19 @@
 import { WrapText } from '@material-ui/icons';
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function ModeLight() {
+  const dispatch = useDispatch();
+  const { answer } = useSelector((state) => state.post);
+
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
-    /* background-color: #ffffff; */
     background-image: url('img/modeStar.png');
     background-size: cover;
-    /* background-size: contain; */
     background-repeat: no-repeat;
     width: 90%;
-    /* height: 1000px; */
     text-align: center;
     margin: auto;
     padding: 3rem;
@@ -44,63 +45,56 @@ export default function ModeLight() {
               paddingLeft: '0.5rem',
             }}
           >
-            간단 답변
-          </Text>
-        </WrapText>
-
-        <WrapText>
-          <Text>기억에 남는 사람</Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a1}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>기억에 남는 장소</Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a2}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>가치 있던 소비</Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a3}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>기억에 남는 음식</Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a4}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>인상 깊었던 콘텐츠</Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a5}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>도전한 것</Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a6}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>성취한 것 </Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a7}
           </Text>
         </WrapText>
 
         <WrapText>
           <Text>나를 사로잡은 감정 </Text>
           <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            간단 답변
+            {answer.post_content.a8}
           </Text>
         </WrapText>
 
@@ -127,8 +121,7 @@ export default function ModeLight() {
                 textAlign: 'left',
               }}
             >
-              상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세
-              답변 상세 답변
+              {answer.post_content.a9}
             </Text>
           </WrapText>
 
@@ -153,8 +146,7 @@ export default function ModeLight() {
                 textAlign: 'left',
               }}
             >
-              상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세
-              답변 상세 답변 상세 답변 상세 답변
+              {answer.post_content.a10}
             </Text>
           </WrapText>
         </div>

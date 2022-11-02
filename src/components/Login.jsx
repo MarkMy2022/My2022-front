@@ -22,7 +22,7 @@ export default function Login() {
 
   function LoginBtn() {
     const LoginButton = styled.button`
-      width: 90%;
+      width: 100%;
       position: relative;
       font-weight: bold;
       border-radius: 10px;
@@ -42,8 +42,7 @@ export default function Login() {
         className="LoginBox"
         style={{
           padding: '3rem',
-          // margin: '5rem',
-          marginTop: '10rem',
+          marginTop: '3rem',
           width: '70%',
         }}
       >
@@ -54,7 +53,7 @@ export default function Login() {
               alt="카카오로그인"
               style={{ width: '10%', position: 'absolute', left: '6%' }}
             />
-            카카오 아이디로 로그인
+            카카오톡으로 간편 로그인
           </LoginButton>
         </a>
       </div>
@@ -71,7 +70,7 @@ export default function Login() {
         <img
           src="img/logo.png"
           alt="logo"
-          style={{ width: '70%', marginTop: '20%' }}
+          style={{ width: '70%', margin: '8% 0' }}
         />
       </a>
       <HomeImg />

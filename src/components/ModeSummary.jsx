@@ -3,8 +3,11 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import { useSelector } from 'react-redux';
 
 export default function ModeSummary() {
+  const { answer } = useSelector((state) => state.post);
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -27,17 +30,6 @@ export default function ModeSummary() {
         marginTop: '1rem',
       }}
     >
-      {/* <p
-        className="HeadingText"
-        style={{
-          margin: '1rem',
-          fontFamily: 'PretendardRegular',
-          fontSize: '1.5rem',
-          paddingBottom: '1rem',
-        }}
-      >
-        ㅇㅇ님의 2022년 🧸💖
-      </p> */}
       <Box sx={{ width: '100%' }}>
         <Grid
           justifyContent="center"
@@ -55,7 +47,7 @@ export default function ModeSummary() {
                 color: 'black',
               }}
             >
-              ㅇㅇ님의 2022년 🧸💖
+              {answer.post_content.name}님의 2022년 🧸💖
             </Item>
           </Grid>
           <Grid item xs={5}>
@@ -68,7 +60,7 @@ export default function ModeSummary() {
             >
               #사람
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a1}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item
@@ -80,59 +72,55 @@ export default function ModeSummary() {
             >
               #장소
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a2}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #소비
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a3}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #음식
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a4}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #콘텐츠
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a5}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #도전
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a6}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #성취
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a7}</Item>
           </Grid>
           <Grid item xs={5}>
             <Item style={{ backgroundColor: '#f1685e', color: 'black' }}>
               #감정
             </Item>
-            <Item>간단 답변</Item>
+            <Item>{answer.post_content.a8}</Item>
           </Grid>
           <Grid item xs={10}>
             <Item style={{ backgroundColor: '#3b2b57 ', color: 'white' }}>
               🏆 너에게 🏆
             </Item>
-            <Item>상세 답변</Item>
+            <Item>{answer.post_content.a9}</Item>
           </Grid>
           <Grid item xs={10}>
             <Item style={{ backgroundColor: '#3b2b57 ', color: 'white' }}>
               🏆 나에게 🏆
             </Item>
-            <Item>
-              상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세
-              답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변
-              상세 답변 상세 답변 상세 답변 상세 답변
-            </Item>
+            <Item>{answer.post_content.a10}</Item>
           </Grid>
         </Grid>
       </Box>

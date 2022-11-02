@@ -25,9 +25,11 @@ export default function ResultModePage() {
     const request = await axios
       .get(`http://localhost:4000/posts/a`)
       .then((res) => {
+        console.log('hihi');
+        dispatch(readPost(res.data.post));
         return res.data.post;
       });
-    dispatch(readPost(request));
+    // dispatch(readPost(request));
   };
 
   useEffect(() => {
@@ -36,17 +38,8 @@ export default function ResultModePage() {
 
   return (
     <>
-      {/* <ModeNight />
-      <ModeStar />
-      <ModeHouse />
-      <ModeMoonF />
-      <ModeMoonM />
-      <ModeLight />
-      <ModeSunset />
-      <ModeSummary />
-      <ModeDiary /> */}
-      <Header></Header>
-      <ResultMode />
+      <Header />
+      {answer.post_content ? <ResultMode /> : null}
     </>
   );
 }

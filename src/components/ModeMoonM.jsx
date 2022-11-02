@@ -1,8 +1,10 @@
-import { padding } from '@mui/system';
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 export default function ModeMoonM() {
+  const { answer } = useSelector((state) => state.post);
+
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
@@ -46,7 +48,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>기억에 남는 사람</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a1}</p>
           </div>
 
           <div
@@ -58,7 +60,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>기억에 남는 장소</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a2}</p>
           </div>
         </div>
 
@@ -82,7 +84,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>가치 있는 소비</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a3}</p>
           </div>
 
           <div
@@ -94,7 +96,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>기억에 남는 음식</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a4}</p>
           </div>
         </div>
 
@@ -118,7 +120,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>인상 깊었던 콘텐츠</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a5}</p>
           </div>
 
           <div
@@ -131,7 +133,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>도전</p>
-            <p style={{ color: '#FFCD4A' }}> 간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}> {answer.post_content.a6}</p>
           </div>
         </div>
 
@@ -156,7 +158,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>성취</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a7}</p>
           </div>
 
           <div
@@ -168,7 +170,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>나를 사로잡은 감정</p>
-            <p style={{ color: '#FFCD4A' }}>간단 답변</p>
+            <p style={{ color: '#FFCD4A' }}>{answer.post_content.a8}</p>
           </div>
         </div>
 
@@ -190,10 +192,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>함께한 사람들에게</p>
-            <p style={{ color: '#343331' }}>
-              간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변간단
-              답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변
-            </p>
+            <p style={{ color: '#343331' }}>{answer.post_content.a9}</p>
           </div>
 
           <div
@@ -202,10 +201,7 @@ export default function ModeMoonM() {
             }}
           >
             <p>나에게</p>
-            <p style={{ color: '#343331' }}>
-              간단 답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변간단
-              답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변
-            </p>
+            <p style={{ color: '#343331' }}>{answer.post_content.a10}</p>
           </div>
         </div>
       </>

@@ -1,36 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { readPost } from '../modules/post';
+import axios from 'axios';
 
 export default function ModeSunset() {
+  const dispatch = useDispatch();
+  const [dataList, setDataList] = useState({});
+  const { answer } = useSelector((state) => state.post);
+
+  const getPost = async () => {
+    console.log('리덕스', answer);
+    const request = await axios
+      .get(`http://localhost:4000/posts/2`)
+      .then((res) => {
+        console.log(answer.name);
+        setDataList(res.data.post);
+        return res.data.post.post_content;
+      });
+    dispatch(readPost(request));
+  };
+
+  useEffect(() => {
+    console.log('야');
+    getPost();
+  }, []);
   const TextBox = styled.div`
     border-radius: 2px;
-
-    /* background-color: #ffffff; */
     background-image: url('img/modeSunset.png');
     background-size: cover;
-    /* background-size: contain; */
     background-repeat: no-repeat;
     width: 90%;
-    /* height: 1000px; */
-    /* text-align: center; */
     margin: auto;
     padding: 3rem;
     word-break: keep-all;
     color: #fff;
     line-height: 1.5rem;
-    /* text-align: 'left'; */
   `;
 
   const WrapText = styled.div`
     display: 'flex';
     flex-direction: 'row';
-    /* text-align: 'left'; */
   `;
   const Text = styled.p`
     font-family: 'ChosunSm';
     font-size: 1rem;
     color: '#3F4E6B';
-    /* justify-content: 'flex-start'; */
     text-align: 'left';
   `;
 
@@ -51,7 +66,7 @@ export default function ModeSunset() {
               textAlign: 'left',
             }}
           >
-            간단 답변
+            {answer.post_content.a1}
           </Text>
         </WrapText>
 
@@ -63,7 +78,9 @@ export default function ModeSunset() {
           >
             # 기억에 남는 장소
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a2}
+          </Text>
         </WrapText>
 
         <WrapText>
@@ -74,7 +91,9 @@ export default function ModeSunset() {
           >
             # 가치 있던 소비
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a3}
+          </Text>
         </WrapText>
 
         <WrapText>
@@ -85,7 +104,9 @@ export default function ModeSunset() {
           >
             # 기억에 남는 음식
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a4}
+          </Text>
         </WrapText>
 
         <WrapText>
@@ -96,7 +117,9 @@ export default function ModeSunset() {
           >
             # 인상 깊었던 콘텐츠
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a5}
+          </Text>
         </WrapText>
 
         <WrapText>
@@ -107,7 +130,9 @@ export default function ModeSunset() {
           >
             # 도전한 것
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a6}
+          </Text>
         </WrapText>
 
         <WrapText>
@@ -118,7 +143,9 @@ export default function ModeSunset() {
           >
             # 성취한 것
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a7}
+          </Text>
         </WrapText>
 
         <WrapText>
@@ -129,7 +156,9 @@ export default function ModeSunset() {
           >
             # 나를 사로잡은 감정
           </Text>
-          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>간단 답변</Text>
+          <Text style={{ color: '#3F4E6B', textAlign: 'left' }}>
+            {answer.post_content.a8}
+          </Text>
         </WrapText>
 
         <div>
@@ -154,8 +183,7 @@ export default function ModeSunset() {
                 textAlign: 'left',
               }}
             >
-              상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세
-              답변 상세 답변
+              {answer.post_content.a9}
             </Text>
           </WrapText>
 
@@ -181,8 +209,7 @@ export default function ModeSunset() {
                 textAlign: 'left',
               }}
             >
-              상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세 답변 상세
-              답변 상세 답변 상세 답변 상세 답변
+              {answer.post_content.a10}
             </Text>
           </WrapText>
         </div>
