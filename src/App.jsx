@@ -18,7 +18,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/write" element={<WritePage />} />
-        <Route path="/result/:id" element={<ResultPage />} />
+        {/* <Route path="/result/:id" element={<ResultPage />} /> */}
+        <Route path="/result" element={<ResultPage />} />
         <Route path="/resultmode" element={<ResultModePage />} />
         <Route path="/modify" element={<ModifyPage />} />
         <Route
