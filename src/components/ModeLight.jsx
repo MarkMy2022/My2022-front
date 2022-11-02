@@ -206,10 +206,11 @@ export default function ModeLight() {
               답변 간단 답변 간단 답변 간단 답변 간단 답변 간단 답변
             </p>
           </div>
-
+          <br />
           <div
             style={{
               justifyContent: 'center',
+              paddingTop: '1rem',
             }}
           >
             <p>나에게</p>
