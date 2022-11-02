@@ -32,14 +32,14 @@ const NickBlock = styled.h1`
   align-items: center;
 `;
 
-export default function ShowResult() {
+export default function ShowResult({ user_id }) {
   const dispatch = useDispatch();
   const [dataList, setDataList] = useState({});
   const { anwser } = useSelector((state) => state.post);
 
   const getPost = async () => {
     const request = await axios
-      .get(`http://localhost:3030/posts/b`)
+      .get(`http://localhost:4000/posts/${user_id}`)
       .then((res) => {
         console.log(anwser.name);
         setDataList(res.data.post);
