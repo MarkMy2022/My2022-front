@@ -31,7 +31,6 @@ function HeadingBox() {
   const HeadingText = styled.p`
     font-size: 1.5rem;
     line-height: 1.5rem;
-    /* background-color: #c7f49d; */
     width: 300px;
     position: absolute;
     top: 50%;
