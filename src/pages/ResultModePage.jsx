@@ -11,7 +11,12 @@ export default function ResultModePage() {
       <Header />
       {answer.post_content ? (
         <ResultMode />
-      ) : <><p>잘못된 접근입니다!</p><Link to='/'>HOME</Link></>}
+      ) : (
+        <>
+          <p>잘못된 접근입니다!</p>
+          <Link to="/">HOME</Link>
+        </>
+      )}
     </>
   );
 }
