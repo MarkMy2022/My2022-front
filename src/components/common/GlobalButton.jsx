@@ -3,11 +3,16 @@ import { Button } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-export default function GlobalButton() {
+export default function GlobalButton({ clickEvent, text1, text2 }) {
   return (
     <>
-      <Button variant="text" color="error" startIcon={<ArrowBackIosIcon />}>
-        뒤로가기
+      <Button
+        variant="text"
+        color="error"
+        startIcon={<ArrowBackIosIcon />}
+        onClick={clickEvent}
+      >
+        {text1}
       </Button>
 
       <Button
@@ -16,7 +21,7 @@ export default function GlobalButton() {
         color="primary"
         endIcon={<ArrowForwardIosIcon />}
       >
-        저장하기
+        {text2}
       </Button>
     </>
   );
