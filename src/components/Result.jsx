@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-
 import { useSelector } from 'react-redux';
 /*****Start 컴포넌트 저장 모듈*****/
 import domtoimage from 'dom-to-image';
@@ -9,9 +8,7 @@ import { saveAs } from 'file-saver';
 import ShowResult from './ShowResult';
 import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
-import KakaoLogo from '../assets/img/kakao_logo.png';
 import { useNavigate } from 'react-router-dom';
-import onShareKakaoClick from './Home';
 
 const Base = styled.div`
   width: 100%;
@@ -26,42 +23,29 @@ const Base = styled.div`
 const ButtonBlock = styled.div`
   width: 80%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0 auto;
   justify-content: center;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 `;
 
-const ModifyBtn = styled.button`
-  padding: 1rem;
-  border: none;
-  margin-bottom: 0.5rem;
-  border-radius: 1rem;
-  &:hover {
-    cursor: pointer;
-    background-color: #444747d3;
-    color: white;
-  }
+const ButtonBlock2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 `;
+
 const KakaoShareBtn = styled.button`
   background: none;
   border: none;
+
   &:hover {
     cursor: pointer;
     color: #000000;
     text-decoration: underline;
-  }
-`;
-const DifferentModeBtn = styled.button`
-  padding: 1rem;
-  border: none;
-  background: none;
-  margin-bottom: 0.5rem;
-  border-radius: 1rem;
-  &:hover {
-    cursor: pointer;
-    background-color: #444747a4;
-    color: white;
   }
 `;
 
@@ -118,36 +102,43 @@ function Result() {
       <ButtonBlock>
         <Button
           style={{
-            width: '200px',
-            display: 'flex',
-            margin: '0 auto',
-            marginBottom: '10px',
+            marginRight: '10px',
+            backgroundColor: '#99CCCC',
           }}
           className="downBtn"
           onClick={onDownloadBtn}
           variant="contained"
-          color="info"
           startIcon={<SaveAltIcon />}
         >
           <p href="" style={{ fontSize: '1rem' }}>
             사진으로 저장하기
           </p>
         </Button>
+        <Button
+          style={{ backgroundColor: '#9999CC' }}
+          variant="contained"
+          className="differentBtn"
+          onClick={onDifferentClick}
+        >
+          <p href="" style={{ fontSize: '1rem' }}>
+            다른 모드로 만들기
+          </p>
+        </Button>
+      </ButtonBlock>
+      <ButtonBlock2>
         <KakaoShareBtn
           id="kakao-link-btn2"
           className="kakaoBtn"
           type="button"
           onClick={onShareKakaoClick}
         >
-          공유하기
-          <img src={KakaoLogo} width={'7%'} height={'7%'} alt="kakao logo" />
+          <p href="" style={{ fontSize: '1.5rem' }}>
+            공유하기
+          </p>
+          <br />
+          <img width="15%" src="/img/kakao_logo2.png" alt="카카오 로고2"></img>
         </KakaoShareBtn>
-      </ButtonBlock>
-      <ButtonBlock>
-        <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
-          다른 모드로 만들기
-        </DifferentModeBtn>
-      </ButtonBlock>
+      </ButtonBlock2>
     </>
   );
 }

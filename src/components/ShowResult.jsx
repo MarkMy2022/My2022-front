@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 /* import { postList } from './Data'; */
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
 import styled from 'styled-components';
-import axios from 'axios';
 
-// //icon
-// import Diversity1TwoToneIcon from '@mui/icons-material/Diversity1TwoTone';
-// import PlaceTwoToneIcon from '@mui/icons-material/PlaceTwoTone';
-// import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
-// import DinnerDiningTwoToneIcon from '@mui/icons-material/DinnerDiningTwoTone';
-// import MovieTwoToneIcon from '@mui/icons-material/MovieTwoTone';
-// import WhatshotTwoToneIcon from '@mui/icons-material/WhatshotTwoTone';
-// import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
-// import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
-// import AccessibilityTwoToneIcon from '@mui/icons-material/AccessibilityTwoTone';
-// import WcTwoToneIcon from '@mui/icons-material/WcTwoTone';
 import { useDispatch, useSelector } from 'react-redux';
-import { readPost } from '../modules/post';
 import ResultDropDown from './ResultDropDown';
 
 const NickBlock = styled.h1`
@@ -52,7 +38,14 @@ export default function ShowResult() {
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column">
             <Grid item xs>
-              <Typography gutterBottom variant="h6" component="div">
+              <Typography
+                fontFamily="Pretendard-Regular"
+                gutterBottom
+                variant="h5"
+                component="div"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
+              >
                 사람
               </Typography>
               <Typography
@@ -69,7 +62,9 @@ export default function ShowResult() {
                 color="text.secondary"
                 textAlign="center"
               >
-                {answer.post_content.a1}
+                <p style={{ wordBreak: 'keep-all' }}>
+                  {answer.post_content.a1}
+                </p>
               </Typography>
               <Typography
                 variant="body2"
@@ -91,9 +86,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 장소
               </Typography>
@@ -134,9 +131,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 소비
               </Typography>
@@ -175,7 +174,14 @@ export default function ShowResult() {
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column">
             <Grid item xs>
-              <Typography gutterBottom variant="h6" component="div">
+              <Typography
+                fontFamily="Pretendard-Regular"
+                gutterBottom
+                variant="h5"
+                component="div"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
+              >
                 음식
               </Typography>
               <Typography
@@ -215,9 +221,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 콘텐츠
               </Typography>
@@ -234,7 +242,7 @@ export default function ShowResult() {
                 variant="body3"
                 color="text.secondary"
                 textAlign="center"
-                // fontFamily="Pretendard-Regular"
+                fontFamily="Pretendard-Regular"
               >
                 {answer.post_content.a5}
               </Typography>
@@ -258,9 +266,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 도전
               </Typography>
@@ -301,9 +311,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 성취
               </Typography>
@@ -344,9 +356,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 감정
               </Typography>
@@ -387,9 +401,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 너에게
               </Typography>
@@ -423,9 +439,11 @@ export default function ShowResult() {
             <Grid item xs>
               <Typography
                 gutterBottom
-                variant="h6"
+                variant="h5"
                 component="div"
                 fontFamily="Pretendard-Regular"
+                display="inline"
+                boxShadow="inset 0 -10px 0 #d6432943"
               >
                 나에게
               </Typography>
