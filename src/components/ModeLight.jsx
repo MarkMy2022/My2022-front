@@ -38,9 +38,7 @@ export default function ModeLight() {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            padding: '1rem',
             justifyContent: 'space-around',
-
             paddingTop: '2rem',
           }}
         >
@@ -51,7 +49,7 @@ export default function ModeLight() {
               flexWrap: 'wrap',
               justifyContent: 'center',
               flexDirection: 'column',
-              width: '40%',
+              width: '50%',
             }}
           >
             <p>기억에 남는 사람</p>
@@ -64,7 +62,7 @@ export default function ModeLight() {
               flexWrap: 'wrap',
               justifyContent: 'center',
               flexDirection: 'column',
-              width: '40%',
+              width: '50%',
             }}
           >
             <p>기억에 남는 장소</p>
@@ -77,18 +75,16 @@ export default function ModeLight() {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            padding: '1rem',
             justifyContent: 'space-around',
           }}
         >
           <div
-            className="item"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '40%',
-              marginRight: '1rem',
+              flexDirection: 'column',
+              width: '50%',
             }}
           >
             <p>가치 있는 소비</p>
@@ -100,7 +96,8 @@ export default function ModeLight() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '40%',
+              flexDirection: 'column',
+              width: '50%',
             }}
           >
             <p>기억에 남는 음식</p>
@@ -118,13 +115,12 @@ export default function ModeLight() {
           }}
         >
           <div
-            className="item"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '40%',
-              marginRight: '1rem',
+              flexDirection: 'column',
+              width: '50%',
             }}
           >
             <p>인상 깊었던 콘텐츠</p>
@@ -136,8 +132,8 @@ export default function ModeLight() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '40%',
               flexDirection: 'column',
+              width: '50%',
             }}
           >
             <p>도전</p>
@@ -150,19 +146,16 @@ export default function ModeLight() {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            padding: '1rem',
             justifyContent: 'space-around',
           }}
         >
           <div
-            className="item"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '40%',
-              marginRight: '1rem',
               flexDirection: 'column',
+              width: '50%',
             }}
           >
             <p>성취</p>
@@ -174,7 +167,8 @@ export default function ModeLight() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '40%',
+              flexDirection: 'column',
+              width: '50%',
             }}
           >
             <p>나를 사로잡은 감정</p>

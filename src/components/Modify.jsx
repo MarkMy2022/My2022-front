@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, modifyPost, readPost } from '../modules/post';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { posted } from '../modules/users';
 import GlobalButton from './common/GlobalButton';
 
 const WriteContainer = styled.form`
@@ -150,24 +151,9 @@ function QuestionForm({ img_change }) {
     navigate(`/result/${answer.user_id}`);
   };
 
-  // const deleteApi = async () => {
-  //   await axios
-  //     .delete(`http://localhost:4000/posts/${params.postId}/delete`)
-  //     .then((res) => {
-  //       console.log(res.data.message);
-  //       return res.data.message;
-  //     });
-  // };
-
-  // const deleteP = () => {
-  //   const request = deleteApi();
-  //   dispatch(deletePost(request));
-  // };
-
   useEffect(() => {
     setNickname(answer.post_content.nickname);
     setAnswers(answer.post_content);
-    // getPost();
   }, []);
 
   return (
