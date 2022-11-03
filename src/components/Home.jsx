@@ -92,21 +92,19 @@ function HomeButton() {
     console.log(window.Kakao.isInitialized());
   }
 
-  const userId = '';
-
-  const shareKakaoLink = (userId) => {
+  const shareKakaoLink = () => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
       container: '#kakao-link-btn',
       templateId: 85063,
       templateArgs: {
-        userId: `${userId}`,
+        userId: '',
       },
     });
   };
 
   const onShareKakaoClick = () => {
-    shareKakaoLink(userId);
+    shareKakaoLink('');
   };
   /* ---------- End KAKAO SHARE ----------*/
 
