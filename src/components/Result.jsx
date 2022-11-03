@@ -14,6 +14,7 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KakaoLogo from '../assets/img/kakao_logo.png';
 import { useNavigate } from 'react-router-dom';
+import onShareKakaoClick from './Home';
 
 const Base = styled.p`
   width: 100%;
@@ -70,32 +71,33 @@ const DifferentModeBtn = styled.button`
 function Result() {
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
-  // if (!window.Kakao.isInitialized()) {
-  //   // @ts-ignore
-  //   //REST API KEY
-  //   window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
-  //   //@ts-ignore
-  //   // console.log(window.Kakao.isInitialized());
-  // }
+  if (!window.Kakao.isInitialized()) {
+    // @ts-ignore
+    //REST API KEY
+    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    //@ts-ignore
+    console.log(window.Kakao.isInitialized());
+  }
 
   const navigate = useNavigate();
   const { answer } = useSelector((state) => state.post);
+  const { userId } = useSelector((state) => state.user);
 
-  const userId = '';
+  const kakaoId = '';
 
-  const shareKakaoLink = (userId) => {
+  const shareKakaoLink = (kakaoId) => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
-      container: '#kakao-link-btn',
+      container: '#kakao-link-btn2',
       templateId: 85063,
       templateArgs: {
-        userId: `${userId}`,
+        userId: `${kakaoId}`,
       },
     });
   };
 
   const onShareKakaoClick = () => {
-    shareKakaoLink(userId);
+    shareKakaoLink(kakaoId);
   };
   /* ---------- End KAKAO SHARE ----------*/
 
@@ -143,7 +145,7 @@ function Result() {
           </p>
         </Button>
         <KakaoShareBtn
-          id="kakao-link-btn"
+          id="kakao-link-btn2"
           className="kakaoBtn"
           type="button"
           onClick={onShareKakaoClick}
@@ -153,11 +155,11 @@ function Result() {
         </KakaoShareBtn>
       </ButtonBlock>
       <ButtonBlock>
-        <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
+        {/* <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
           <p href="" style={{ fontSize: '1rem' }}>
             수정하기
           </p>
-        </ModifyBtn>
+        </ModifyBtn> */}
 
         <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
           다른 모드로 만들기

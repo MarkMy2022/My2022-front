@@ -1,4 +1,3 @@
-const POSTS_READ = 'post/POSTS_READ';
 const POST_READ = 'post/POST_READ';
 const CREATE = 'post/CREATE';
 const MODIFY = 'post/MODIFY';
@@ -47,11 +46,6 @@ export default function postReducer(state = initialState, action) {
         ...state,
         posted: action.payload,
       };
-    case POSTS_READ:
-      return {
-        ...state,
-        posts: [...action.payload],
-      };
     case POST_READ:
       return {
         ...state,
@@ -68,6 +62,7 @@ export default function postReducer(state = initialState, action) {
     case DELETE:
       return {
         ...state,
+        answer: {},
         // answer: state.answer.filter((answer) => answer._id !== action.post_id),
         deleted: action.payload,
       };

@@ -1,5 +1,6 @@
 const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';
+const POSTED = 'user/POSTED';
 
 export function login(loginInfo, posted) {
   return {
@@ -13,6 +14,13 @@ export function login(loginInfo, posted) {
 export function logout() {
   return {
     type: LOGOUT,
+  };
+}
+
+export function posted(payload) {
+  return {
+    type: POSTED,
+    payload,
   };
 }
 
@@ -43,6 +51,11 @@ export default function usersReducer(state = initState, action) {
         userName: '',
         isLogin: false,
         havePost: false,
+      };
+    case POSTED:
+      return {
+        ...state,
+        havePost: action.payload,
       };
     default:
       return state;

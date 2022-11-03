@@ -51,11 +51,13 @@ function ResultMode({}) {
       quality: 0.99,
     };
     const mode = cardRef.current;
+
     domtoimage
       .toBlob(document.querySelector(`.mode${num}`), option)
       .then((blob) => {
         saveAs(blob, `result-${num}.png`);
       });
+
   };
   /*****End Img Saving function *****/
 
