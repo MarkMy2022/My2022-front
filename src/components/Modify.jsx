@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, modifyPost, readPost } from '../modules/post';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { posted } from '../modules/users';
 
 const WriteContainer = styled.form`
   width: 100%;
@@ -118,11 +119,12 @@ function QuestionForm({ img_change }) {
   const deleteP = () => {
     const request = deleteApi();
     dispatch(deletePost(request));
+    dispatch(posted(false));
+    navigate(`/`);
   };
 
   useEffect(() => {
     setAnswers(answer.post_content)
-    // getPost();
   }, []);
 
   return (
