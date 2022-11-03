@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function ModeNight() {
-  const dispatch = useDispatch();
   const { answer } = useSelector((state) => state.post);
 
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
-    /* background-color: #ffffff; */
     background-image: url('img/modeNight.png');
     background-size: cover;
-    /* background-size: contain; */
     background-repeat: no-repeat;
     width: 90%;
-    /* height: 1000px; */
     text-align: center;
     margin: auto;
     padding: 3rem;
