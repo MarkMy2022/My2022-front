@@ -7,7 +7,6 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
 import { createPost } from '../modules/post';
-
 import { useSelector } from 'react-redux';
 import { posted } from '../modules/users';
 import GlobalButton from './common/GlobalButton';
@@ -121,8 +120,8 @@ function Write() {
     await axios
       .post('http://localhost:4000/posts/new', body)
       .then((res) => {
-        console.log(res.data);
-        return res.data.message;
+        dispatch(createPost(res.data.newPost));
+        return res.data.newPost;
       })
       .catch((err) => console.log(err));
   }
@@ -154,7 +153,6 @@ function Write() {
       },
     };
     const request = createPostApi(body);
-    dispatch(createPost(request));
     dispatch(posted(true));
     navigate(`/result/${userId}`);
   };

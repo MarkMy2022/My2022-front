@@ -85,7 +85,7 @@ export default function CommentForm() {
           ></input>
           <input
             ref={passwordRef}
-            type="text"
+            type="password"
             placeholder="비밀번호"
             style={{
               width: '50%',
