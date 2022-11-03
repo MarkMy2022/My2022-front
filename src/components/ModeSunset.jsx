@@ -35,6 +35,7 @@ export default function ModeSunset() {
           <Text
             style={{
               textAlign: 'left',
+              paddingTop: '3rem',
             }}
           >
             # 기억에 남는 사람

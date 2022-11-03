@@ -40,6 +40,7 @@ export default function ModeLight() {
             flexWrap: 'wrap',
             justifyContent: 'space-around',
             paddingTop: '2rem',
+            paddingBottom: '1rem',
           }}
         >
           <div
@@ -53,7 +54,7 @@ export default function ModeLight() {
             }}
           >
             <p>기억에 남는 사람</p>
-            <p style={{ color: '#12887A' }}>-{answer.post_content.a1}</p>
+            <p style={{ color: '#12887A' }}>{answer.post_content.a1}</p>
           </div>
 
           <div
@@ -76,6 +77,7 @@ export default function ModeLight() {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-around',
+            paddingBottom: '1rem',
           }}
         >
           <div
@@ -110,8 +112,9 @@ export default function ModeLight() {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            padding: '1rem',
+
             justifyContent: 'space-around',
+            paddingBottom: '1rem',
           }}
         >
           <div
@@ -147,6 +150,7 @@ export default function ModeLight() {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-around',
+            paddingBottom: '1rem',
           }}
         >
           <div
@@ -185,7 +189,7 @@ export default function ModeLight() {
             flexDirection: 'column',
             backgroundColor: 'rgb(130, 203, 196, 0.5)',
             padding: '1rem',
-            paddingTop: '2rem',
+            paddingTop: '1rem',
           }}
         >
           <div
@@ -197,7 +201,7 @@ export default function ModeLight() {
             <p>함께한 사람들에게</p>
             <p style={{ color: '#FFFAEE' }}>{answer.post_content.a9}</p>
           </div>
-          <br />
+
           <div
             style={{
               justifyContent: 'center',
@@ -215,7 +219,7 @@ export default function ModeLight() {
   function Footer() {
     return (
       <>
-        <div style={{ padding: '1rem' }}>
+        <div style={{ paddingTop: '1rem' }}>
           <div
             style={{
               display: 'flex',

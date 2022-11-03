@@ -49,49 +49,37 @@ export default function ModeStar() {
 
         <WrapText>
           <Text>기억에 남는 장소</Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            {answer.post_content.a2}
-          </Text>
+          <Text style={{ color: '#FFCD4A' }}>{answer.post_content.a2}</Text>
         </WrapText>
 
         <WrapText>
           <Text>가치 있던 소비</Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            {answer.post_content.a3}
-          </Text>
+          <Text style={{ color: '#FFCD4A' }}>{answer.post_content.a3}</Text>
         </WrapText>
 
         <WrapText>
           <Text>기억에 남는 음식</Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            {answer.post_content.a4}
-          </Text>
+          <Text style={{ color: '#FFCD4A' }}>{answer.post_content.a4}</Text>
         </WrapText>
 
         <WrapText>
           <Text>인상 깊었던 콘텐츠</Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            {answer.post_content.a5}
-          </Text>
+          <Text style={{ color: '#FFCD4A' }}>{answer.post_content.a5}</Text>
         </WrapText>
 
         <WrapText>
           <Text>도전한 것</Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            {answer.post_content.a6}
-          </Text>
+          <Text style={{ color: '#FFCD4A' }}>{answer.post_content.a6}</Text>
         </WrapText>
 
         <WrapText>
           <Text>성취한 것 </Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
-            {answer.post_content.a7}
-          </Text>
+          <Text style={{ color: '#FFCD4A' }}>{answer.post_content.a7}</Text>
         </WrapText>
 
         <WrapText>
           <Text>나를 사로잡은 감정 </Text>
-          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text style={{ color: '#FFCD4A', marginBottom: '1rem' }}>
             {answer.post_content.a8}
           </Text>
         </WrapText>
@@ -155,7 +143,7 @@ export default function ModeStar() {
   function Footer() {
     return (
       <>
-        <div style={{ padding: '1rem' }}>
+        <div style={{ paddingTop: '1rem' }}>
           <div
             style={{
               display: 'flex',

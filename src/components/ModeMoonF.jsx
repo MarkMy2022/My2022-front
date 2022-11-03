@@ -31,7 +31,7 @@ export default function ModeMoonF() {
             display: 'flex',
             flexWrap: 'wrap',
             padding: '1rem',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             paddingTop: '4rem',
           }}
         >
@@ -41,7 +41,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
+              flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>기억에 남는 사람</p>
@@ -53,7 +54,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
+              flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>기억에 남는 장소</p>
@@ -67,7 +69,7 @@ export default function ModeMoonF() {
             display: 'flex',
             flexWrap: 'wrap',
             padding: '1rem',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
           }}
         >
           <div
@@ -76,8 +78,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
-              marginRight: '1rem',
+              flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>가치 있는 소비</p>
@@ -89,7 +91,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
+              flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>기억에 남는 음식</p>
@@ -103,7 +106,7 @@ export default function ModeMoonF() {
             display: 'flex',
             flexWrap: 'wrap',
             padding: '1rem',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
           }}
         >
           <div
@@ -112,8 +115,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
-              marginRight: '1rem',
+              flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>인상 깊었던 콘텐츠</p>
@@ -125,8 +128,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
               flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>도전</p>
@@ -140,7 +143,7 @@ export default function ModeMoonF() {
             display: 'flex',
             flexWrap: 'wrap',
             padding: '1rem',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
           }}
         >
           <div
@@ -149,9 +152,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
-              marginRight: '1rem',
               flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>성취</p>
@@ -163,7 +165,8 @@ export default function ModeMoonF() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              width: '30%',
+              flexDirection: 'column',
+              width: '45%',
             }}
           >
             <p>나를 사로잡은 감정</p>
@@ -195,6 +198,7 @@ export default function ModeMoonF() {
           <div
             style={{
               justifyContent: 'center',
+              paddingTop: '0.5rem',
             }}
           >
             <p>나에게</p>
@@ -208,7 +212,7 @@ export default function ModeMoonF() {
   function Footer() {
     return (
       <>
-        <div style={{ padding: '1rem' }}>
+        <div style={{ paddingTop: '1rem' }}>
           <div
             style={{
               display: 'flex',
@@ -219,6 +223,7 @@ export default function ModeMoonF() {
             <p
               style={{
                 fontSize: '0.5rem',
+                color: 'gray',
               }}
             >
               My 2022

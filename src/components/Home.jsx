@@ -3,7 +3,7 @@ import '../App.css';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Modal from './Modal';
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import Header from './common/Header';
 
 function HomeHeader() {

@@ -41,21 +41,17 @@ export default function Login() {
       <div
         className="LoginBox"
         style={{
-          padding: '3rem',
-          // margin: '5rem',
-          marginTop: '10rem',
-          width: '70%',
+          padding: '2rem',
+          margin: '2rem',
+          width: '100%',
         }}
       >
         <a href={KAKAO_AUTH_URL}>
-          <LoginButton style={{ backgroundColor: ' #FEE500' }}>
-            <img
-              src="img/kakao.png"
-              alt="카카오로그인"
-              style={{ width: '10%', position: 'absolute', left: '6%' }}
-            />
-            카카오 아이디로 로그인
-          </LoginButton>
+          <img
+            src="img/카카오로그인.png"
+            alt="카카오로그인"
+            style={{ width: '90%', marginTop: '5%' }}
+          />
         </a>
       </div>
     );
@@ -71,7 +67,7 @@ export default function Login() {
         <img
           src="img/logo.png"
           alt="logo"
-          style={{ width: '70%', marginTop: '20%' }}
+          style={{ width: '70%', margin: '5% 0' }}
         />
       </a>
       <HomeImg />
