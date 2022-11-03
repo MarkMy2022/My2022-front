@@ -82,21 +82,21 @@ function Result() {
   const navigate = useNavigate();
   const { answer } = useSelector((state) => state.post);
 
-  const userId = '';
+  /* const userId = ''; */
 
-  const shareKakaoLink = (userId) => {
+  const shareKakaoLink = () => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
       container: '#kakao-link-btn2',
       templateId: 85063,
       templateArgs: {
-        userId: `${userId}`,
+        userId: `${''}`,
       },
     });
   };
 
   const onShareKakaoClick = () => {
-    shareKakaoLink(userId);
+    shareKakaoLink('');
   };
   /* ---------- End KAKAO SHARE ----------*/
 
