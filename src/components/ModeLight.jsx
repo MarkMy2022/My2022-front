@@ -19,7 +19,7 @@ export default function ModeLight() {
     background-image: url('/img/modeLight.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin: auto;
     padding: 3rem;

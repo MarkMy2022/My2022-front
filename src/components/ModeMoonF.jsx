@@ -15,11 +15,10 @@ export default function ModeMoonF() {
 
   const TextBox = styled.div`
     border-radius: 2px;
-    font-size: 1rem;
     background-image: url('/img/modeMoonF.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin: auto;
     padding: 3rem;
@@ -42,7 +41,7 @@ export default function ModeMoonF() {
           style={{
             display: 'flex',
             justifyContent: 'space-around',
-            paddingTop: '2rem',
+            paddingTop: '3rem',
             paddingBottom: '1rem',
           }}
         >
@@ -177,7 +176,7 @@ export default function ModeMoonF() {
           }}
         >
           <div className="item" style={{}}>
-            <Text style={{ color: '#ebc25b' }}>함께한 사람들에게</Text>
+            <Text style={{ color: '#FFCD4A' }}>함께한 사람들에게</Text>
             <Text style={{ color: '#343331' }}>{answer.post_content.a9}</Text>
           </div>
 
@@ -186,7 +185,7 @@ export default function ModeMoonF() {
               paddingTop: '1rem',
             }}
           >
-            <Text style={{ color: '#ebc25b' }}>나에게</Text>
+            <Text style={{ color: '#FFCD4A' }}>나에게</Text>
             <Text style={{ color: '#343331' }}>{answer.post_content.a10}</Text>
           </div>
         </div>

@@ -11,13 +11,12 @@ export default function ModeStar() {
     background-image: url('/img/modeStar.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin: auto;
     padding: 3rem;
     word-break: keep-all;
     color: #fff;
-
     line-height: 1.8rem;
     top: 0%;
   `;
@@ -40,7 +39,6 @@ export default function ModeStar() {
           <Text
             style={{
               color: '#FFCD4A',
-              paddingLeft: '0.5rem',
             }}
           >
             {answer.post_content.a1}
