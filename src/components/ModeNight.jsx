@@ -8,23 +8,20 @@ export default function ModeNight() {
 
   const TextBox = styled.div`
     border-radius: 2px;
-    font-size: 1rem;
-    background-image: url('img/modeNight.png');
+    background-image: url('/img/modeNight.png');
     background-size: cover;
-    background-repeat: no-repeat;
-    width: 90%;
+    /* background-repeat: no-repeat; */
+    width: 100%;
     text-align: center;
-    margin: auto;
     padding: 3rem;
     word-break: keep-all;
     color: #fff;
-    font-family: 'KyoboHand';
-    line-height: 1.8rem;
-    top: 0%;
+    line-height: 2rem;
   `;
 
   const Text = styled.p`
-    font-family: 'KyoboHand';
+    font-family: 'Cafe24Oneprettynight';
+    font-size: 1.3rem;
   `;
 
   function TextList() {

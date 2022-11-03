@@ -4,21 +4,21 @@ const MODIFY = 'post/MODIFY';
 const DELETE = 'post/DELETE';
 
 export function readPost(payload) {
-  console.log('결과 조회!');
+  // console.log('결과 조회!');
   return {
     type: POST_READ,
     payload,
   };
 }
 export function createPost(payload) {
-  console.log('포스트 작성!');
+  // console.log('포스트 작성!');
   return {
     type: CREATE,
     payload,
   };
 }
 export function modifyPost(payload) {
-  console.log('포스트 수정!');
+  // console.log('포스트 수정!');
   return {
     type: MODIFY,
     payload,
@@ -26,7 +26,7 @@ export function modifyPost(payload) {
 }
 
 export function deletePost(payload) {
-  console.log('포스트 삭제!');
+  // console.log('포스트 삭제!');
   return {
     type: DELETE,
     payload,

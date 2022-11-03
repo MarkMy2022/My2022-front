@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 function Logo() {
   return (
     <div>
-      <img src="img/logo.png" alt="logo" width={150} />
+      <img src="/img/logo.png" alt="logo" width={150} />
     </div>
   );
 }
@@ -16,10 +16,10 @@ export default function ModeLight() {
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
-    background-image: url('img/modeLight.png');
+    background-image: url('/img/modeLight.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin: auto;
     padding: 3rem;

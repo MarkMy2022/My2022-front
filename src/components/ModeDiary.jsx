@@ -6,7 +6,7 @@ export default function ModeDiary() {
   const { answer } = useSelector((state) => state.post);
 
   const DiaryImg = styled.div`
-    width: 90%;
+    width: 100%;
     height: auto;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
     background-color: #fff4d0;
