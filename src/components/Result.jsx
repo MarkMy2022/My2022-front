@@ -81,22 +81,23 @@ function Result() {
 
   const navigate = useNavigate();
   const { answer } = useSelector((state) => state.post);
+  const { userId } = useSelector((state) => state.user);
 
-  const userId = '';
+  const kakaoId = '';
 
-  const shareKakaoLink = (userId) => {
+  const shareKakaoLink = (kakaoId) => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
       container: '#kakao-link-btn2',
       templateId: 85063,
       templateArgs: {
-        userId: `${userId}`,
+        userId: `${kakaoId}`,
       },
     });
   };
 
   const onShareKakaoClick = () => {
-    shareKakaoLink(userId);
+    shareKakaoLink(kakaoId);
   };
   /* ---------- End KAKAO SHARE ----------*/
 
@@ -154,11 +155,11 @@ function Result() {
         </KakaoShareBtn>
       </ButtonBlock>
       <ButtonBlock>
-        <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
+        {/* <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
           <p href="" style={{ fontSize: '1rem' }}>
             수정하기
           </p>
-        </ModifyBtn>
+        </ModifyBtn> */}
 
         <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
           다른 모드로 만들기

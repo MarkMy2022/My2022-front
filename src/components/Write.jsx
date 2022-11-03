@@ -9,7 +9,9 @@ import QuestionForm from './common/QuestionForm';
 import { createPost } from '../modules/post';
 
 import { useSelector } from 'react-redux';
+import { posted } from '../modules/users';
 import GlobalButton from './common/GlobalButton';
+
 const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
@@ -153,6 +155,7 @@ function Write() {
     };
     const request = createPostApi(body);
     dispatch(createPost(request));
+    dispatch(posted(true));
     navigate(`/result/${userId}`);
   };
 

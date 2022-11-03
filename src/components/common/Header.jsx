@@ -141,7 +141,7 @@ function Header() {
   const dispatch = useDispatch();
 
   const [isActive, setIsActive] = useState(false);
-  const { userId, userName } = useSelector((state) => state.user);
+  const { userId, havePost, userName } = useSelector((state) => state.user);
 
   const onMenuActive = () => {
     setIsActive(!isActive);
@@ -173,15 +173,9 @@ function Header() {
               </ListItm>
             </li>
             <li className="list">
-              {userId ? (
-                <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
-                  MY 2022 보기
-                </ListItm>
-              ) : (
-                <ListItm to={`/login`} onClick={onMenuActive}>
-                  MY 2022 작성하기
-                </ListItm>
-              )}
+              { userId && havePost ? <ListItm to={`/result/${userId}`} onClick={onMenuActive}> MY 2022 보기 </ListItm>
+              : userId && !havePost ? <ListItm to={`/write`} onClick={onMenuActive}> MY 2022 작성하기 </ListItm>
+              : <ListItm to={`/login`} onClick={onMenuActive}> MY 2022 작성하기 </ListItm>}
             </li>
             <li className="list">
               {userId ? (
