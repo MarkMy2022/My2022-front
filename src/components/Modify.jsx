@@ -15,7 +15,7 @@ const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
-`
+`;
 
 const QuestionsContainer = styled.ul`
   width: 100%;
@@ -55,7 +55,7 @@ const Question = styled.h3`
 
 function QuestionForm({ img_change }) {
   const params = useParams();
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { answer } = useSelector((state) => state.post);
@@ -105,14 +105,16 @@ function QuestionForm({ img_change }) {
     };
     const request = onUpdatePost(body);
     dispatch(modifyPost(request));
-    navigate(`/result/${answer.user_id}`)
+    navigate(`/result/${answer.user_id}`);
   };
 
   const deleteApi = async () => {
-    await axios.delete(`http://localhost:4000/posts/${params.postId}/delete`).then((res) => {
-      console.log(res.data.message);
-      return res.data.message;
-    });
+    await axios
+      .delete(`http://localhost:4000/posts/${params.postId}/delete`)
+      .then((res) => {
+        console.log(res.data.message);
+        return res.data.message;
+      });
   };
 
   const deleteP = () => {
@@ -121,7 +123,7 @@ function QuestionForm({ img_change }) {
   };
 
   useEffect(() => {
-    setAnswers(answer.post_content)
+    setAnswers(answer.post_content);
     // getPost();
   }, []);
 
@@ -131,8 +133,7 @@ function QuestionForm({ img_change }) {
         <QuestionFormContainer>
           <Title>장소</Title>
           <Question>1.올해 가장 기억에 남는 장소는 어디인가요?</Question>
-          <button type="submit">수정!</button>
-          <button onClick={deleteP}>삭제!</button>
+
           <Box
             sx={{
               width: '90%',
@@ -510,6 +511,14 @@ function QuestionForm({ img_change }) {
               onChange={answerChangeHandler}
             />
           </Box>
+          <br />
+          <Button className="modifyPost" type="submit" variant="outlined" pill>
+            <p fontSize="30">수정</p>
+          </Button>
+          <br />
+          <Button onClick={deleteP} variant="contained" pill>
+            <p fontSize="30">삭제</p>
+          </Button>
         </QuestionFormContainer>
       </QuestionsContainer>
       {/* <Stack direction="row" alignItems="center" spacing={2} mt={1}>

@@ -14,6 +14,7 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KakaoLogo from '../assets/img/kakao_logo.png';
 import { useNavigate } from 'react-router-dom';
+import onShareKakaoClick from './Home';
 
 const Base = styled.p`
   width: 100%;
@@ -86,7 +87,7 @@ function Result() {
   const shareKakaoLink = (userId) => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
-      container: '#kakao-link-btn',
+      container: '#kakao-link-btn2',
       templateId: 85063,
       templateArgs: {
         userId: `${userId}`,
@@ -143,7 +144,7 @@ function Result() {
           </p>
         </Button>
         <KakaoShareBtn
-          id="kakao-link-btn"
+          id="kakao-link-btn2"
           className="kakaoBtn"
           type="button"
           onClick={onShareKakaoClick}

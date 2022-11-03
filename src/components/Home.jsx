@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import Modal from './Modal';
 import { React, useState } from 'react';
 import Header from './common/Header';
-import onShareKakaoClick from './Result';
 
 function HomeHeader() {
   return (
@@ -83,33 +82,33 @@ function TitleBox() {
   );
 }
 function HomeButton() {
-  // // /* ---------- Start KAKAO SHARE ----------*/
-  // //Init KAKAO API
-  // if (!window.Kakao.isInitialized()) {
-  //   // @ts-ignore
-  //   //REST API KEY
-  //   window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
-  //   //@ts-ignore
-  //   console.log(window.Kakao.isInitialized());
-  // }
+  /* ---------- Start KAKAO SHARE ----------*/
+  //Init KAKAO API
+  if (!window.Kakao.isInitialized()) {
+    // @ts-ignore
+    //REST API KEY
+    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    //@ts-ignore
+    console.log(window.Kakao.isInitialized());
+  }
 
-  // const userId = '';
+  const userId = '';
 
-  // const shareKakaoLink = (userId) => {
-  //   // @ts-ignore
-  //   window.Kakao.Link.createCustomButton({
-  //     container: '#kakao-link-btn',
-  //     templateId: 85063,
-  //     templateArgs: {
-  //       userId: `${userId}`,
-  //     },
-  //   });
-  // };
+  const shareKakaoLink = (userId) => {
+    // @ts-ignore
+    window.Kakao.Link.createCustomButton({
+      container: '#kakao-link-btn',
+      templateId: 85063,
+      templateArgs: {
+        userId: `${userId}`,
+      },
+    });
+  };
 
-  // const onShareKakaoClick = () => {
-  //   shareKakaoLink(userId);
-  // };
-  // /* ---------- End KAKAO SHARE ----------*/
+  const onShareKakaoClick = () => {
+    shareKakaoLink(userId);
+  };
+  /* ---------- End KAKAO SHARE ----------*/
 
   const [modal, setModal] = useState(false);
   return (

@@ -53,7 +53,7 @@ function ResultMode({ no }) {
   //사진으로 저장하기 버튼 이벤트
   const onImgDownBtn = () => {
     const mode = cardRef.current;
-    domtoimage.toBlob(document.querySelector('.mode')).then((blob) => {
+    domtoimage.toBlob(mode).then((blob) => {
       saveAs(blob, 'result.png');
     });
   };
