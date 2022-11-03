@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, modifyPost, readPost } from '../modules/post';
+import { modifyPost } from '../modules/post';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { posted } from '../modules/users';
 import GlobalButton from './common/GlobalButton';
 
 const WriteContainer = styled.form`
@@ -75,8 +71,8 @@ function QuestionForm({ img_change }) {
   const dispatch = useDispatch();
   const { answer } = useSelector((state) => state.post);
   const [answers, setAnswers] = useState({});
-  const [nickname, setNickname] = useState('');
   const {
+    name,
     a1,
     d1,
     a2,
@@ -96,10 +92,6 @@ function QuestionForm({ img_change }) {
     a9,
     a10,
   } = answers;
-
-  const nicknameChangeHandler = (event) => {
-    setNickname(event.target.value);
-  };
 
   const answerChangeHandler = (event) => {
     setAnswers({
@@ -122,7 +114,7 @@ function QuestionForm({ img_change }) {
     event.preventDefault();
     const body = {
       post_content: {
-        name: nickname,
+        name,
         a1,
         d1,
         a2,
@@ -153,7 +145,6 @@ function QuestionForm({ img_change }) {
   };
 
   useEffect(() => {
-    setNickname(answer.post_content.nickname);
     setAnswers(answer.post_content);
   }, []);
 
@@ -171,7 +162,7 @@ function QuestionForm({ img_change }) {
             fullWidth
             required={true}
             defaultValue={answer.post_content.name}
-            onChange={nicknameChangeHandler}
+            onChange={answerChangeHandler}
             inputProps={{ style: { fontSize: 16 } }}
             InputLabelProps={{ style: { fontSize: 12 } }}
           />
