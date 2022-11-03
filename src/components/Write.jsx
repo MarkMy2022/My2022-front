@@ -7,7 +7,6 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
 import { createPost } from '../modules/post';
-
 import { useSelector } from 'react-redux';
 import { posted } from '../modules/users';
 import GlobalButton from './common/GlobalButton';
@@ -16,6 +15,7 @@ const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
+  padding: 1rem 0 3rem
 `;
 
 const QuestionsContainer = styled.ul`
@@ -45,7 +45,7 @@ const Description = styled.div`
 `;
 
 const NicknameInputContainer = styled.div`
-  width: 80%;
+  width: 100%;
   padding-top: 1.5rem;
   display: flex;
   justify-content: center;
@@ -121,8 +121,8 @@ function Write() {
     await axios
       .post('http://localhost:4000/posts/new', body)
       .then((res) => {
-        console.log(res.data);
-        return res.data.message;
+        dispatch(createPost(res.data.newPost));
+        return res.data.newPost;
       })
       .catch((err) => console.log(err));
   }
@@ -154,7 +154,6 @@ function Write() {
       },
     };
     const request = createPostApi(body);
-    dispatch(createPost(request));
     dispatch(posted(true));
     navigate(`/result/${userId}`);
   };

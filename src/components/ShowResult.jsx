@@ -11,10 +11,7 @@ import ResultDropDown from './ResultDropDown';
 const NickBlock = styled.h1`
   font-size: 32px;
   font-weight: 600;
-  display: inline-block;
   margin-bottom: 3rem;
-  justify-content: center;
-  align-items: center;
 `;
 
 export default function ShowResult() {

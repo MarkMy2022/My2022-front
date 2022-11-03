@@ -3,8 +3,10 @@ import '../App.css';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Modal from './Modal';
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import Header from './common/Header';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function HomeHeader() {
   return (
@@ -87,9 +89,9 @@ function HomeButton() {
   if (!window.Kakao.isInitialized()) {
     // @ts-ignore
     //REST API KEY
-    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    window.Kakao.init(process.env.REACT_APP_KAKAO_SHARE);
     //@ts-ignore
-    console.log(window.Kakao.isInitialized());
+    // console.log(window.Kakao.isInitialized());
   }
 
   const shareKakaoLink = () => {
@@ -109,10 +111,31 @@ function HomeButton() {
   /* ---------- End KAKAO SHARE ----------*/
 
   const [modal, setModal] = useState(false);
+  const { userId, havePost } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
   return (
     <div className="button" align="center">
       <Stack spacing={-1} width={'200px'} padding={2}>
-        <Button
+        { userId && !havePost ? <Button
+          variant="contained"
+          onClick={() => {
+            navigate('/write')
+          }}
+          style={{ fontSize: '1rem' }}
+        >
+          My 2022 만들기
+        </Button>
+          : userId && havePost ? <Button
+          variant="contained"
+          onClick={() => {
+            navigate(`/result/${userId}`)
+          }}
+          style={{ fontSize: '1rem' }}
+        >
+          My 2022 보기
+        </Button>
+        : <Button
           variant="contained"
           onClick={() => {
             setModal(true);
@@ -120,7 +143,7 @@ function HomeButton() {
           style={{ fontSize: '1rem' }}
         >
           My 2022 만들기
-        </Button>
+        </Button>}
         {modal === true ? <Modal /> : null}
         <br />
         <Button

@@ -57,7 +57,6 @@ function ResultMode({}) {
       .then((blob) => {
         saveAs(blob, `result-${num}.png`);
       });
-
   };
   /*****End Img Saving function *****/
 
@@ -67,7 +66,7 @@ function ResultMode({}) {
     return (
       <Base style={{ display: 'flex' }}>
         {/* 1 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode1">
             <CardMedia />
             <CardContent>
@@ -97,7 +96,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 2 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode2">
             <CardMedia />
             <CardContent>
@@ -127,7 +126,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 3 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode3">
             <CardMedia />
 
@@ -159,7 +158,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 4 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode4">
             <CardMedia />
 
@@ -190,7 +189,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 5 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode5">
             <CardMedia />
             <CardContent>
@@ -220,7 +219,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 6 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode6">
             <CardMedia />
             <CardContent>
@@ -250,7 +249,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 7 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode7">
             <CardMedia />
             <CardContent>
@@ -280,7 +279,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 8 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode8">
             <CardMedia />
             <CardContent>
@@ -310,7 +309,7 @@ function ResultMode({}) {
         </Card>
 
         {/* 9 */}
-        <Card sx={{ width: '90%', marginTop: 2, marginBottom: 2 }}>
+        <Card sx={{ width: '95%', marginTop: 2, marginBottom: 2 }}>
           <CardActionArea className="mode9">
             <CardMedia />
             <CardContent>

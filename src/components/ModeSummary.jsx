@@ -17,6 +17,31 @@ export default function ModeSummary() {
     fontFamily: 'GongGothicMedium',
   }));
 
+  function Footer() {
+    return (
+      <>
+        <div style={{ paddingTop: '1rem' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <p
+              style={{
+                fontSize: '0.5rem',
+                color: 'gray',
+              }}
+            >
+              My 2022
+            </p>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <div
       className="wrap"
@@ -25,9 +50,10 @@ export default function ModeSummary() {
         boxShadow: '0 3px 6px rgba(0,0,0,0.16)',
         width: '90%',
         paddingTop: '5%',
-        paddingBottom: '10%',
+        paddingBottom: '5%',
         margin: 'auto',
         marginTop: '1rem',
+        wordBreak: 'keep-all',
       }}
     >
       <Box sx={{ width: '100%' }}>
@@ -123,6 +149,7 @@ export default function ModeSummary() {
           </Grid>
         </Grid>
       </Box>
+      <Footer />
     </div>
   );
 }

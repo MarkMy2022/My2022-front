@@ -181,7 +181,7 @@ export default function ModeNight() {
   function Footer() {
     return (
       <>
-        <div style={{ padding: '1rem' }}>
+        <div style={{ paddingTop: '1rem' }}>
           <div
             style={{
               display: 'flex',

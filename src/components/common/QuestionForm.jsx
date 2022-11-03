@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 
@@ -37,8 +34,8 @@ function QuestionForm({ answer, answer_change, img_change }) {
   return (
     <>
       <QuestionFormContainer>
-        <Title>장소</Title>
-        <Question>1.올해 가장 기억에 남는 장소는 어디인가요?</Question>
+        <Title>사람</Title>
+        <Question>1. 올해 가장 기억에 남는 사람은 누구인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -70,15 +67,14 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d1"
-            required={true}
             value={answer.d1}
             onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
       <QuestionFormContainer>
-        <Title>Flex</Title>
-        <Question>2.올해 가장 기억에 남는 소비는 무엇인가요?</Question>
+        <Title>장소</Title>
+        <Question>2. 올해 가장 기억에 남는 장소는 어디인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -110,15 +106,14 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d2"
-            required={true}
             value={answer.d2}
             onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
       <QuestionFormContainer>
-        <Title>사람</Title>
-        <Question>3.올해 내 삶에 가장 기여한 사람은 누구인가요?</Question>
+        <Title>소비</Title>
+        <Question>3. 올해 가장 가치 있는 소비는 무엇인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -150,15 +145,14 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d3"
-            required={true}
             value={answer.d3}
             onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
       <QuestionFormContainer>
-        <Title>나</Title>
-        <Question>4.올해 나를 사로잡은 감정은 무엇인가요?</Question>
+        <Title>음식</Title>
+        <Question>4. 올해 가장 기억에 남는 음식은 무엇인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -190,7 +184,6 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d4"
-            required={true}
             value={answer.d4}
             onChange={answer_change}
           />
@@ -198,7 +191,7 @@ function QuestionForm({ answer, answer_change, img_change }) {
       </QuestionFormContainer>
       <QuestionFormContainer>
         <Title>콘텐츠</Title>
-        <Question>올해 인상 깊었던 콘텐츠는 무엇인가요?</Question>
+        <Question>5. 올해 인상 깊었던 콘텐츠는 무엇인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -230,7 +223,6 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d5"
-            required={true}
             value={answer.d5}
             onChange={answer_change}
           />
@@ -238,7 +230,7 @@ function QuestionForm({ answer, answer_change, img_change }) {
       </QuestionFormContainer>
       <QuestionFormContainer>
         <Title>도전</Title>
-        <Question>올해 도전한 것은 무엇인가요?</Question>
+        <Question>6. 올해 도전한 것은 무엇인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -270,7 +262,6 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d6"
-            required={true}
             value={answer.d6}
             onChange={answer_change}
           />
@@ -278,7 +269,7 @@ function QuestionForm({ answer, answer_change, img_change }) {
       </QuestionFormContainer>
       <QuestionFormContainer>
         <Title>성취</Title>
-        <Question>올해 성취한 것은 무엇인가요?</Question>
+        <Question>7. 올해 성취한 것은 무엇인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -310,15 +301,14 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d7"
-            required={true}
             value={answer.d7}
             onChange={answer_change}
           />
         </Box>
       </QuestionFormContainer>
       <QuestionFormContainer>
-        <Title>장소</Title>
-        <Question>장소</Question>
+        <Title>감정</Title>
+        <Question>8. 올해 나를 사로잡은 감정은 무엇인가요?</Question>
         <Box
           sx={{
             width: '90%',
@@ -350,7 +340,6 @@ function QuestionForm({ answer, answer_change, img_change }) {
             fullWidth
             label="상세 답변"
             name="d8"
-            required={true}
             value={answer.d8}
             onChange={answer_change}
           />
@@ -358,7 +347,7 @@ function QuestionForm({ answer, answer_change, img_change }) {
       </QuestionFormContainer>
       <QuestionFormContainer>
         <Title>너에게</Title>
-        <Question>올해 함께한 사람들에게 한마디 해주세요.</Question>
+        <Question>9. 올해 함께한 사람들에게 한마디 해주세요.</Question>
         <Box
           sx={{
             width: '90%',
@@ -381,7 +370,7 @@ function QuestionForm({ answer, answer_change, img_change }) {
       </QuestionFormContainer>
       <QuestionFormContainer>
         <Title>나에게</Title>
-        <Question>나에게 한마디 해주세요.</Question>
+        <Question>10. 나에게 한마디 해주세요.</Question>
         <Box
           sx={{
             width: '90%',
@@ -402,21 +391,6 @@ function QuestionForm({ answer, answer_change, img_change }) {
           />
         </Box>
       </QuestionFormContainer>
-      {/* <Stack direction="row" alignItems="center" spacing={2} mt={1}>
-        <Button variant="contained" component="label">
-          <PhotoCamera />
-          Upload
-          <input
-            hidden
-            accept="image/*"
-            multiple
-            type="file"
-            name="img"
-            onChange={img_change}
-          />
-        </Button>
-      </Stack> */}
-      {/* <FilesUpload /> */}
     </>
   );
 }

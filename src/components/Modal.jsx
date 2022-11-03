@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { createPortal } from "react-dom";
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ModalBg = styled.div`
   display: flex;
@@ -11,7 +9,7 @@ const ModalBg = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: ${document.documentElement.scrollHeight}px;
   background-color: #313131df;
 `;
 
@@ -23,9 +21,9 @@ const ModalBox = styled.div`
   margin: 2rem;
 `;
 
-const Modal = ({ setModalShow }) => {
+const Modal = (props) => {
   const handleOk = () => {
-    document.location.href = "/login";
+    document.location.href = '/login';
   };
 
   const ModalTitle = styled.p`

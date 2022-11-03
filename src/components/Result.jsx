@@ -10,7 +10,7 @@ import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { useNavigate } from 'react-router-dom';
 
-const Base = styled.p`
+const Base = styled.div`
   width: 100%;
   background-color: #ffffff;
   display: flex;
@@ -55,14 +55,13 @@ function Result() {
   if (!window.Kakao.isInitialized()) {
     // @ts-ignore
     //REST API KEY
-    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    window.Kakao.init(process.env.REACT_APP_KAKAO_SHARE);
     //@ts-ignore
-    console.log(window.Kakao.isInitialized());
+    // console.log(window.Kakao.isInitialized());
   }
 
   const navigate = useNavigate();
-  const { answer } = useSelector((state) => state.post);
-  /*   const { userId } = useSelector((state) => state.user);*/
+
   const shareKakaoLink = () => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
@@ -89,10 +88,6 @@ function Result() {
     });
   };
   /*****End Img Saving function *****/
-
-  const onModifyEvent = () => {
-    navigate(`/modify/${answer.post_id}`);
-  };
 
   //다른 모드로 만들기 버튼 이벤트
   const onDifferentClick = () => {

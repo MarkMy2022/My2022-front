@@ -29,11 +29,41 @@ export default function ModeDiary() {
     font-family: 'ACCchildrensky';
   `;
 
+  function Footer() {
+    return (
+      <>
+        <div style={{ paddingTop: '1rem' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <p
+              style={{
+                fontSize: '0.5rem',
+                color: 'gray',
+              }}
+            >
+              My 2022
+            </p>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <DiaryImg>
         <DiaryText>
-          <div style={{ fontSize: '1.5rem', fontFamily: 'ACCchildrensky' }}>
+          <div
+            style={{
+              fontSize: '1.5rem',
+              fontFamily: 'ACCchildrensky',
+            }}
+          >
             {answer.post_content.name}의 일기
           </div>
           <div
@@ -62,6 +92,7 @@ export default function ModeDiary() {
           2022년 이엇다.
           <br /> 올해 일기 끗.
         </DiaryText>
+        <Footer />
       </DiaryImg>
     </>
   );

@@ -12,7 +12,7 @@ export default function ModifyPage() {
       <Header />
       {answer.post_content ? (
         <Modify />
-      ) : <><p>잘못된 접근입니다!</p><Link to='/'>HOME</Link></>}
+      ) : null}
     </>
   );
 }
