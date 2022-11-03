@@ -26,7 +26,7 @@ const ButtonBlock = styled.div`
   flex-direction: row;
   margin: 0 auto;
   justify-content: center;
-  padding-bottom: 4rem;
+  padding-bottom: 1rem;
 `;
 
 const ButtonBlock2 = styled.div`
@@ -102,7 +102,7 @@ function Result() {
       <ButtonBlock>
         <Button
           style={{
-            marginRight: '10px',
+            marginRight: '2%',
             backgroundColor: '#99CCCC',
           }}
           className="downBtn"
@@ -132,11 +132,15 @@ function Result() {
           type="button"
           onClick={onShareKakaoClick}
         >
-          <p href="" style={{ fontSize: '1.5rem' }}>
+          <br />
+          <img
+            width="10%"
+            src="/img/kakaotalk_sharing_btn.png"
+            alt="카카오 로고"
+          ></img>
+          <p href="" style={{ fontSize: '1rem' }}>
             공유하기
           </p>
-          <br />
-          <img width="15%" src="/img/kakao_logo2.png" alt="카카오 로고2"></img>
         </KakaoShareBtn>
       </ButtonBlock2>
     </>
