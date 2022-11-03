@@ -11,12 +11,25 @@ import { deletePost, modifyPost, readPost } from '../modules/post';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { posted } from '../modules/users';
+import GlobalButton from './common/GlobalButton';
 
 const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
-`
+`;
+
+const NicknameInputContainer = styled.div`
+  width: 80%;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .input_text {
+    font-size: 32px;
+    font-weight: 600;
+  }
+`;
 
 const QuestionsContainer = styled.ul`
   width: 100%;
@@ -56,11 +69,12 @@ const Question = styled.h3`
 
 function QuestionForm({ img_change }) {
   const params = useParams();
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { answer } = useSelector((state) => state.post);
   const [answers, setAnswers] = useState({});
+  const [nickname, setNickname] = useState('');
   const {
     a1,
     d1,
@@ -80,7 +94,11 @@ function QuestionForm({ img_change }) {
     d8,
     a9,
     a10,
-  } = answer.post_content;
+  } = answers;
+
+  const nicknameChangeHandler = (event) => {
+    setNickname(event.target.value);
+  };
 
   const answerChangeHandler = (event) => {
     setAnswers({
@@ -102,18 +120,35 @@ function QuestionForm({ img_change }) {
   const onSubmit = (event) => {
     event.preventDefault();
     const body = {
-      post_content: answers,
+      post_content: {
+        name: nickname,
+        a1,
+        d1,
+        a2,
+        d2,
+        a3,
+        d3,
+        a4,
+        d4,
+        a5,
+        d5,
+        a6,
+        d6,
+        a7,
+        d7,
+        a8,
+        d8,
+        a9,
+        a10,
+      },
     };
     const request = onUpdatePost(body);
     dispatch(modifyPost(request));
-    navigate(`/result/${answer.user_id}`)
+    navigate(`/result/${answer.user_id}`);
   };
 
-  const deleteApi = async () => {
-    await axios.delete(`http://localhost:4000/posts/${params.postId}/delete`).then((res) => {
-      console.log(res.data.message);
-      return res.data.message;
-    });
+  const goToResult = () => {
+    navigate(`/result/${answer.user_id}`);
   };
 
   const deleteP = () => {
@@ -129,12 +164,29 @@ function QuestionForm({ img_change }) {
 
   return (
     <WriteContainer onSubmit={onSubmit}>
+      <NicknameInputContainer>
+        <Box
+          sx={{
+            width: '100px',
+            maxWidth: '100%',
+          }}
+        >
+          <TextField
+            rows={2}
+            fullWidth
+            required={true}
+            defaultValue={answer.post_content.name}
+            onChange={nicknameChangeHandler}
+            inputProps={{ style: { fontSize: 16 } }}
+            InputLabelProps={{ style: { fontSize: 12 } }}
+          />
+        </Box>
+        <span className="input_text">님의 2022년</span>
+      </NicknameInputContainer>
       <QuestionsContainer>
         <QuestionFormContainer>
           <Title>장소</Title>
           <Question>1.올해 가장 기억에 남는 장소는 어디인가요?</Question>
-          <button type="submit">수정!</button>
-          <button onClick={deleteP}>삭제!</button>
           <Box
             sx={{
               width: '90%',
@@ -514,20 +566,7 @@ function QuestionForm({ img_change }) {
           </Box>
         </QuestionFormContainer>
       </QuestionsContainer>
-      {/* <Stack direction="row" alignItems="center" spacing={2} mt={1}>
-        <Button variant="contained" component="label">
-          <PhotoCamera />
-          Upload
-          <input
-            hidden
-            accept="image/*"
-            multiple
-            type="file"
-            name="img"
-            onChange={img_change}
-          />
-        </Button>
-      </Stack> */}
+      <GlobalButton clickEvent={goToResult} text1="뒤로가기" text2="저장하기" />
     </WriteContainer>
   );
 }

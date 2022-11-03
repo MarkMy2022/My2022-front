@@ -81,7 +81,7 @@ function TitleBox() {
     </div>
   );
 }
-function HomeButton(user_id) {
+function HomeButton() {
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
   if (!window.Kakao.isInitialized()) {
@@ -129,6 +129,7 @@ function HomeButton(user_id) {
           id="kakao-link-btn"
           variant="outlined"
           color="primary"
+          className="kakaoBtn"
           onClick={onShareKakaoClick}
           style={{ fontSize: '1rem' }}
         >
