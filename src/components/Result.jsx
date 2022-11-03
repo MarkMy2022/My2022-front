@@ -13,6 +13,7 @@ import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KakaoLogo from '../assets/img/kakao_logo.png';
+import { useNavigate } from 'react-router-dom';
 
 const Base = styled.p`
   width: 100%;
@@ -66,16 +67,19 @@ const DifferentModeBtn = styled.button`
   }
 `;
 
-function Result({ no, user_id }) {
+function Result() {
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
-  if (!window.Kakao.isInitialized()) {
-    // @ts-ignore
-    //REST API KEY
-    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
-    //@ts-ignore
-    console.log(window.Kakao.isInitialized());
-  }
+  // if (!window.Kakao.isInitialized()) {
+  //   // @ts-ignore
+  //   //REST API KEY
+  //   window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+  //   //@ts-ignore
+  //   // console.log(window.Kakao.isInitialized());
+  // }
+
+  const navigate = useNavigate();
+  const { answer } = useSelector((state) => state.post);
 
   const userId = '';
 
@@ -95,16 +99,6 @@ function Result({ no, user_id }) {
   };
   /* ---------- End KAKAO SHARE ----------*/
 
-  /*****Start PDF Saving function*****/
-  //PDF로 저장하기 버튼 이벤트
-  const pdf = makePdf();
-
-  const onDownloadPdfBtn = async (e) => {
-    e.preventDefault();
-    await pdf.viewWithPdf();
-  };
-  /*****End PDF Saving function*****/
-
   /*****Start Img Saving function*****/
   const cardRef = useRef();
   //사진으로 저장하기 버튼 이벤트
@@ -117,18 +111,18 @@ function Result({ no, user_id }) {
   /*****End Img Saving function *****/
 
   const onModifyEvent = () => {
-    window.location.href = `/modify?post_id=${no}`;
+    navigate(`/modify/${answer.post_id}`);
   };
 
   //다른 모드로 만들기 버튼 이벤트
   const onDifferentClick = () => {
-    window.location.href = `/resultmode?post_id=${no}`;
+    navigate(`/resultmode`);
   };
 
   return (
     <>
       <Base className="wholeCard">
-        <ShowResult user_id={user_id} />
+        <ShowResult />
       </Base>
       <ButtonBlock>
         <Button

@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, modifyPost, readPost } from '../modules/post';
 import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const QuestionFormContainer = styled.li`
   position: relative;
@@ -42,9 +43,12 @@ const Question = styled.h3`
 `;
 
 function QuestionForm({ img_change }) {
+  const params = useParams();
+  
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { anwser } = useSelector((state) => state.post);
-  const [anwsers, setAnwsers] = useState({});
+  const { answer } = useSelector((state) => state.post);
+  const [answers, setAnswers] = useState({});
   const {
     a1,
     d1,
@@ -64,29 +68,18 @@ function QuestionForm({ img_change }) {
     d8,
     a9,
     a10,
-  } = anwsers;
+  } = answer.post_content;
 
-  const anwserChangeHandler = (event) => {
-    setAnwsers({
-      ...anwsers,
+  const answerChangeHandler = (event) => {
+    setAnswers({
+      ...answers,
       [event.target.name]: event.target.value,
     });
   };
 
-  const getPost = async () => {
-    const request = await axios
-      .get(`http://localhost:4000/posts/a`)
-      .then((res) => {
-        setAnwsers(res.data.post.post_content);
-        return res.data.post.post_content;
-      });
-
-    dispatch(readPost(request));
-  };
-
   const onUpdatePost = async (payload) => {
     await axios
-      .post('http://localhost:4000/posts/4/edit', payload)
+      .post(`http://localhost:4000/posts/${params.postId}/edit`, payload)
       .then((res) => {
         console.log(res.data.message);
         return res.data.message;
@@ -97,14 +90,15 @@ function QuestionForm({ img_change }) {
   const onSubmit = (event) => {
     event.preventDefault();
     const body = {
-      post_content: anwsers,
+      post_content: answers,
     };
     const request = onUpdatePost(body);
     dispatch(modifyPost(request));
+    navigate(`/result/${answer.user_id}`)
   };
 
   const deleteApi = async () => {
-    await axios.delete('http://localhost:4000/posts/5/delete').then((res) => {
+    await axios.delete(`http://localhost:4000/posts/${params.postId}/delete`).then((res) => {
       console.log(res.data.message);
       return res.data.message;
     });
@@ -116,7 +110,8 @@ function QuestionForm({ img_change }) {
   };
 
   useEffect(() => {
-    getPost();
+    setAnswers(answer.post_content)
+    // getPost();
   }, []);
 
   return (
@@ -138,8 +133,8 @@ function QuestionForm({ img_change }) {
             rows={1}
             fullWidth
             name="a1"
-            defaultValue={anwser.a1}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a1}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -157,8 +152,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             name="d1"
             required={true}
-            defaultValue={anwser.d1}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d1}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -179,8 +174,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a2"
-            defaultValue={anwser.a2}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a2}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -199,8 +194,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d2"
             required={true}
-            defaultValue={anwser.d2}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d2}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -221,8 +216,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a3"
-            defaultValue={anwser.a3}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a3}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -241,8 +236,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d3"
             required={true}
-            defaultValue={anwser.d3}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d3}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -263,8 +258,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a4"
-            defaultValue={anwser.a4}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a4}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -283,8 +278,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d4"
             required={true}
-            defaultValue={anwser.d4}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d4}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -305,8 +300,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a5"
-            defaultValue={anwser.a5}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a5}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -325,8 +320,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d5"
             required={true}
-            defaultValue={anwser.d5}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d5}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -347,8 +342,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a6"
-            defaultValue={anwser.a6}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a6}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -367,8 +362,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d6"
             required={true}
-            defaultValue={anwser.d6}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d6}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -389,8 +384,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a7"
-            defaultValue={anwser.a7}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a7}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -409,8 +404,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d7"
             required={true}
-            defaultValue={anwser.d7}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d7}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -431,8 +426,8 @@ function QuestionForm({ img_change }) {
             fullWidth
             label="간단 답변"
             name="a8"
-            defaultValue={anwser.a8}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a8}
+            onChange={answerChangeHandler}
             required={true}
           />
         </Box>
@@ -451,8 +446,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="d8"
             required={true}
-            defaultValue={anwser.d8}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.d8}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -475,8 +470,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="a9"
             required={true}
-            defaultValue={anwser.a9}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a9}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>
@@ -499,8 +494,8 @@ function QuestionForm({ img_change }) {
             label="상세 답변"
             name="a10"
             required={true}
-            defaultValue={anwser.a10}
-            onChange={anwserChangeHandler}
+            defaultValue={answer.post_content.a10}
+            onChange={answerChangeHandler}
           />
         </Box>
       </QuestionFormContainer>

@@ -58,7 +58,7 @@ const KakaoRedirectHandler = () => {
 
         if (userResponese.status === 200) {
           const userKaKaoInfo = await userResponese.json();
-          console.log(userKaKaoInfo);
+          // console.log(userKaKaoInfo);
           getInfo(userKaKaoInfo);
         } else {
           alert('카카오 로그인 회원 정보 획득 실패');
