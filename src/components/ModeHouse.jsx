@@ -199,6 +199,7 @@ export default function ModeHouse() {
             <p
               style={{
                 fontSize: '0.5rem',
+                color: 'black',
               }}
             >
               My 2022

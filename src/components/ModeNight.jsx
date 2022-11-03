@@ -18,9 +18,13 @@ export default function ModeNight() {
     padding: 3rem;
     word-break: keep-all;
     color: #fff;
-    font-family: 'GongGothicMedium';
+    font-family: 'KyoboHand';
     line-height: 1.8rem;
     top: 0%;
+  `;
+
+  const Text = styled.p`
+    font-family: 'KyoboHand';
   `;
 
   function TextList() {
@@ -34,14 +38,14 @@ export default function ModeNight() {
               justifyContent: 'center',
             }}
           >
-            <p
+            <Text
               style={{
                 fontSize: '1.5rem',
               }}
             >
               {answer.post_content.name}님의
-            </p>
-            <p
+            </Text>
+            <Text
               style={{
                 color: '#FFCD4A',
                 paddingLeft: '0.5rem',
@@ -49,7 +53,7 @@ export default function ModeNight() {
               }}
             >
               2022년
-            </p>
+            </Text>
           </div>
         </div>
 
@@ -60,10 +64,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>1. 올해 가장 기억에 남는 사람은?</p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text>1. 올해 가장 기억에 남는 사람은?</Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
             {answer.post_content.a1}
-          </p>
+          </Text>
         </div>
 
         <div
@@ -73,10 +77,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>2. 올해 가장 기억에 남는 장소는?</p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text>2. 올해 가장 기억에 남는 장소는?</Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
             {answer.post_content.a2}
-          </p>
+          </Text>
         </div>
 
         <div
@@ -86,10 +90,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>3. 올해 가장 가치 있는 소비는?</p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text>3. 올해 가장 가치 있는 소비는?</Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
             {answer.post_content.a3}
-          </p>
+          </Text>
         </div>
 
         <div
@@ -99,10 +103,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>4. 올해 가장 기억에 남는 음식은? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text>4. 올해 가장 기억에 남는 음식은? </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
             {answer.post_content.a4}
-          </p>
+          </Text>
         </div>
 
         <div
@@ -112,10 +116,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>5. 올해 인상 깊었던 콘텐츠는? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text>5. 올해 인상 깊었던 콘텐츠는? </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
             {answer.post_content.a5}
-          </p>
+          </Text>
         </div>
 
         <div
@@ -125,10 +129,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>6. 올해 도전한 것은? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+          <Text>6. 올해 도전한 것은? </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
             {answer.post_content.a6}
-          </p>
+          </Text>
         </div>
 
         <div
@@ -138,8 +142,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>7. 올해 성취한 것은? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>간단 답변</p>
+          <Text>7. 올해 성취한 것은? </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+            {answer.post_content.a7}
+          </Text>
         </div>
 
         <div
@@ -149,8 +155,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>8. 나를 사로잡은 감정은? </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>간단 답변</p>
+          <Text>8. 나를 사로잡은 감정은? </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+            {answer.post_content.a8}
+          </Text>
         </div>
 
         <div
@@ -160,8 +168,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>9. 올해 함께한 사람들에게 한마디 </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>간단 답변</p>
+          <Text>9. 올해 함께한 사람들에게 한마디 </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+            {answer.post_content.a9}
+          </Text>
         </div>
 
         <div
@@ -171,8 +181,10 @@ export default function ModeNight() {
             justifyContent: 'center',
           }}
         >
-          <p>10. 나에게 한마디 </p>
-          <p style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>간단 답변</p>
+          <Text>10. 나에게 한마디 </Text>
+          <Text style={{ color: '#FFCD4A', paddingLeft: '0.5rem' }}>
+            {answer.post_content.a10}
+          </Text>
         </div>
       </>
     );
