@@ -63,10 +63,10 @@ const DropdownMenu = styled.div`
 `
 
 const MenuBtn = styled(FaEllipsisV)`
-color: #333;
-font-size: 150%;
-/* transition: box-shadow 0.4s ease; */
-cursor: pointer;
+    color: #333;
+    font-size: 150%;
+    cursor: pointer;
+    /* padding: 1rem; */
 `;
 
 export default function ResultDropDown() {
