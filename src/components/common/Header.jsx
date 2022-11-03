@@ -61,7 +61,9 @@ const DropdownMenu = styled.div`
   & .user_circle {
     font-size: 20px;
     color: lightgray;
-    text-align: start;
+    /* text-align: start; */
+    display: flex;
+    align-items: center;
     margin-top: 20px;
     margin-left: 20px;
     cursor: pointer;
@@ -112,8 +114,20 @@ const CancelBtn = styled(FaTimes)`
   font-size: 24px;
   cursor: pointer;
 `;
+
+const UserName = styled.span`
+  font-size: 20px;
+  color: lightgray;
+`;
+
+const PleaseLogin = styled(Link)`
+  font-size: 20px;
+  color: lightgray;
+`;
+
 const UserCircle = styled(FaUserCircle)`
   font-size: 32px;
+  margin-right: 10px;
 `;
 
 const MenuBtn = styled(FaBars)`
@@ -127,16 +141,16 @@ function Header() {
   const dispatch = useDispatch();
 
   const [isActive, setIsActive] = useState(false);
-  const { userId } = useSelector((state) => state.user);
+  const { userId, userName } = useSelector((state) => state.user);
 
   const onMenuActive = () => {
     setIsActive(!isActive);
   };
 
-  const logoutUser = ()=>  {
+  const logoutUser = () => {
     dispatch(logout());
     // navigate('/');
-  }
+  };
 
   return (
     <HeaderContainer>
@@ -146,7 +160,12 @@ function Header() {
           <CancelBtn onClick={onMenuActive} />
           <ul className="lists">
             <li className="user_circle">
-              <UserCircle /> 로그인 하세요.
+              <UserCircle />
+              {userId ? (
+                <UserName>{userName}</UserName>
+              ) : (
+                <PleaseLogin to="/login">로그인 하세요.</PleaseLogin>
+              )}
             </li>
             <li className="list">
               <ListItm to="/" onClick={onMenuActive}>
@@ -154,16 +173,22 @@ function Header() {
               </ListItm>
             </li>
             <li className="list">
-              { userId ? <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
-                MY 2022 보기
-              </ListItm> : <ListItm to={`/login`} onClick={onMenuActive}>
-                MY 2022 작성하기
-              </ListItm>}
+              {userId ? (
+                <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
+                  MY 2022 보기
+                </ListItm>
+              ) : (
+                <ListItm to={`/login`} onClick={onMenuActive}>
+                  MY 2022 작성하기
+                </ListItm>
+              )}
             </li>
             <li className="list">
-              { userId ? <ListItm to={`/`} onClick={logoutUser}>
-                로그아웃
-              </ListItm> : null}
+              {userId ? (
+                <ListItm to={`/`} onClick={logoutUser}>
+                  로그아웃
+                </ListItm>
+              ) : null}
             </li>
             <hr />
             <li className="intro">나만의 시상식 소개</li>

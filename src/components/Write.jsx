@@ -7,8 +7,9 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import QuestionForm from './common/QuestionForm';
 import { createPost } from '../modules/post';
-import GlobalButton from './common/GlobalButton';
+
 import { useSelector } from 'react-redux';
+import GlobalButton from './common/GlobalButton';
 const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
@@ -155,6 +156,10 @@ function Write() {
     navigate(`/result/${userId}`);
   };
 
+  const goToBack = () => {
+    navigate('/');
+  };
+
   return (
     <WriteContainer onSubmit={onSubmitHandler}>
       <QuestionsContainer>
@@ -189,7 +194,7 @@ function Write() {
           img_change={imgChangeHandler}
         />
       </QuestionsContainer>
-      <GlobalButton />
+      <GlobalButton clickEvent={goToBack} text1="뒤로가기" text2="저장하기" />
     </WriteContainer>
   );
 }
