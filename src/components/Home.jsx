@@ -11,20 +11,19 @@ import { useNavigate } from 'react-router-dom';
 function HomeHeader() {
   return (
     <>
-      <div style={{ position: 'relative' }}>
+      <Header />
+      <div>
         <img
           src="img/logo.png"
           alt="logo"
           width={150}
           style={{
-            position: 'absolute',
             left: '0',
             right: '0',
             margin: 'auto',
           }}
         />
       </div>
-      <Header />
     </>
   );
 }
@@ -100,7 +99,7 @@ function HomeButton() {
       container: '#kakao-link-btn',
       templateId: 85063,
       templateArgs: {
-        userId: '',
+        path: '',
       },
     });
   };
@@ -117,33 +116,37 @@ function HomeButton() {
   return (
     <div className="button" align="center">
       <Stack spacing={-1} width={'200px'} padding={2}>
-        { userId && !havePost ? <Button
-          variant="contained"
-          onClick={() => {
-            navigate('/write')
-          }}
-          style={{ fontSize: '1rem' }}
-        >
-          My 2022 만들기
-        </Button>
-          : userId && havePost ? <Button
-          variant="contained"
-          onClick={() => {
-            navigate(`/result/${userId}`)
-          }}
-          style={{ fontSize: '1rem' }}
-        >
-          My 2022 보기
-        </Button>
-        : <Button
-          variant="contained"
-          onClick={() => {
-            setModal(true);
-          }}
-          style={{ fontSize: '1rem' }}
-        >
-          My 2022 만들기
-        </Button>}
+        {userId && !havePost ? (
+          <Button
+            variant="contained"
+            onClick={() => {
+              navigate('/write');
+            }}
+            style={{ fontSize: '1rem' }}
+          >
+            My 2022 만들기
+          </Button>
+        ) : userId && havePost ? (
+          <Button
+            variant="contained"
+            onClick={() => {
+              navigate(`/result/${userId}`);
+            }}
+            style={{ fontSize: '1rem' }}
+          >
+            My 2022 보기
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            onClick={() => {
+              setModal(true);
+            }}
+            style={{ fontSize: '1rem' }}
+          >
+            My 2022 만들기
+          </Button>
+        )}
         {modal === true ? <Modal /> : null}
         <br />
         <Button

@@ -14,94 +14,76 @@ import { logout } from '../../modules/users';
 
 const HeaderContainer = styled.header`
   width: 100%;
-  height: 60px;
-  background-color: #fff;
+  /* top: 5%; */
+  padding: 1rem;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 `;
 
 const DropdownMenu = styled.div`
-  width: 20%;
-  position: relative;
-
+  width: 10%;
   & > .menu {
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 15px;
     position: absolute;
-    top: 40px;
-    right: 20px;
-    width: 300px;
-    height: 450px;
+    top: 8%;
+    right: 5%;
+    width: 50%;
+    height: 50%;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-    opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
     z-index: 1;
-
-    @media all and (max-width: 390px) {
-      right: 30px;
+    @media all and (max-width: 415px) {
+      width: 70%;
+      margin-top: 3%;
     }
   }
-
   & .menu.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
-
   & .lists {
-    margin-top: 50px;
-    width: auto;
+    /* width: auto; */
     list-style: none;
-    padding: 0;
+    padding: 5%;
+    margin: 10% 0;
   }
-
   & .user_circle {
-    font-size: 20px;
     color: lightgray;
-    /* text-align: start; */
+    text-align: start;
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 5%;
+    margin-left: 5%;
     cursor: pointer;
   }
-
   & .list {
-    font-size: 20px;
-    color: #222;
+    font-size: 1rem;
     text-align: start;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin: 10%;
   }
-
   & .intro {
-    font-size: 16px;
-    color: #222;
+    font-size: 1rem;
     text-align: start;
-    margin-left: 20px;
+    margin: 10%;
     cursor: pointer;
   }
-
   & .inquiry {
-    font-size: 16px;
-    color: #222;
+    font-size: 1rem;
     text-align: start;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin: 10%;
     cursor: pointer;
   }
-
   & hr {
-    margin: 20px;
+    margin: 10%;
   }
 `;
 
 const ListItm = styled(Link)`
   text-decoration: none;
-
   &:visited {
     color: #222;
   }
@@ -109,25 +91,25 @@ const ListItm = styled(Link)`
 
 const CancelBtn = styled(FaTimes)`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
+  margin: 10%;
+  right: 3%;
+  font-size: 1.3rem;
   cursor: pointer;
 `;
 
 const UserName = styled.span`
-  font-size: 20px;
+  font-size: 1rem;
   color: lightgray;
 `;
 
 const PleaseLogin = styled(Link)`
-  font-size: 20px;
+  font-size: 1.3rem;
   color: lightgray;
 `;
 
 const UserCircle = styled(FaUserCircle)`
-  font-size: 32px;
-  margin-right: 10px;
+  font-size: 2.5rem;
+  margin-right: 5%;
 `;
 
 const MenuBtn = styled(FaBars)`
@@ -173,9 +155,22 @@ function Header() {
               </ListItm>
             </li>
             <li className="list">
-              { userId && havePost ? <ListItm to={`/result/${userId}`} onClick={onMenuActive}> MY 2022 보기 </ListItm>
-              : userId && !havePost ? <ListItm to={`/write`} onClick={onMenuActive}> MY 2022 만들기 </ListItm>
-              : <ListItm to={`/login`} onClick={onMenuActive}> MY 2022 만들기 </ListItm>}
+              {userId && havePost ? (
+                <ListItm to={`/result/${userId}`} onClick={onMenuActive}>
+                  {' '}
+                  MY 2022 보기{' '}
+                </ListItm>
+              ) : userId && !havePost ? (
+                <ListItm to={`/write`} onClick={onMenuActive}>
+                  {' '}
+                  MY 2022 만들기{' '}
+                </ListItm>
+              ) : (
+                <ListItm to={`/login`} onClick={onMenuActive}>
+                  {' '}
+                  MY 2022 만들기{' '}
+                </ListItm>
+              )}
             </li>
             <li className="list">
               {userId ? (

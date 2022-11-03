@@ -50,6 +50,7 @@ const KakaoShareBtn = styled.button`
 `;
 
 function Result() {
+  const { answer } = useSelector((state) => state.post);
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
   if (!window.Kakao.isInitialized()) {
@@ -68,7 +69,7 @@ function Result() {
       container: '#kakao-link-btn2',
       templateId: 85063,
       templateArgs: {
-        userId: '',
+        path: `result/${answer.user_id}`,
       },
     });
   };
