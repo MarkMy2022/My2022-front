@@ -70,13 +70,13 @@ const DifferentModeBtn = styled.button`
 function Result() {
   /* ---------- Start KAKAO SHARE ----------*/
   //Init KAKAO API
-  // if (!window.Kakao.isInitialized()) {
-  //   // @ts-ignore
-  //   //REST API KEY
-  //   window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
-  //   //@ts-ignore
-  //   // console.log(window.Kakao.isInitialized());
-  // }
+  if (!window.Kakao.isInitialized()) {
+    // @ts-ignore
+    //REST API KEY
+    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    //@ts-ignore
+    console.log(window.Kakao.isInitialized());
+  }
 
   const navigate = useNavigate();
   const { answer } = useSelector((state) => state.post);
