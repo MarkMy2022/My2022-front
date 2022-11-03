@@ -62,9 +62,7 @@ export default function ShowResult() {
                 color="text.secondary"
                 textAlign="center"
               >
-                <p style={{ wordBreak: 'keep-all' }}>
-                  {answer.post_content.a1}
-                </p>
+                {answer.post_content.a1}
               </Typography>
               <Typography
                 variant="body2"
