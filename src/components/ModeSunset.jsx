@@ -9,12 +9,12 @@ export default function ModeSunset() {
     background-image: url('/img/modeSunset.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
     margin: auto;
     padding: 3rem;
     word-break: keep-all;
     color: #fff;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
   `;
 
   const WrapText = styled.div`
@@ -35,7 +35,7 @@ export default function ModeSunset() {
           <Text
             style={{
               textAlign: 'left',
-              paddingTop: '3rem',
+              paddingTop: '2rem',
             }}
           >
             # 기억에 남는 사람
@@ -204,7 +204,6 @@ export default function ModeSunset() {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
               justifyContent: 'center',
             }}
           >

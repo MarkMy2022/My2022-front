@@ -19,7 +19,7 @@ export default function ModeMoonM() {
     background-image: url('/img/modeMoonM.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin: auto;
     padding: 3rem;
@@ -42,7 +42,7 @@ export default function ModeMoonM() {
           style={{
             display: 'flex',
             justifyContent: 'space-around',
-            paddingTop: '2rem',
+            paddingTop: '3rem',
             paddingBottom: '1rem',
           }}
         >
