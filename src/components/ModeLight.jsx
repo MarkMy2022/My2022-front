@@ -37,7 +37,6 @@ export default function ModeLight() {
           className="itemwrap"
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
             justifyContent: 'space-around',
             paddingTop: '2rem',
             paddingBottom: '1rem',
@@ -47,8 +46,7 @@ export default function ModeLight() {
             className="item"
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
+
               flexDirection: 'column',
               width: '50%',
             }}
@@ -60,8 +58,6 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
               flexDirection: 'column',
               width: '50%',
             }}
@@ -75,7 +71,6 @@ export default function ModeLight() {
           className="itemwrap"
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
             justifyContent: 'space-around',
             paddingBottom: '1rem',
           }}
@@ -83,8 +78,7 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
+
               flexDirection: 'column',
               width: '50%',
             }}
@@ -96,10 +90,9 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
               flexDirection: 'column',
               width: '50%',
+              verticalAlign: 'top',
             }}
           >
             <p>기억에 남는 음식</p>
@@ -111,8 +104,6 @@ export default function ModeLight() {
           className="itemwrap"
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
-
             justifyContent: 'space-around',
             paddingBottom: '1rem',
           }}
@@ -120,8 +111,6 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
               flexDirection: 'column',
               width: '50%',
             }}
@@ -133,8 +122,6 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
               flexDirection: 'column',
               width: '50%',
             }}
@@ -148,7 +135,6 @@ export default function ModeLight() {
           className="itemwrap"
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
             justifyContent: 'space-around',
             paddingBottom: '1rem',
           }}
@@ -156,8 +142,6 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
               flexDirection: 'column',
               width: '50%',
             }}
@@ -169,8 +153,6 @@ export default function ModeLight() {
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
               flexDirection: 'column',
               width: '50%',
             }}
@@ -184,27 +166,19 @@ export default function ModeLight() {
           className="You_Me_Textbox"
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
             flexDirection: 'column',
             backgroundColor: 'rgb(130, 203, 196, 0.5)',
             padding: '1rem',
             paddingTop: '1rem',
           }}
         >
-          <div
-            className="item"
-            style={{
-              justifyContent: 'center',
-            }}
-          >
+          <div className="item" style={{}}>
             <p>함께한 사람들에게</p>
             <p style={{ color: '#FFFAEE' }}>{answer.post_content.a9}</p>
           </div>
 
           <div
             style={{
-              justifyContent: 'center',
               paddingTop: '1rem',
             }}
           >
@@ -224,7 +198,6 @@ export default function ModeLight() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
             }}
           >
             <p
