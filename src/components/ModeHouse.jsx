@@ -8,7 +8,7 @@ export default function ModeHouse() {
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
-    background-image: url('img/modeHouse.png');
+    background-image: url('/img/modeHouse.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 90%;

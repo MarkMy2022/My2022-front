@@ -10,7 +10,7 @@ import {
   FaPencilAlt,
 } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../store/modules/users';
+import { logout } from '../../modules/users';
 
 const HeaderContainer = styled.header`
   width: 100%;

@@ -6,7 +6,7 @@ export default function ModeSunset() {
 
   const TextBox = styled.div`
     border-radius: 2px;
-    background-image: url('img/modeSunset.png');
+    background-image: url('/img/modeSunset.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 90%;

@@ -9,7 +9,7 @@ export default function ModeNight() {
   const TextBox = styled.div`
     border-radius: 2px;
     font-size: 1rem;
-    background-image: url('img/modeNight.png');
+    background-image: url('/img/modeNight.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 90%;

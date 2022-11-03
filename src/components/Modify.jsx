@@ -98,6 +98,7 @@ function QuestionForm({ img_change }) {
       ...answers,
       [event.target.name]: event.target.value,
     });
+    // console.log(answers);
   };
 
   const onUpdatePost = async (payload) => {
@@ -161,6 +162,7 @@ function QuestionForm({ img_change }) {
             rows={2}
             fullWidth
             required={true}
+            name="name"
             defaultValue={answer.post_content.name}
             onChange={answerChangeHandler}
             inputProps={{ style: { fontSize: 16 } }}
