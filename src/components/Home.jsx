@@ -89,9 +89,9 @@ function HomeButton() {
   if (!window.Kakao.isInitialized()) {
     // @ts-ignore
     //REST API KEY
-    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    window.Kakao.init(process.env.REACT_APP_KAKAO_SHARE);
     //@ts-ignore
-    console.log(window.Kakao.isInitialized());
+    // console.log(window.Kakao.isInitialized());
   }
 
   const shareKakaoLink = () => {

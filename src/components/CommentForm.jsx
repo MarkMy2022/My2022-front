@@ -56,13 +56,8 @@ export default function CommentForm() {
   const Container = styled.div`
     background-color: aliceblue;
     padding: 0.8rem;
-    margin: auto;
-    margin-top: 1rem;
+    margin: 1rem auto 3rem;
     width: 70%;
-    left: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
   `;
 
   function CommentForm() {

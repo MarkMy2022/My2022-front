@@ -15,6 +15,7 @@ const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
+  padding: 1rem 0 3rem
 `;
 
 const QuestionsContainer = styled.ul`
@@ -44,7 +45,7 @@ const Description = styled.div`
 `;
 
 const NicknameInputContainer = styled.div`
-  width: 80%;
+  width: 100%;
   padding-top: 1.5rem;
   display: flex;
   justify-content: center;
