@@ -151,15 +151,9 @@ function QuestionForm({ img_change }) {
     navigate(`/result/${answer.user_id}`);
   };
 
-  const deleteP = () => {
-    const request = deleteApi();
-    dispatch(deletePost(request));
-    dispatch(posted(false));
-    navigate(`/`);
-  };
-
   useEffect(() => {
-    setAnswers(answer.post_content)
+    setNickname(answer.post_content.nickname);
+    setAnswers(answer.post_content);
   }, []);
 
   return (
