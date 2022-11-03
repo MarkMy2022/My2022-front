@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
 const ModalBg = styled.div`
@@ -27,10 +25,6 @@ const Modal = (props) => {
   const handleOk = () => {
     document.location.href = '/login';
   };
-
-  useEffect(() => {
-    console.log('!!');
-  });
 
   const ModalTitle = styled.p`
     font-size: 1.3rem;

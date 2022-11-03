@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import { useSelector } from 'react-redux';
@@ -6,17 +6,14 @@ import { useSelector } from 'react-redux';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 /*****End 컴포넌트 저장 모듈*****/
-import makePdf from './ResultExport';
 import ShowResult from './ShowResult';
-
 import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KakaoLogo from '../assets/img/kakao_logo.png';
 import { useNavigate } from 'react-router-dom';
 import onShareKakaoClick from './Home';
 
-const Base = styled.p`
+const Base = styled.div`
   width: 100%;
   background-color: #ffffff;
   display: flex;
@@ -74,14 +71,12 @@ function Result() {
   if (!window.Kakao.isInitialized()) {
     // @ts-ignore
     //REST API KEY
-    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    window.Kakao.init(process.env.REACT_APP_KAKAO_SHARE);
     //@ts-ignore
-    console.log(window.Kakao.isInitialized());
+    // console.log(window.Kakao.isInitialized());
   }
 
   const navigate = useNavigate();
-  const { answer } = useSelector((state) => state.post);
-  const { userId } = useSelector((state) => state.user);
 
   const shareKakaoLink = () => {
     // @ts-ignore
@@ -109,10 +104,6 @@ function Result() {
     });
   };
   /*****End Img Saving function *****/
-
-  const onModifyEvent = () => {
-    navigate(`/modify/${answer.post_id}`);
-  };
 
   //다른 모드로 만들기 버튼 이벤트
   const onDifferentClick = () => {
@@ -153,12 +144,6 @@ function Result() {
         </KakaoShareBtn>
       </ButtonBlock>
       <ButtonBlock>
-        {/* <ModifyBtn className="modifyBtn" onClick={onModifyEvent}>
-          <p href="" style={{ fontSize: '1rem' }}>
-            수정하기
-          </p>
-        </ModifyBtn> */}
-
         <DifferentModeBtn className="differentBtn" onClick={onDifferentClick}>
           다른 모드로 만들기
         </DifferentModeBtn>

@@ -14,18 +14,18 @@ export default function ResultPage() {
   const params = useParams();
 
   const dispatch = useDispatch();
-  const { answer } = useSelector((state) => state.post);
+  const { answer, posted } = useSelector((state) => state.post);
   const getPost = async () => {
-    const request = await axios
+    await axios
       .get(`http://localhost:4000/posts/${params.userId}`)
       .then((res) => {
+        dispatch(readPost(res.data.post));
         return res.data.post;
       });
-    dispatch(readPost(request));
   };
 
   useEffect(() => {
-    getPost();
+    if(!posted) getPost();
   }, []);
 
   return (
@@ -35,7 +35,7 @@ export default function ResultPage() {
         <>
           <Result /> <CommentForm />
         </>
-      ) : <><p>잘못된 접근입니다!</p><Link to='/'>HOME</Link></>}
+      ) : null }
     </>
   );
 }

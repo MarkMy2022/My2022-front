@@ -10,8 +10,8 @@ const KakaoRedirectHandler = () => {
     const CODE = new URL(window.location.href).searchParams.get('code');
     const GRANT_TYPE = 'authorization_code';
     // REST API 키를 입력 해야 합니다!
-    const KAKAO_CLIENT_ID = '8c4fe302ab56aaa4483671505fe3adff';
-    const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
+    const KAKAO_CLIENT_ID = process.env.REACT_APP_KAKAO_CLIENT_ID;
+    const KAKAO_REDIRECT_URI = process.env.REACT_APP_KAKAO_REDIRECT_URI;
     // console.log(CODE);
     async function loginFetch() {
       const getInfo = async (info) => {

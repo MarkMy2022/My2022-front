@@ -14,7 +14,7 @@ export function createPost(payload) {
   console.log('포스트 작성!');
   return {
     type: CREATE,
-    payload: payload,
+    payload,
   };
 }
 export function modifyPost(payload) {
@@ -30,12 +30,11 @@ export function deletePost(payload) {
   return {
     type: DELETE,
     payload,
-    // post_id,
   };
 }
 const initialState = {
   answer: {},
-  posted: null,
+  posted: false,
   updated: null,
   deleted: null,
 };
@@ -44,26 +43,25 @@ export default function postReducer(state = initialState, action) {
     case CREATE:
       return {
         ...state,
-        posted: action.payload,
+        posted: true,
+        answer: { ...action.payload },
       };
     case POST_READ:
       return {
         ...state,
+        posted: false,
         answer: { ...action.payload },
       };
     case MODIFY:
       return {
         ...state,
-        // answer: state.answer.map((answer) =>
-        //   answer._id === action.payload._id ? action.payload : answer
-        // ),
         updated: action.payload,
       };
     case DELETE:
       return {
         ...state,
         answer: {},
-        // answer: state.answer.filter((answer) => answer._id !== action.post_id),
+        posted: false,
         deleted: action.payload,
       };
     default:

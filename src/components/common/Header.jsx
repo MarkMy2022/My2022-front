@@ -174,8 +174,8 @@ function Header() {
             </li>
             <li className="list">
               { userId && havePost ? <ListItm to={`/result/${userId}`} onClick={onMenuActive}> MY 2022 보기 </ListItm>
-              : userId && !havePost ? <ListItm to={`/write`} onClick={onMenuActive}> MY 2022 작성하기 </ListItm>
-              : <ListItm to={`/login`} onClick={onMenuActive}> MY 2022 작성하기 </ListItm>}
+              : userId && !havePost ? <ListItm to={`/write`} onClick={onMenuActive}> MY 2022 만들기 </ListItm>
+              : <ListItm to={`/login`} onClick={onMenuActive}> MY 2022 만들기 </ListItm>}
             </li>
             <li className="list">
               {userId ? (
@@ -185,7 +185,7 @@ function Header() {
               ) : null}
             </li>
             <hr />
-            <li className="intro">나만의 시상식 소개</li>
+            <li className="intro">MY 2022 소개</li>
             <li className="inquiry">문의 하기</li>
           </ul>
         </nav>

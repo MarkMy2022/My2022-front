@@ -4,8 +4,8 @@ import Header from './common/Header';
 
 // KAKAO 로그인 용
 // CLIENT_ID 로 REST API 키 사용 필요
-const KAKAO_CLIENT_ID = '8c4fe302ab56aaa4483671505fe3adff';
-const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao';
+const KAKAO_CLIENT_ID = process.env.REACT_APP_KAKAO_CLIENT_ID;
+const KAKAO_REDIRECT_URI = process.env.REACT_APP_KAKAO_REDIRECT_URI;
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
 
 export default function Login() {

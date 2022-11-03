@@ -17,10 +17,11 @@ const WriteContainer = styled.form`
   width: 100%;
   border-radius: 2px;
   background-color: #fff;
+  padding: 1rem 0 3rem;
 `;
 
 const NicknameInputContainer = styled.div`
-  width: 80%;
+  width: 100%;
   padding-top: 1.5rem;
   display: flex;
   justify-content: center;
@@ -179,8 +180,8 @@ function QuestionForm({ img_change }) {
       </NicknameInputContainer>
       <QuestionsContainer>
         <QuestionFormContainer>
-          <Title>장소</Title>
-          <Question>1.올해 가장 기억에 남는 장소는 어디인가요?</Question>
+          <Title>사람</Title>
+          <Question>1. 올해 가장 기억에 남는 사람은 누구인가요?</Question>
           <Box
             sx={{
               width: '90%',
@@ -211,15 +212,14 @@ function QuestionForm({ img_change }) {
               rows={3}
               fullWidth
               name="d1"
-              required={true}
               defaultValue={answer.post_content.d1}
               onChange={answerChangeHandler}
             />
           </Box>
         </QuestionFormContainer>
         <QuestionFormContainer>
-          <Title>Flex</Title>
-          <Question>2.올해 가장 기억에 남는 소비는 무엇인가요?</Question>
+          <Title>장소</Title>
+          <Question>2. 올해 가장 기억에 남는 장소는 어디인가요?</Question>
 
           <Box
             sx={{
@@ -253,15 +253,14 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d2"
-              required={true}
               defaultValue={answer.post_content.d2}
               onChange={answerChangeHandler}
             />
           </Box>
         </QuestionFormContainer>
         <QuestionFormContainer>
-          <Title>사람</Title>
-          <Question>3.올해 내 삶에 가장 기여한 사람은 누구인가요?</Question>
+          <Title>소비</Title>
+          <Question>3. 올해 가장 가치 있는 소비는 무엇인가요?</Question>
 
           <Box
             sx={{
@@ -295,15 +294,14 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d3"
-              required={true}
               defaultValue={answer.post_content.d3}
               onChange={answerChangeHandler}
             />
           </Box>
         </QuestionFormContainer>
         <QuestionFormContainer>
-          <Title>나</Title>
-          <Question>4.올해 나를 사로잡은 감정은 무엇인가요?</Question>
+          <Title>음식</Title>
+          <Question>4. 올해 가장 기억에 남는 음식은 무엇인가요?</Question>
 
           <Box
             sx={{
@@ -337,7 +335,6 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d4"
-              required={true}
               defaultValue={answer.post_content.d4}
               onChange={answerChangeHandler}
             />
@@ -345,7 +342,7 @@ function QuestionForm({ img_change }) {
         </QuestionFormContainer>
         <QuestionFormContainer>
           <Title>콘텐츠</Title>
-          <Question>올해 인상 깊었던 콘텐츠는 무엇인가요?</Question>
+          <Question>5. 올해 인상 깊었던 콘텐츠는 무엇인가요?</Question>
 
           <Box
             sx={{
@@ -379,7 +376,6 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d5"
-              required={true}
               defaultValue={answer.post_content.d5}
               onChange={answerChangeHandler}
             />
@@ -387,7 +383,7 @@ function QuestionForm({ img_change }) {
         </QuestionFormContainer>
         <QuestionFormContainer>
           <Title>도전</Title>
-          <Question>올해 도전한 것은 무엇인가요?</Question>
+          <Question>6. 올해 도전한 것은 무엇인가요?</Question>
 
           <Box
             sx={{
@@ -421,7 +417,6 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d6"
-              required={true}
               defaultValue={answer.post_content.d6}
               onChange={answerChangeHandler}
             />
@@ -429,7 +424,7 @@ function QuestionForm({ img_change }) {
         </QuestionFormContainer>
         <QuestionFormContainer>
           <Title>성취</Title>
-          <Question>올해 성취한 것은 무엇인가요?</Question>
+          <Question>7. 올해 성취한 것은 무엇인가요?</Question>
 
           <Box
             sx={{
@@ -463,15 +458,14 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d7"
-              required={true}
               defaultValue={answer.post_content.d7}
               onChange={answerChangeHandler}
             />
           </Box>
         </QuestionFormContainer>
         <QuestionFormContainer>
-          <Title>장소</Title>
-          <Question>장소</Question>
+          <Title>감정</Title>
+          <Question>8. 올해 나를 사로잡은 감정은 무엇인가요?</Question>
 
           <Box
             sx={{
@@ -505,7 +499,6 @@ function QuestionForm({ img_change }) {
               fullWidth
               label="상세 답변"
               name="d8"
-              required={true}
               defaultValue={answer.post_content.d8}
               onChange={answerChangeHandler}
             />
@@ -513,7 +506,7 @@ function QuestionForm({ img_change }) {
         </QuestionFormContainer>
         <QuestionFormContainer>
           <Title>너에게</Title>
-          <Question>올해 함께한 사람들에게 한마디 해주세요.</Question>
+          <Question>9. 올해 함께한 사람들에게 한마디 해주세요.</Question>
 
           <Box
             sx={{
@@ -537,7 +530,7 @@ function QuestionForm({ img_change }) {
         </QuestionFormContainer>
         <QuestionFormContainer>
           <Title>나에게</Title>
-          <Question>나에게 한마디 해주세요.</Question>
+          <Question>10. 나에게 한마디 해주세요</Question>
 
           <Box
             sx={{
