@@ -31,7 +31,6 @@ function HeadingBox() {
   const HeadingText = styled.p`
     font-size: 1.5rem;
     line-height: 1.5rem;
-    /* background-color: #c7f49d; */
     width: 300px;
     position: absolute;
     top: 50%;
@@ -82,7 +81,35 @@ function TitleBox() {
     </div>
   );
 }
-function HomeButton() {
+function HomeButton(user_id) {
+  /* ---------- Start KAKAO SHARE ----------*/
+  //Init KAKAO API
+  if (!window.Kakao.isInitialized()) {
+    // @ts-ignore
+    //REST API KEY
+    window.Kakao.init('6f7c7a916a1585a8b72c45ee842576dc');
+    //@ts-ignore
+    console.log(window.Kakao.isInitialized());
+  }
+
+  const userId = '';
+
+  const shareKakaoLink = (userId) => {
+    // @ts-ignore
+    window.Kakao.Link.createCustomButton({
+      container: '#kakao-link-btn',
+      templateId: 85063,
+      templateArgs: {
+        userId: `${userId}`,
+      },
+    });
+  };
+
+  const onShareKakaoClick = () => {
+    shareKakaoLink(userId);
+  };
+  /* ---------- End KAKAO SHARE ----------*/
+
   const [modal, setModal] = useState(false);
   return (
     <div className="button" align="center">
@@ -99,9 +126,10 @@ function HomeButton() {
         {modal === true ? <Modal /> : null}
         <br />
         <Button
+          id="kakao-link-btn"
           variant="outlined"
           color="primary"
-          onClick={() => {}}
+          onClick={onShareKakaoClick}
           style={{ fontSize: '1rem' }}
         >
           공유하기
