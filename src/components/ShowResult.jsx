@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ResultDropDown from './ResultDropDown';
 
 const NickBlock = styled.h1`
-  font-size: 32px;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 3rem;
 `;
@@ -33,7 +33,7 @@ export default function ShowResult() {
     >
       {' '}
       {answer.user_id === userId ? <ResultDropDown /> : null}
-      <NickBlock fontSize="1.5rem">
+      <NickBlock>
         {answer.post_content.name}님의 2022년
       </NickBlock>
       <Grid container spacing={1} style={{ marginBottom: '2rem' }}>

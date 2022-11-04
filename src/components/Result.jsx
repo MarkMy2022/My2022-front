@@ -9,6 +9,7 @@ import ShowResult from './ShowResult';
 import { Button } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { useNavigate } from 'react-router-dom';
+import CommentForm from './CommentForm';
 
 const Base = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ const Base = styled.div`
 `;
 
 const ButtonBlock = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
@@ -99,33 +100,32 @@ function Result() {
     <>
       <Base className="wholeCard">
         <ShowResult />
-      </Base>
-      <ButtonBlock>
-        <Button
-          style={{
-            marginRight: '2%',
-            backgroundColor: '#99CCCC',
-          }}
-          className="downBtn"
-          onClick={onDownloadBtn}
-          variant="contained"
-          startIcon={<SaveAltIcon />}
-        >
-          <p href="" style={{ fontSize: '1rem' }}>
-            사진으로 저장하기
-          </p>
-        </Button>
-        <Button
-          style={{ backgroundColor: '#9999CC' }}
-          variant="contained"
-          className="differentBtn"
-          onClick={onDifferentClick}
-        >
-          <p href="" style={{ fontSize: '1rem' }}>
-            다른 모드로 만들기
-          </p>
-        </Button>
-      </ButtonBlock>
+        <ButtonBlock>
+          <Button
+            style={{
+              marginRight: '2%',
+              backgroundColor: '#99CCCC',
+            }}
+            className="downBtn"
+            onClick={onDownloadBtn}
+            variant="contained"
+            startIcon={<SaveAltIcon />}
+          >
+            <p href="" style={{ fontSize: '1rem' }}>
+              사진으로 저장하기
+            </p>
+          </Button>
+          <Button
+            style={{ backgroundColor: '#9999CC' }}
+            variant="contained"
+            className="differentBtn"
+            onClick={onDifferentClick}
+          >
+            <p href="" style={{ fontSize: '1rem' }}>
+              다른 모드로 만들기
+            </p>
+          </Button>
+        </ButtonBlock>
       <ButtonBlock2>
         <KakaoShareBtn
           id="kakao-link-btn2"
@@ -135,7 +135,7 @@ function Result() {
         >
           <br />
           <img
-            width="10%"
+            width="90%"
             src="/img/kakaotalk_sharing_btn.png"
             alt="카카오 로고"
           ></img>
@@ -144,6 +144,8 @@ function Result() {
           </p>
         </KakaoShareBtn>
       </ButtonBlock2>
+      <CommentForm />
+      </Base>
     </>
   );
 }
