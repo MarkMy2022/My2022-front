@@ -21,7 +21,7 @@ export default function ModeNight() {
 
   const Text = styled.p`
     font-family: 'Cafe24Oneprettynight';
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   `;
 
   function TextList() {

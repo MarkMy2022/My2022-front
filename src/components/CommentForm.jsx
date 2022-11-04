@@ -66,7 +66,7 @@ export default function CommentForm() {
   function CommentForm() {
     return (
       <>
-        <p style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>댓글 남기기</p>
+        <h1 style={{ marginBottom: '1rem' }}>댓글 남기기</h1>
         <form style={{ display: 'flex' }}>
           <input
             ref={nameRef}
@@ -120,7 +120,7 @@ export default function CommentForm() {
             variant="outlined"
             color="primary"
             onClick={addComment}
-            style={{ margin: '0.2rem' }}
+            style={{ margin: '0.3rem' }}
           >
             댓글 등록하기
           </Button>

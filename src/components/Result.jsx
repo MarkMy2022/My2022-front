@@ -35,7 +35,6 @@ const ButtonBlock2 = styled.div`
   flex-direction: row;
   margin: 0 auto;
   justify-content: center;
-  display: flex;
   flex-direction: column;
 `;
 
@@ -104,7 +103,7 @@ function Result() {
           <Button
             style={{
               marginRight: '2%',
-              backgroundColor: '#99CCCC',
+              backgroundColor: '#377D71',
             }}
             className="downBtn"
             onClick={onDownloadBtn}
@@ -116,7 +115,7 @@ function Result() {
             </p>
           </Button>
           <Button
-            style={{ backgroundColor: '#9999CC' }}
+            style={{ backgroundColor: '#F8B400' }}
             variant="contained"
             className="differentBtn"
             onClick={onDifferentClick}
@@ -127,6 +126,16 @@ function Result() {
           </Button>
         </ButtonBlock>
       <ButtonBlock2>
+          <Button
+            style={{ backgroundColor: '#FF6363' }}
+            variant="contained"
+            className="differentBtn"
+            onClick={onDifferentClick}
+          >
+            <p href="" style={{ fontSize: '1rem' }}>
+              MY2022 만들기!
+            </p>
+          </Button>
         <KakaoShareBtn
           id="kakao-link-btn2"
           className="kakaoBtn"
@@ -135,8 +144,8 @@ function Result() {
         >
           <br />
           <img
-            width="90%"
-            src="/img/kakaotalk_sharing_btn.png"
+            width="50%"
+            src="/img/kakao_logo.png"
             alt="카카오 로고"
           ></img>
           <p href="" style={{ fontSize: '1rem' }}>
