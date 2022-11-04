@@ -130,9 +130,11 @@ function Result() {
             style={{ backgroundColor: '#FF6363' }}
             variant="contained"
             className="differentBtn"
-            onClick={onDifferentClick}
+            onClick={() => {
+              navigate('/login');
+            }}
           >
-            <p href="" style={{ fontSize: '1rem' }}>
+            <p href="/login" style={{ fontSize: '1rem' }}>
               MY2022 만들기!
             </p>
           </Button>
