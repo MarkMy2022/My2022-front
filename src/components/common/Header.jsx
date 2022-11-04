@@ -23,13 +23,14 @@ const HeaderContainer = styled.header`
 const DropdownMenu = styled.div`
   width: 10%;
   & > .menu {
+    /* background-color: antiquewhite; */
     background-color: #fff;
     border-radius: 15px;
     position: absolute;
     top: 8%;
     right: 5%;
     width: 50%;
-    height: 50%;
+    height: auto;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
     visibility: hidden;
     transform: translateY(-20px);

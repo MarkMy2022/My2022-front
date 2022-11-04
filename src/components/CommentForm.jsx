@@ -28,13 +28,16 @@ export default function CommentForm() {
 
   // 댓글 등록 백엔드 연결
   async function postComment(newComment) {
-    const result = await fetch(`http://localhost:4000/posts/${answer.post_id}/newComment`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newComment),
-    });
+    const result = await fetch(
+      `http://localhost:4000/posts/${answer.post_id}/newComment`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newComment),
+      }
+    );
     if (result.status === 201) {
       getPost();
     } else throw new Error('상태 이상');
@@ -57,7 +60,7 @@ export default function CommentForm() {
     background-color: aliceblue;
     padding: 0.8rem;
     margin: 1rem auto 3rem;
-    width: 70%;
+    width: 95%;
   `;
 
   function CommentForm() {

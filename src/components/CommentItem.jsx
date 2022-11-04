@@ -48,7 +48,7 @@ export default function CommentItem(props) {
     flex-direction: column;
   `;
   const CommentItem = styled.div`
-    width: 70%;
+    width: 90%;
     height: auto;
     border-radius: 10px;
     padding: 1rem;

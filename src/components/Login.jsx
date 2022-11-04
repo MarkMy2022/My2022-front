@@ -41,7 +41,7 @@ export default function Login() {
       <div
         className="LoginBox"
         style={{
-          padding: '2rem',
+          padding: '1rem',
           margin: '2rem',
           width: '100%',
         }}
@@ -50,14 +50,14 @@ export default function Login() {
           <img
             src="img/카카오로그인.png"
             alt="카카오로그인"
-            style={{ width: '90%', marginTop: '5%' }}
+            style={{ width: '100%' }}
           />
         </a>
       </div>
     );
   }
   function HomeImg() {
-    return <img alt="peopleimg" src="img/home.png" width={'80%'} />;
+    return <img alt="peopleimg" src="img/home.png" width={'90%'} />;
   }
 
   return (

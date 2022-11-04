@@ -22,10 +22,10 @@ export default function ShowResult() {
   return (
     <Paper
       sx={{
-        p: 4,
+        p: 3,
         margin: 'auto',
-        mb: 4,
-        width: '80%',
+        mb: 3,
+        width: '95%',
         flexGrow: 1,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -33,7 +33,9 @@ export default function ShowResult() {
     >
       {' '}
       {answer.user_id === userId ? <ResultDropDown /> : null}
-      <NickBlock>{answer.post_content.name}님의 2022년</NickBlock>
+      <NickBlock fontSize="1.5rem">
+        {answer.post_content.name}님의 2022년
+      </NickBlock>
       <Grid container spacing={1} style={{ marginBottom: '2rem' }}>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column">
