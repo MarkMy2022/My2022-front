@@ -31,6 +31,7 @@ export default function ModeMoonF() {
 
   const Text = styled.p`
     font-family: 'ChosunSm';
+    font-size: 1rem;
   `;
 
   function TextList() {

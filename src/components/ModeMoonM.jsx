@@ -15,7 +15,6 @@ export default function ModeMoonM() {
 
   const TextBox = styled.div`
     border-radius: 2px;
-    font-size: 1rem;
     background-image: url('/img/modeMoonM.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,6 +31,7 @@ export default function ModeMoonM() {
 
   const Text = styled.p`
     font-family: 'ChosunSm';
+    font-size: 1rem;
   `;
 
   function TextList() {

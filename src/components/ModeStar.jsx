@@ -29,6 +29,7 @@ export default function ModeStar() {
   `;
   const Text = styled.p`
     font-family: 'ChosunSm';
+    font-size: 1rem;
   `;
 
   function TextList() {
