@@ -31,7 +31,7 @@ function HomeHeader() {
 function HeadingBox() {
   const HeadingText = styled.p`
     font-size: 1.5rem;
-    line-height: 1.5rem;
+    line-height: 1.4rem;
     width: 300px;
     position: absolute;
     top: 50%;

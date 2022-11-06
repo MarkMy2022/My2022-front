@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/common/Header';
 import Result from '../components/Result';
 // import CommentBoard from '../components/CommentBoard';
-import CommentForm from '../components/CommentForm';
+// import CommentForm from '../components/CommentForm';
 import { useParams, Link } from 'react-router-dom';
 
 import axios from 'axios';
@@ -33,7 +33,7 @@ export default function ResultPage() {
       <Header />
       {answer.post_content ? (
         <>
-          <Result /> <CommentForm />
+          <Result />
         </>
       ) : null }
     </>

@@ -10,6 +10,11 @@ function Logo() {
   );
 }
 
+const Text = styled.p`
+  font-family: 'Donoun-Medium';
+  font-size: 1rem;
+`;
+
 export default function ModeLight() {
   const { answer } = useSelector((state) => state.post);
 
@@ -51,8 +56,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>기억에 남는 사람</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a1}</p>
+            <Text>기억에 남는 사람</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a1}</Text>
           </div>
 
           <div
@@ -62,8 +67,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>기억에 남는 장소</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a2}</p>
+            <Text>기억에 남는 장소</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a2}</Text>
           </div>
         </div>
 
@@ -83,8 +88,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>가치 있는 소비</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a3}</p>
+            <Text>가치 있는 소비</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a3}</Text>
           </div>
 
           <div
@@ -95,8 +100,8 @@ export default function ModeLight() {
               verticalAlign: 'top',
             }}
           >
-            <p>기억에 남는 음식</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a4}</p>
+            <Text>기억에 남는 음식</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a4}</Text>
           </div>
         </div>
 
@@ -115,8 +120,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>인상 깊었던 콘텐츠</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a5}</p>
+            <Text>인상 깊었던 콘텐츠</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a5}</Text>
           </div>
 
           <div
@@ -126,8 +131,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>도전</p>
-            <p style={{ color: '#12887A' }}> {answer.post_content.a6}</p>
+            <Text>도전</Text>
+            <Text style={{ color: '#12887A' }}> {answer.post_content.a6}</Text>
           </div>
         </div>
 
@@ -146,8 +151,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>성취</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a7}</p>
+            <Text>성취</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a7}</Text>
           </div>
 
           <div
@@ -157,8 +162,8 @@ export default function ModeLight() {
               width: '50%',
             }}
           >
-            <p>나를 사로잡은 감정</p>
-            <p style={{ color: '#12887A' }}>{answer.post_content.a8}</p>
+            <Text>나를 사로잡은 감정</Text>
+            <Text style={{ color: '#12887A' }}>{answer.post_content.a8}</Text>
           </div>
         </div>
 
@@ -173,8 +178,8 @@ export default function ModeLight() {
           }}
         >
           <div className="item" style={{}}>
-            <p>함께한 사람들에게</p>
-            <p style={{ color: '#FFFAEE' }}>{answer.post_content.a9}</p>
+            <Text>함께한 사람들에게</Text>
+            <Text style={{ color: '#FFFAEE' }}>{answer.post_content.a9}</Text>
           </div>
 
           <div
@@ -182,8 +187,8 @@ export default function ModeLight() {
               paddingTop: '1rem',
             }}
           >
-            <p>나에게</p>
-            <p style={{ color: '#FFFAEE' }}>{answer.post_content.a10}</p>
+            <Text>나에게</Text>
+            <Text style={{ color: '#FFFAEE' }}>{answer.post_content.a10}</Text>
           </div>
         </div>
       </>

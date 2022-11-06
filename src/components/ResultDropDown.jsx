@@ -19,23 +19,25 @@ const DropdownMenu = styled.div`
   width: 100%;
   position: relative;
   text-align: end;
+  padding: 1rem 0;
 
   & > .menu {
     background-color: #fff;
     border-radius: 8px;
     position: absolute;
     top: 30px;
-    right: 10px;
-    width: 20%;
+    right: 5%;
+    width: 35%;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: visible;
+    visibility: hidden;
     transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
     z-index: 1;
 
     @media all and (max-width: 390px) {
-      right: 30px;
+      width: 100px;
+      right: 3%;
+      margin-top: 3%;
     }
   }
 

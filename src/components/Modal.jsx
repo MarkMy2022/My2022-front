@@ -9,7 +9,8 @@ const ModalBg = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: ${document.documentElement.scrollHeight}px;
+  /* height: ${document.documentElement.scrollHeight}px; */
+  height: 100vh;
   background-color: #313131df;
 `;
 

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ResultDropDown from './ResultDropDown';
 
 const NickBlock = styled.h1`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 3rem;
 `;
@@ -22,10 +22,10 @@ export default function ShowResult() {
   return (
     <Paper
       sx={{
-        p: 4,
+        p: 3,
         margin: 'auto',
-        mb: 4,
-        width: '80%',
+        mb: 3,
+        width: '95%',
         flexGrow: 1,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

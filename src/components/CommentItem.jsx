@@ -46,16 +46,14 @@ export default function CommentItem(props) {
     display: flex;
     text-align: left;
     flex-direction: column;
+    width: 100%;
   `;
   const CommentItem = styled.div`
-    width: 70%;
-    height: auto;
+    width: 90%;
     border-radius: 10px;
     padding: 1rem;
     margin: 0.4rem;
     background-color: #f4f2ef;
-    display: flex;
-    justify-content: space-between;
   `;
 
   const TextGroup = styled.div`
@@ -139,20 +137,24 @@ export default function CommentItem(props) {
     <>
       <Wrap>
         <CommentItem>
+          <div style={{display: 'flex', justifyContent: 'space-between'}}>
+            <TextGroup>
+              <p className="nickName" style={{ paddingBottom: '0.3rem' }}>
+                {props.item.name}
+              </p>
+            </TextGroup>
+            <Button password={props.item.password} />
+          </div>
           <TextGroup>
-            <p className="nickName" style={{ paddingBottom: '0.3rem' }}>
-              {props.item.name}
-            </p>
             <p className="content" style={{ wordBreak: 'break-word' }}>
               {props.item.content}
             </p>
           </TextGroup>
-          <Button password={props.item.password} />
         </CommentItem>
 
         <div
           className="modify"
-          style={{ display: 'none', width: '60%' }}
+          style={{ display: 'none', width: '80%' }}
           ref={modiDiv}
         >
           <div

@@ -8,9 +8,8 @@ export default function CommentBoard(props) {
   // console.log("commentBoard", props.commentList?.post_id);
 
   return (
-    <div>
-      <br />
-      <h1 style={{ padding: "1rem", textAlign: "center" }}>Comment List</h1>
+    <div style={{width: '100%', padding: '1rem', marginTop: '2rem'}}>
+      <h1 style={{ padding: "0.5rem", textAlign: "center" }}>댓글 목록</h1>
       {props.commentList?.map((item) => (
         <CommentItem item={item} getComment={props.getComment} />
       ))}
