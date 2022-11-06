@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ResultDropDown from './ResultDropDown';
 
 const NickBlock = styled.h1`
-  font-size: 32px;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 3rem;
 `;
